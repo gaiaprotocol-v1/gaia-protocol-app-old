@@ -1,0 +1,149 @@
+.supernova-view {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    text-align      : center;
+    margin-top      : 64px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius   : 4px;
+    padding         : 32px;
+
+    @media @phone {
+        margin : 64px 8px;
+        padding: 16px;
+    }
+
+    >header {
+        >.title-container {
+            >h2 {
+                color      : rgba(153, 0, 19, 1);
+                font-size  : 32px;
+                font-weight: 700;
+            }
+
+            >p {
+                font-size  : 12px;
+                padding-top: 8px;
+                color      : #e0d8c8;
+                font-weight: 300;
+            }
+        }
+
+        >.dashboard-container {
+            margin-top           : 64px;
+            display              : grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap                  : 32px;
+
+            @media @phone {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            >.content {
+                >h3 {
+                    color        : rgba(153, 0, 19, 1);
+                    font-size    : 14px;
+                    margin-bottom: 8px;
+
+                }
+
+                >p {
+                    font-weight: 700;
+                    font-size  : 24px;
+                }
+            }
+        }
+
+
+        >.warning-wrap {
+            margin-top     : 32px;
+            display        : flex;
+            flex-direction : column;
+            justify-content: center;
+            align-items    : center;
+
+            >.warning-container {
+                display         : flex;
+                justify-content : center;
+                align-items     : center;
+                text-align      : left;
+                background-color: white;
+                color           : rgba(153, 0, 19, 1);
+                max-width       : 700px;
+                padding         : 20px;
+                border-radius   : 4px;
+                font-size       : 14px;
+
+                >img {
+                    margin-right: 8px;
+                }
+            }
+        }
+
+        >.tool-container {
+            margin-top     : 32px;
+            display        : flex;
+            justify-content: space-between;
+
+            @media @phone {
+                flex-direction: column;
+            }
+
+            >.title-container {
+                text-align: left;
+
+                >h3 {
+                    font-size    : 21px;
+                    font-weight  : 300;
+                    margin-bottom: 16px;
+                }
+
+                >p {
+                    color      : rgba(224, 216, 200, 1);
+                    margin-top : 8px;
+                    font-size  : 12px;
+                    font-weight: 300;
+                }
+            }
+
+            >.button-container {
+                display: flex;
+                gap    : 16px;
+
+                >a {
+                    display         : flex;
+                    cursor          : pointer;
+                    align-items     : center;
+                    padding         : 0 12px;
+                    font-size       : 14px;
+                    font-weight     : 400;
+                    border-radius   : 4px;
+                    height          : 32px;
+                    background-color: white;
+                    color           : black;
+
+                    &:hover {
+                        background-color: rgba(153, 0, 19, 0.9);
+                        color           : white;
+                    }
+
+                    &:active {
+                        background-color: #e0d8c8;
+                        color           : white;
+                    }
+                }
+            }
+        }
+    }
+
+    >.nft-container {
+        margin-top           : 32px;
+        display              : grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap                  : 32px;
+
+        @media @phone {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

@@ -1,0 +1,101 @@
+.home-view {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    text-align      : center;
+    margin-top      : 64px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius   : 4px;
+    padding         : 32px;
+
+    @media @phone {
+        margin : 64px 8px;
+        padding: 16px;
+    }
+
+    >header {
+        >.title-container {
+            >h2 {
+                font-size  : 32px;
+                font-weight: 700;
+            }
+
+            >p {
+                font-size  : 12px;
+                padding-top: 8px;
+                color      : #e0d8c8;
+                font-weight: 300;
+            }
+        }
+
+        >.tool-container {
+            margin-top     : 20px;
+            display        : flex;
+            justify-content: space-between;
+
+            @media @phone {
+                flex-direction: column;
+            }
+
+            >.title-container {
+                text-align: left;
+
+                >h3 {
+                    font-size    : 21px;
+                    font-weight  : 300;
+                    margin-bottom: 16px;
+                }
+
+                >p {
+                    color      : rgba(224, 216, 200, 1);
+                    margin-top : 8px;
+                    font-size  : 12px;
+                    font-weight: 300;
+                }
+            }
+
+            >.button-container {
+                display: flex;
+                gap    : 16px;
+
+                >a {
+                    display         : flex;
+                    cursor          : pointer;
+                    align-items     : center;
+                    padding         : 0 12px;
+                    font-size       : 14px;
+                    font-weight     : 400;
+                    border-radius   : 4px;
+                    height          : 32px;
+                    background-color: white;
+                    color           : black;
+
+                    @media @phone {
+                        margin-top: 8px;
+                    }
+
+                    &:hover {
+                        background-color: rgba(224, 216, 200, 0.9);
+                        color           : white;
+                    }
+
+                    &:active {
+                        background-color: #e0d8c8;
+                        color           : white;
+                    }
+                }
+            }
+        }
+    }
+
+    >.nft-container {
+        margin-top           : 16px;
+        display              : grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap                  : 20px;
+
+        @media @phone {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

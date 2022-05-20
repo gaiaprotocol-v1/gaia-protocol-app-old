@@ -1,0 +1,71 @@
+.stable-nft-item {
+    display       : flex;
+    position      : relative;
+    flex-direction: column;
+    overflow      : hidden;
+    margin-bottom : 16px;
+
+    >img {
+        border-radius: 4px;
+        width        : 100%;
+        height       : auto;
+    }
+
+    >h3 {
+        font-size  : 20px;
+        font-weight: 300;
+        position   : absolute;
+        left       : 2%;
+        top        : 2%;
+        color      : white;
+        text-shadow: 1px 1px 1px #656565;
+    }
+
+    >a {
+        >.send {
+            font-size    : 20px;
+            font-weight  : 500;
+            height       : 24px;
+            position     : absolute;
+            right        : 2%;
+            top          : 2%;
+            color        : white;
+            text-shadow  : 1px 1px 1px #656565;
+            padding      : 4px;
+            border-radius: 4px;
+            cursor       : pointer;
+
+            &:hover {
+                background-color: rgba(0, 68, 90, 0.8);
+            }
+
+            &:active {
+                background-color: rgba(0, 68, 90, 1);
+            }
+        }
+    }
+
+    >button {
+        color           : white;
+        margin-top      : 16px;
+        background-color: rgba(0, 68, 90, 1);
+        border-radius   : 4px;
+        padding         : 16px 0px;
+        margin-right    : 16px;
+        max-width       : 256px;
+        width           : 100%;
+        font-family     : trajan-pro-3, serif;
+
+        @media @phone {
+            margin-right: 0px;
+        }
+
+        &:hover {
+            background-color: rgba(0, 68, 90, 0.9);
+        }
+
+        &:active {
+            background-color: rgba(0, 68, 90, 0.8);
+        }
+    }
+}

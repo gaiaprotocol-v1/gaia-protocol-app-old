@@ -1,0 +1,90 @@
+.portfolio-item {
+    display         : flex;
+    border          : solid 1px rgb(29, 29, 32);
+    background-color: rgba(16, 16, 16, 1);
+    padding         : 20px;
+    border-radius   : 4px;
+    align-items     : center;
+
+    @media @phone {
+        flex-direction: column;
+    }
+
+    &:hover {
+        background-color: rgba(16, 16, 16, 0.9);
+    }
+
+    >.title {
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 21px;
+        }
+
+        >img {
+            margin-top: 16px;
+            max-width : 72px;
+        }
+    }
+
+    >.content {
+        display       : flex;
+        flex-direction: column;
+        height        : 100%;
+        margin        : 0px 32px;
+        text-align    : left;
+
+        @media @phone {
+            margin: 0;
+        }
+
+        >.price-container {
+            display   : flex;
+            margin-top: 16px;
+
+            >p {
+                font-weight: 300;
+            }
+
+            >.rate {
+                margin-left: 4px;
+                font-weight: 500;
+            }
+        }
+
+        >p {
+            margin-top : 16px;
+            font-weight: 300;
+        }
+    }
+
+    >button {
+        height          : 42px;
+        color           : rgba(0, 68, 90, 1);
+        margin-top      : 16px;
+        padding         : 12px 24px;
+        font-size       : 14px;
+        text-decoration : none;
+        color           : white;
+        background-color: rgba(0, 68, 90, 0.8);
+        border-radius   : 4px;
+        font-family     : trajan-pro-3, serif;
+
+        @media @phone {
+            width: 100%;
+        }
+
+        &:hover {
+            background-color: rgba(0, 68, 90, 0.9);
+        }
+
+        &:active {
+            background-color: rgba(0, 68, 90, 1);
+        }
+    }
+}
