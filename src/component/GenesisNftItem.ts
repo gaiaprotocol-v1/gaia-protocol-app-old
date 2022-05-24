@@ -1,24 +1,21 @@
 import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import CommonUtil from "../CommonUtil";
+import GaiaGenesisUSDCDistributorContract from "../contracts/GaiaGenesisUSDCDistributorContract";
 import GaiaNFTContract from "../contracts/GaiaNFTContract";
-import GaiaOperationContract from "../contracts/GaiaOperationContract";
 import NFTAirdropContract from "../contracts/NFTAirdropContract";
 import ViewUtil from "../view/ViewUtil";
-import Alert from "./shared/dialogue/Alert";
-import Prompt from "./shared/dialogue/Prompt";
 import TransferPopup from "./TransferPopup";
-import KrnosJson from "./krnos.json";
 
 export default class GenesisNftItem extends DomNode {
 
     private imageDisplay: DomNode<HTMLImageElement>;
     private nameDisplay: DomNode;
     private klayDisplay: DomNode;
+    //private claimButton: DomNode;
     private emergencyDisplay: DomNode;
 
     private id = -1;
-    private klay = BigNumber.from(0);
 
     constructor() {
         super(".genesis-nft-item");
@@ -65,6 +62,12 @@ export default class GenesisNftItem extends DomNode {
                     ),
                 ),
                 el(".button-wrap",
+                    /*this.claimButton = el("button.klay-button", "미수령 이자 받기", {
+                        click: async () => {
+                            await GaiaGenesisUSDCDistributorContract.claim([this.id]);
+                            ViewUtil.waitTransactionAndRefresh();
+                        }
+                    }),*/
                     el("button.klay-button", msg("CLAIM_REWARDS_BUTTON"), {
                         click: async () => {
                             await NFTAirdropContract.collectAirdropReward(0, [this.id]);
@@ -76,17 +79,15 @@ export default class GenesisNftItem extends DomNode {
         );
     }
 
-    public init(id: number, reward: BigNumber, collected: BigNumber) {
+    public init(id: number, usdc: BigNumber, usdcCollected: boolean, reward: BigNumber, collected: BigNumber) {
         this.id = id;
         this.imageDisplay.domElement.src = `https://storage.googleapis.com/gaia-protocol/kronos/${id}.png`;
         this.nameDisplay.appendText(`#${this.id}`);
-        this.loadKlay();
+        if (usdcCollected === true) {
+            //this.claimButton.delete();
+        }
+        this.klayDisplay.empty().appendText(`${CommonUtil.numberWithCommas(usdcCollected === true ? "0" : utils.formatUnits(usdc, 6))} USDC`);
         this.emergencyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(reward.sub(collected)), 5)} KLAY`);
-    }
-
-    private async loadKlay() {
-        this.klay = utils.parseUnits(KrnosJson[this.id], 9);
-        this.klayDisplay.empty().appendText(`${CommonUtil.numberWithCommas(String(parseFloat(utils.formatEther(this.klay)) * 2.4))} USDC`);
     }
 
     public delete() {

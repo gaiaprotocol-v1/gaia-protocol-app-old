@@ -6,8 +6,8 @@ export default class Genesis implements View {
     private nftList;
     private interval;
     private tokenIds;
-    private krnos;
-    private totalKlay;
+    private usdcs;
+    private usdcTokenIds;
     constructor();
     private loadNFTsDebouncer;
     private loadNFTs;

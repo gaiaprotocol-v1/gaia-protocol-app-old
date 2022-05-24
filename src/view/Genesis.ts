@@ -2,11 +2,12 @@ import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
 import GenesisNftItem from "../component/GenesisNftItem";
+import GaiaGenesisUSDCDistributorContract from "../contracts/GaiaGenesisUSDCDistributorContract";
 import GaiaNFTContract from "../contracts/GaiaNFTContract";
-import GaiaOperationContract from "../contracts/GaiaOperationContract";
 import NFTAirdropContract from "../contracts/NFTAirdropContract";
 import Wallet from "../klaytn/Wallet";
 import Layout from "./Layout";
+import ViewUtil from "./ViewUtil";
 
 export default class Genesis implements View {
 
@@ -17,8 +18,8 @@ export default class Genesis implements View {
     private interval: any;
 
     private tokenIds: number[] = [];
-    private krnos: BigNumber[] = [];
-    private totalKlay = BigNumber.from(0);
+    private usdcs: BigNumber[] = [];
+    private usdcTokenIds: number[] = [];
 
     constructor() {
         Layout.current.title = "Genesis";
@@ -35,7 +36,18 @@ export default class Genesis implements View {
                         this.totalEmergencyDisplay = el("p", ""),
                     ),
                     el(".button-container",
-                        el("a", msg("ALL_EMERGENCY_BUTTON")),
+                        /*el("a", "모든 미수령 이자 받기", {
+                            click: async () => {
+                                await GaiaGenesisUSDCDistributorContract.claim(this.usdcTokenIds);
+                                ViewUtil.waitTransactionAndRefresh();
+                            },
+                        }),*/
+                        el("a", msg("ALL_EMERGENCY_BUTTON"), {
+                            click: async () => {
+                                await NFTAirdropContract.collectAirdropReward(0, this.tokenIds);
+                                ViewUtil.waitTransactionAndRefresh();
+                            },
+                        }),
                     ),
                 ),
             ),
@@ -64,14 +76,19 @@ export default class Genesis implements View {
                 const promise = async (index: number) => {
                     const item = new GenesisNftItem().appendTo(this.nftList);
                     const tokenId = (await GaiaNFTContract.tokenOfOwnerByIndex(address, index)).toNumber();
-                    const collected = await NFTAirdropContract.airdropCollected(0, tokenId);
                     if (tokenId === 0) {
                         item.delete();
                     } else {
-                        item.init(tokenId, reward, collected);
-                        const krno = await GaiaOperationContract.claimableKRNO([tokenId]);
+                        const usdc = await GaiaGenesisUSDCDistributorContract.rewardPerId(tokenId);
+                        const usdcCollected = await GaiaGenesisUSDCDistributorContract.isRewardCollected(tokenId);
+                        const collected = await NFTAirdropContract.airdropCollected(0, tokenId);
+
+                        item.init(tokenId, usdc, usdcCollected, reward, collected);
                         this.tokenIds.push(tokenId);
-                        this.krnos.push(krno);
+                        if (usdcCollected !== true) {
+                            this.usdcs.push(usdc);
+                            this.usdcTokenIds.push(tokenId);
+                        }
                         totalEmergency = totalEmergency.add(reward.sub(collected));
                     }
                 };
@@ -79,8 +96,11 @@ export default class Genesis implements View {
             });
             await Promise.all(promises);
 
-            this.totalKlay = await GaiaOperationContract.claimableKlay(this.tokenIds);
-            this.totalKlayDisplay.empty().appendText(`${msg("MY_INTEREST_KLAY_DESC").replace(/{amount}/, String(utils.formatEther(this.totalKlay)))}`);
+            let totalUSDC = BigNumber.from(0);
+            for (const usdc of this.usdcs) {
+                totalUSDC = totalUSDC.add(usdc);
+            }
+            this.totalKlayDisplay.empty().appendText(`${"총 미수령 이자 {amount} USDC".replace(/{amount}/, String(utils.formatUnits(totalUSDC, 6)))}`);
             this.totalEmergencyDisplay.empty().appendText(`${msg("ALL_EMERGENCY_DESC")} ${String(utils.formatEther(totalEmergency))} KLAY`);
         }
     }

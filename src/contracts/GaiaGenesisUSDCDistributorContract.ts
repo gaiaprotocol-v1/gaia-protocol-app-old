@@ -1,9 +1,7 @@
 import { BigNumber, BigNumberish } from "ethers";
 import Config from "../Config";
-import Wallet from "../klaytn/Wallet";
 import GaiaGenesisUSDCDistributorArtifact from "./abi/usdc-distributor/artifacts/contracts/gaiaGenesisUSDCDistributor.sol/GaiaUSDCDistributor.json";
 import Contract from "./Contract";
-import GaiaNFTContract from "./GaiaNFTContract";
 
 class GaiaGenesisUSDCDistributorContract extends Contract {
 
@@ -20,7 +18,11 @@ class GaiaGenesisUSDCDistributorContract extends Contract {
     }
 
     public async claim(ids: BigNumberish[]) {
-        await this.runWalletMethod("claim", ids);
+        if (ids.length > 25) {
+            await this.runWalletMethodWithLargeGas("claim", ids);
+        } else {
+            await this.runWalletMethod("claim", ids);
+        }
     }
 }
 

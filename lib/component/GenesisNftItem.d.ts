@@ -6,10 +6,8 @@ export default class GenesisNftItem extends DomNode {
     private klayDisplay;
     private emergencyDisplay;
     private id;
-    private klay;
     constructor();
-    init(id: number, reward: BigNumber, collected: BigNumber): void;
-    private loadKlay;
+    init(id: number, usdc: BigNumber, usdcCollected: boolean, reward: BigNumber, collected: BigNumber): void;
     delete(): void;
 }
 //# sourceMappingURL=GenesisNftItem.d.ts.map
