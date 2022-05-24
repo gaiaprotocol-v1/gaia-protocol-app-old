@@ -10,6 +10,7 @@ import MeshContract from "../contracts/MeshContract";
 import MeshswapUSDCPairLPContract from "../contracts/MeshswapUSDCPairLPContract";
 import Wallet from "../klaytn/Wallet";
 import Layout from "./Layout";
+import ViewUtil from "./ViewUtil";
 
 export default class StableDAO implements View {
 
@@ -42,6 +43,10 @@ export default class StableDAO implements View {
                 el(".portfolio-container",
                     new PortfolioItem(1, "stepn", "gmt", 3403, 2.67, "₩6,593,031.06 (1938.279905549 GMT)", "2022.05.08 ~ 2022.08.08"),
                 ),
+            ),
+            el(".warning-container",
+                el("p", "GAIA STABLE DAO는 6월 30일까지 구매가능합니다."),
+                el("a", "구매하기 >", { click: () => { ViewUtil.go("/stabledao/buy") } }),
             ),
             el("section",
                 el("header",

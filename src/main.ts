@@ -7,6 +7,7 @@ import Genesis from "./view/Genesis";
 import Layout from "./view/Layout";
 import StableDAO from "./view/StableDAO";
 import Supernova from "./view/Supernova";
+import BuyStableDAO from "./view/BuyStableDAO";
 
 (async () => {
     msg.language = BrowserInfo.language;
@@ -17,6 +18,7 @@ import Supernova from "./view/Supernova";
     SkyRouter.route("genesis", Genesis);
     SkyRouter.route("supernova", Supernova);
     SkyRouter.route("stabledao", StableDAO);
+    SkyRouter.route("stabledao/buy", BuyStableDAO);
 
     if (sessionStorage.__spa_path) {
         SkyRouter.go(sessionStorage.__spa_path);

@@ -69,3 +69,13 @@ RATE_OF_RETURN_TITLE,수익률:,rate of return:
 START_PRICE_TITLE,시작가:,start price:
 WARNING_DESC,다음 로열티 수령 이전에 하나라도 NFT를 판매하거나 다른 지갑에 전송하면 현재 쌓여진 모든 로열티가 타인에게 분배됩니다.,"If your Gaia Supernova NFT balance is changed, you will lose all accumulated resale royalty that you can get at the point. The royalty will be distributed to other holders."
 SEND_PROMPT_WARNING_DESC,"전송이 완료되면 절대 되찾을 수 없으니, 지갑 주소를 여러번 확인하시기 바랍니다.","Once the transmission is completed, you can never get it back, so please check your wallet address several times."
+BUY_TITLE,BUY & BUYBACK,BUY & BUYBACK
+MY_NFT_TITLE,구매한 NFT,Purchased NFT
+BUYBACK_BUTTON,바이백,BUYBACK
+BUYBACK_CONFIRM_TITLE,바이백,BUYBACK
+BUYBACK_CONFIRM_DESC,"1,200 USDT를 바이백합니다. 바이백한 NFT는 다시 판매 리스트에 올라갑니다. 최초 바이백에는 2번의 트랜잭션이 필요합니다.",
+BUYBACK_CONFIRM_BUTTON,확인,
+BUY_INPUT,NFT 구매 수량 입력,
+BUY_APPROVE_BUTTON,oUSDT 사용 승인,
+BUY_NFT_BUTTON,NFT 구입,
+BUY_USDT_BUTTON,oUSDT 구매하기,
