@@ -3,11 +3,11 @@ import { SkyRouter } from "skydapp-common";
 import superagent from "superagent";
 import Wallet from "./klaytn/Wallet";
 import Home from "./view/Home";
-import Genesis from "./view/Genesis";
+import Genesis from "./view/app/Genesis";
 import Layout from "./view/Layout";
-import StableDAO from "./view/StableDAO";
-import Supernova from "./view/Supernova";
-import BuyStableDAO from "./view/BuyStableDAO";
+import StableDAO from "./view/app/StableDAO";
+import Supernova from "./view/app/Supernova";
+import BuyStableDAO from "./view/app/BuyStableDAO";
 
 (async () => {
     msg.language = BrowserInfo.language;

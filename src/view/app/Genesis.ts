@@ -1,13 +1,13 @@
 import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
-import GenesisNftItem from "../component/GenesisNftItem";
-import GaiaGenesisUSDCDistributorContract from "../contracts/GaiaGenesisUSDCDistributorContract";
-import GaiaNFTContract from "../contracts/GaiaNFTContract";
-import NFTAirdropContract from "../contracts/NFTAirdropContract";
-import Wallet from "../klaytn/Wallet";
-import Layout from "./Layout";
-import ViewUtil from "./ViewUtil";
+import GenesisNftItem from "../../component/GenesisNftItem";
+import GaiaGenesisUSDCDistributorContract from "../../contracts/GaiaGenesisUSDCDistributorContract";
+import GaiaNFTContract from "../../contracts/GaiaNFTContract";
+import NFTAirdropContract from "../../contracts/NFTAirdropContract";
+import Wallet from "../../klaytn/Wallet";
+import Layout from "../Layout";
+import ViewUtil from "../ViewUtil";
 
 export default class Genesis implements View {
 

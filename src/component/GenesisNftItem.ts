@@ -54,14 +54,14 @@ export default class GenesisNftItem extends DomNode {
                         this.emergencyDisplay = el(".klay", "... KLAY"),
                     ),
                 ),
-                el(".button-wrap",
-                    el("a.klay-button", msg("CLAIM_REWARDS_BUTTON"), {
-                        click: async () => {
-                            await NFTAirdropContract.collectAirdropReward(0, [this.id]);
-                            ViewUtil.waitTransactionAndRefresh();
-                        }
-                    }),
-                ),
+                // el(".button-wrap",
+                //     el("a.klay-button", msg("CLAIM_REWARDS_BUTTON"), {
+                //         click: async () => {
+                //             await NFTAirdropContract.collectAirdropReward(0, [this.id]);
+                //             ViewUtil.waitTransactionAndRefresh();
+                //         }
+                //     }),
+                // ),
             ),
         );
     }

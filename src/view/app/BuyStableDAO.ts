@@ -1,17 +1,17 @@
 import { BigNumber, constants, utils } from "ethers";
 import { DomNode, el, msg, Store } from "skydapp-browser";
 import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
-import CommonUtil from "../CommonUtil";
-import NftItem from "../component/StableNftItem";
-import Alert from "../component/shared/dialogue/Alert";
-import GaiaGenesisContract from "../contracts/GaiaGenesisContract";
-import GaiaStableDAOContract from "../contracts/GaiaStableDAOContract";
-import GaiaStableDAOOperatorContract from "../contracts/GaiaStableDAOOperatorContract";
-import GaiaSupernovaContract from "../contracts/GaiaSupernovaContract";
-import KUSDTContract from "../contracts/KUSDTContract";
-import Wallet from "../klaytn/Wallet";
-import Layout from "./Layout";
-import ViewUtil from "./ViewUtil";
+import CommonUtil from "../../CommonUtil";
+import NftItem from "../../component/StableNftItem";
+import Alert from "../../component/shared/dialogue/Alert";
+import GaiaGenesisContract from "../../contracts/GaiaGenesisContract";
+import GaiaStableDAOContract from "../../contracts/GaiaStableDAOContract";
+import GaiaStableDAOOperatorContract from "../../contracts/GaiaStableDAOOperatorContract";
+import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
+import KUSDTContract from "../../contracts/KUSDTContract";
+import Wallet from "../../klaytn/Wallet";
+import Layout from "../Layout";
+import ViewUtil from "../ViewUtil";
 
 export default class BuyStableDAO implements View {
 

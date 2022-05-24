@@ -1,16 +1,38 @@
 {
     "menu": [
         {
-            "uri": "genesis",
-            "key": "GENESIS_MENU"
+            "key": "LANDING_MENU",
+            "children": [
+                {
+                    "uri": "landing/genesis",
+                    "key": "GENESIS_MENU"
+                },
+                {
+                    "uri": "landing/supernova",
+                    "key": "SUPERNOVA_MENU"
+                },
+                {
+                    "uri": "landing/stabledao",
+                    "key": "STABLEDAO_MENU"
+                }
+            ]
         },
         {
-            "uri": "supernova",
-            "key": "SUPERNOVA_MENU"
-        },
-        {
-            "uri": "stabledao",
-            "key": "STABLEDAO_MENU"
+            "key": "APP_MENU",
+            "children": [
+                {
+                    "uri": "genesis",
+                    "key": "GENESIS_MENU"
+                },
+                {
+                    "uri": "supernova",
+                    "key": "SUPERNOVA_MENU"
+                },
+                {
+                    "uri": "stabledao",
+                    "key": "STABLEDAO_MENU"
+                }
+            ]
         }
     ]
 }

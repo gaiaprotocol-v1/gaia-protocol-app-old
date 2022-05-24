@@ -1,12 +1,13 @@
 import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
-import CommonUtil from "../CommonUtil";
-import SupernovaNftItem from "../component/SupernovaNftItem";
-import GaiaSupernovaContract from "../contracts/GaiaSupernovaContract";
-import SupernovaRewardDistributor from "../contracts/SupernovaRewardDistributor";
-import Wallet from "../klaytn/Wallet";
-import Layout from "./Layout";
+import CommonUtil from "../../CommonUtil";
+import Alert from "../../component/shared/dialogue/Alert";
+import SupernovaNftItem from "../../component/SupernovaNftItem";
+import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
+import SupernovaRewardDistributor from "../../contracts/SupernovaRewardDistributor";
+import Wallet from "../../klaytn/Wallet";
+import Layout from "./../Layout";
 
 export default class Supernova implements View {
 
@@ -68,7 +69,19 @@ export default class Supernova implements View {
                         el("h3", "My NFT"),
                     ),
                     el(".button-container",
-                        el("a", msg("REWARD_BUTTON")),
+                        el("a", msg("REWARD_BUTTON"), {
+                            click: async () => {
+                                const address = await Wallet.loadAddress();
+                                if (address !== undefined) {
+                                    const remainingTimeToClaim = await SupernovaRewardDistributor.remainingTimeToClaim(address);
+                                    if (remainingTimeToClaim.eq(0)) {
+                                        await SupernovaRewardDistributor.claim(address);
+                                    } else {
+                                        new Alert(msg("ALERT_UNABLE_RECEIVE_TITLE"), msg("ALERT_UNABLE_RECEIVE_DESC"));
+                                    }
+                                }
+                            },
+                        }),
                     ),
                 ),
             ),

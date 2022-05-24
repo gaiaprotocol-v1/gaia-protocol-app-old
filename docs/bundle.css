@@ -427,14 +427,12 @@ body {
   display: flex;
 }
 .pc-menu > ul > li {
-  display: flex;
-  float: left;
-  font-weight: 500;
+  position: relative;
 }
 .pc-menu > ul > li > a {
   cursor: pointer;
   padding: 8px 12px 8px 12px;
-  font-size: 0.875rem;
+  font-size: 14px;
   text-decoration: none;
   color: white;
 }
@@ -456,14 +454,15 @@ body {
   padding: 10px 0;
 }
 .pc-menu > ul > li > ul > li > a {
+  font-size: 14px;
   display: block;
   text-align: center;
   padding: 10px;
 }
-.pc-menu > ul > li > ul > li > a:hover {
-  color: #b19c76;
+.pc-menu > ul > li > ul > li:hover {
+  background-color: #b19c76;
 }
-.pc-menu > ul > li > ul > li > a:active {
+.pc-menu > ul > li > ul > li:active {
   color: #b19c76;
 }
 .pc-menu > ul > li:hover > ul {
