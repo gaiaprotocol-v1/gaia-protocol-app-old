@@ -1,0 +1,1 @@
+{"version":3,"file":"MaticContract.js","sourceRoot":"","sources":["../../src/contracts/MaticContract.ts"],"names":[],"mappings":";;;;;AACA,qFAA6D;AAC7D,uHAA6F;AAE7F,MAAM,aAAc,SAAQ,uBAAoB;IAE5C;QACI,KAAK,CAAC,4CAA4C,EAAE,yBAAa,CAAC,GAAG,EAAE,EAAE,CAAC,CAAC;IAC/E,CAAC;CACJ;AAED,kBAAe,IAAI,aAAa,EAAE,CAAC"}

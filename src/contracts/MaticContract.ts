@@ -1,6 +1,6 @@
-import { ERC20 } from "./abi/polygon-abi/typechain";
+import { ERC20 } from "./polygon-abi/typechain";
 import ERC20Contract from "./polygon-standard/ERC20Contract";
-import ERC20Artifact from "./abi/polygon-abi/artifacts/contracts/PolygonMix.sol/PolygonMix.json";
+import ERC20Artifact from "./polygon-abi/artifacts/contracts/PolygonMix.sol/PolygonMix.json";
 
 class MaticContract extends ERC20Contract<ERC20>{
 

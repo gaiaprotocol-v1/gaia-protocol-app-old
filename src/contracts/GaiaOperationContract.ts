@@ -1,5 +1,4 @@
 import { BigNumber, BigNumberish } from "ethers";
-import SkyUtil from "skyutil";
 import Config from "../Config";
 import GaiaOperationArtifact from "./abi/gaia-kronos/artifacts/contracts/GaiaOperation.sol/GaiaOperation.json";
 import Contract from "./Contract";

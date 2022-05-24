@@ -1,0 +1,16 @@
+{
+    "menu": [
+        {
+            "uri": "genesis",
+            "key": "GENESIS_MENU"
+        },
+        {
+            "uri": "supernova",
+            "key": "SUPERNOVA_MENU"
+        },
+        {
+            "uri": "stabledao",
+            "key": "STABLEDAO_MENU"
+        }
+    ]
+}

@@ -86,7 +86,7 @@ export default class GenesisNftItem extends DomNode {
 
     private async loadKlay() {
         this.klay = utils.parseUnits(KrnosJson[this.id], 9);
-        this.klayDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(this.klay) * 2.4)} USDC`);
+        this.klayDisplay.empty().appendText(`${CommonUtil.numberWithCommas(String(parseFloat(utils.formatEther(this.klay)) * 2.4))} USDC`);
     }
 
     public delete() {

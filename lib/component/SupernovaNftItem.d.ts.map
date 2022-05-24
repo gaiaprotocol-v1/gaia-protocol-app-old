@@ -1,0 +1,1 @@
+{"version":3,"file":"SupernovaNftItem.d.ts","sourceRoot":"","sources":["../../src/component/SupernovaNftItem.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,OAAO,EAAW,MAAM,iBAAiB,CAAC;AAMnD,MAAM,CAAC,OAAO,OAAO,gBAAiB,SAAQ,OAAO;IAEjD,OAAO,CAAC,YAAY,CAA4B;IAChD,OAAO,CAAC,WAAW,CAAU;IAE7B,OAAO,CAAC,EAAE,CAAK;;IAmBR,IAAI,CAAC,EAAE,EAAE,MAAM;IAOf,MAAM;CAGhB"}
