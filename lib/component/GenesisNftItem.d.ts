@@ -4,6 +4,7 @@ export default class GenesisNftItem extends DomNode {
     private imageDisplay;
     private nameDisplay;
     private klayDisplay;
+    private claimButton;
     private emergencyDisplay;
     private id;
     constructor();

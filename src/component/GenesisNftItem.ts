@@ -12,7 +12,7 @@ export default class GenesisNftItem extends DomNode {
     private imageDisplay: DomNode<HTMLImageElement>;
     private nameDisplay: DomNode;
     private klayDisplay: DomNode;
-    //private claimButton: DomNode;
+    private claimButton: DomNode;
     private emergencyDisplay: DomNode;
 
     private id = -1;
@@ -62,12 +62,12 @@ export default class GenesisNftItem extends DomNode {
                     ),
                 ),
                 el(".button-wrap",
-                    /*this.claimButton = el("button.klay-button", "미수령 이자 받기", {
+                    this.claimButton = el("button.klay-button", "미수령 이자 받기", {
                         click: async () => {
                             await GaiaGenesisUSDCDistributorContract.claim([this.id]);
                             ViewUtil.waitTransactionAndRefresh();
                         }
-                    }),*/
+                    }),
                     el("button.klay-button", msg("CLAIM_REWARDS_BUTTON"), {
                         click: async () => {
                             await NFTAirdropContract.collectAirdropReward(0, [this.id]);
@@ -84,7 +84,7 @@ export default class GenesisNftItem extends DomNode {
         this.imageDisplay.domElement.src = `https://storage.googleapis.com/gaia-protocol/kronos/${id}.png`;
         this.nameDisplay.appendText(`#${this.id}`);
         if (usdcCollected === true) {
-            //this.claimButton.delete();
+            this.claimButton.delete();
         }
         this.klayDisplay.empty().appendText(`${CommonUtil.numberWithCommas(usdcCollected === true ? "0" : utils.formatUnits(usdc, 6))} USDC`);
         this.emergencyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(reward.sub(collected)), 5)} KLAY`);

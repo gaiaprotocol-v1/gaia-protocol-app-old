@@ -36,12 +36,12 @@ export default class Genesis implements View {
                         this.totalEmergencyDisplay = el("p", ""),
                     ),
                     el(".button-container",
-                        /*el("a", "모든 미수령 이자 받기", {
+                        el("a", "모든 미수령 이자 받기", {
                             click: async () => {
                                 await GaiaGenesisUSDCDistributorContract.claim(this.usdcTokenIds);
                                 ViewUtil.waitTransactionAndRefresh();
                             },
-                        }),*/
+                        }),
                         el("a", msg("ALL_EMERGENCY_BUTTON"), {
                             click: async () => {
                                 await NFTAirdropContract.collectAirdropReward(0, this.tokenIds);
