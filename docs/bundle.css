@@ -686,23 +686,27 @@ body {
 .genesis-nft-item > .content-wrap > .button-wrap {
   display: flex;
 }
-.genesis-nft-item > .content-wrap > .button-wrap > .klay-button {
+.genesis-nft-item > .content-wrap > .button-wrap > a {
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  padding: 8px 12px 9px;
+  text-align: center;
+  padding: 0px 8px;
+  min-height: 20px;
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: 12px;
   border-radius: 4px;
   border-color: #e0d8c8;
   border: solid 1px;
   color: #e0d8c8;
   background-color: transparent;
 }
-.genesis-nft-item > .content-wrap > .button-wrap > .klay-button:hover {
+.genesis-nft-item > .content-wrap > .button-wrap > a:hover {
   background-color: rgba(224, 216, 200, 0.9);
   border-color: transparent;
   color: white;
 }
-.genesis-nft-item > .content-wrap > .button-wrap > .klay-button:active {
+.genesis-nft-item > .content-wrap > .button-wrap > a:active {
   background-color: #e0d8c8;
   border-color: transparent;
   color: white;
