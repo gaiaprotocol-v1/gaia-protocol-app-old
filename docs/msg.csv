@@ -81,3 +81,8 @@ BUY_NFT_BUTTON,NFT 구입,
 BUY_USDT_BUTTON,oUSDT 구매하기,
 LANDING_MENU,LANDING,LANDING
 APP_MENU,APP,APP
+HOLDER_CHECK_TITLE,Gaia Holder Verification,,
+HOLDER_CHECK_DESC,Welcome to the community for investors.,Welcome to the community for investors.,,
+HOLDER_CHECK_BUTTON,Login Discord,Login Discord,,
+HOLDER_CHECK_SUCCESS_DESC,Holder Verification Success,Holder Verification Success,,
+HOLDER_CHECK_FAIL_DESC,Holder Verification Fail,Holder Verification Fail,,

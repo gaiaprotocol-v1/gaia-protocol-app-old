@@ -8,6 +8,7 @@ import Layout from "./view/Layout";
 import StableDAO from "./view/app/StableDAO";
 import Supernova from "./view/app/Supernova";
 import BuyStableDAO from "./view/app/BuyStableDAO";
+import CheckHolder from "./view/CheckHolder";
 
 (async () => {
     msg.language = BrowserInfo.language;
@@ -15,6 +16,7 @@ import BuyStableDAO from "./view/app/BuyStableDAO";
 
     SkyRouter.route("**", Layout);
     SkyRouter.route("", Home);
+    SkyRouter.route("checkholder", CheckHolder);
     SkyRouter.route("genesis", Genesis);
     SkyRouter.route("supernova", Supernova);
     SkyRouter.route("stabledao", StableDAO);

@@ -1,0 +1,48 @@
+.check-holder-view {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    text-align     : center;
+    flex-direction : column;
+
+    >header {
+        >img {
+            width : 256px;
+            height: 256px;
+        }
+
+        >h1 {
+            font-family  : 'Trajan Pro Bold';
+            font-size    : 32px;
+            margin-bottom: 16px;
+            color        : rgba(177, 156, 118, 1);
+        }
+
+        >h2 {
+            font-size  : 16px;
+            font-family: 'Trajan Pro Regular';
+        }
+    }
+
+    >article {
+        >a {
+            font-family     : 'Trajan Pro Regular';
+            display         : block;
+            text-decoration : none;
+            color           : white;
+            font-size       : 14px;
+            padding         : 16px 84px;
+            border-radius   : 4px;
+            margin-top      : 32px;
+            background-color: rgba(177, 156, 118, 1);
+
+            &:hover {
+                background-color: rgba(177, 156, 118, 0.9);
+            }
+
+            &:active {
+                background-color: rgba(177, 156, 118, 0.8);
+            }
+        }
+    }
+}
