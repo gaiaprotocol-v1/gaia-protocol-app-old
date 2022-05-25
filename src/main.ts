@@ -11,6 +11,7 @@ import BuyStableDAO from "./view/app/BuyStableDAO";
 import CheckHolder from "./view/CheckHolder";
 import GenesisLanding from "./view/landing/GenesisLanding";
 import SupernovaLanding from "./view/landing/SupernovaLanding";
+import StableDaoLanding from "./view/landing/StableLanding";
 
 (async () => {
     msg.language = BrowserInfo.language;
@@ -30,6 +31,7 @@ import SupernovaLanding from "./view/landing/SupernovaLanding";
 
     // StableDAO
     SkyRouter.route("stabledao", StableDAO);
+    SkyRouter.route("landing/stabledao", StableDaoLanding);
     SkyRouter.route("stabledao/buy", BuyStableDAO);
 
     if (sessionStorage.__spa_path) {

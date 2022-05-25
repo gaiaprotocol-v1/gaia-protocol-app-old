@@ -172,3 +172,65 @@ SUPERNOVA_TEAM_TITLE8,박상우,"Park, Sang woo"
 SUPERNOVA_TEAM_DESC8,Moderator,Moderator
 SUPERNOVA_TEAM_TITLE9,손상현,"Son, Sang hyu"
 SUPERNOVA_TEAM_DESC9,Moderator,Moderator
+STABLE_DAO_WHY_MENU,WHY,WHY
+STABLE_DAO_PROJECT_MENU,PROJECT,PROJECT
+STABLE_DAO_BUY_MENU,BUY,BUY
+STABLE_DAO_SNEAKPEEK_MENU,SNEAK PEEK,SNEAK PEEK
+STABLE_DAO_TEAM_MENU,TEAM,TEAM
+STABLE_DAO_FAQ_MENU,FAQ,FAQ
+STABLE_DAO_PARTNERSHIP_MENU,PARTNERSHIP,PARTNERSHIP
+STABLE_DAO_INIT_DESC,Gaia Protocol의 3rd NFT 프로젝트\n1. 세계 최초 NFT 기반 투자 그룹 형성 \n2. 국내 최초 스테이블(oUSDT)를 통한 NFT 발행 \n 3. 발행 금액의 90% 이상을 Stable Pool 에 예치 \n4. Pool에서 발생한 이자만으로 공격적인 투자 진행 \n 5. Stable DAO NFT 홀더들의 거버넌스(투표)를 통하여 투자처 및 투자 기간 선정 \n 6. 투자를 통해 발생한 이윤 90%를 각 NFT에 균등 분배 \n7. 투자처와 방식에 있어 NFT 홀더들의 DAO를 통해 홀더들의 적극적인 안건 제안과 투표 진행 \n8.예치금의 손실 없이 이자만을 사용한 공격적인 투자 진행으로 위험 부담 감소,
+STABLE_DAO_PROJECT_TITLE,Project Detail,Project Detail,
+STABLE_DAO_PROJECT_DOC_LINK,문서 확인
+STABLE_DAO_PROJECT_TITLE1,1. 프로젝트 런칭,
+STABLE_DAO_PROJECT_DESC1,NFT 판매 시작\n스테이블 다오 초기 홀더들이 구매 진행\n오픈된 거버넌스 채널에서 약 1개월 간 첫 투자처 선정에 대한 투표 진행,
+STABLE_DAO_PROJECT_TITLE2,2. DAO 초기 구축,
+STABLE_DAO_PROJECT_DESC2,"시스템 초기 구축을 위해 팀의 오퍼레이팅 하에 프로젝트 진행\n첫 투자기간은 팀에서 정한 1개월간 진행\n발행 시작 이후, 거버넌스 채널 오픈\n오픈된 거버넌스 채널에서 약 1개월 간 첫 투자처 선정에 대한 투표 진행\n스테이블 다오 홀더 대상 각종 안건 토론 가능한 채널이 별도로 구성\n타 프로젝트들이 투자금 유치를 위해 설명회 또는 투자 제안 가능한 채널 구성\n이 시기, 팀은 구조적, 시스템적 문제점을 파악하고 본격적인 DAO 정착을 위해 시스템 보완을 진행",
+STABLE_DAO_PROJECT_TITLE3,3. DAO 활성화,
+STABLE_DAO_PROJECT_DESC3,"기본적인 시스템 구축이 완료되고, 홀더를 주축으로한 본격적인 투자 DAO가 활성화\n스테이블 다오 홀더들은 프로젝트의 원금을 훼손하지 않는 선에서 자유롭게 투자 진행\n투자자들간 자유로운 토론과 의사결정 과정을 거쳐 투자 진행\n투자자들은 다양한 안건을 자유롭게 제안 (ex. 투자처, 투자기간, 투자방법, 투자금액, 회수방법 등)",
+STABLE_DAO_PROJECT_TITLE4,4. 프로젝트 정착,
+STABLE_DAO_PROJECT_DESC4,"위의 과정을 수행하고 프로젝트가 정착되어, 스테이블 다오가 시장내 거대한 NFT 투자그룹 형태로 성장",
+STABLE_DAO_SNEAKPEEK_TITLE,SNEAK PEEK,SNEAK PEEK
+STABLE_DAO_MINT_BUY_TITLE1,Buy,Buy
+STABLE_DAO_MINT_BUY_TITLE,Buy & Buyback ,Buy & Buyback
+STABLE_DAO_MINT_BUY_BUTTON,Buy
+STABLE_DAO_MINT_BUY_DESC1,4월 8일 오후 9시 00분 ~ 6월 30일 오후 9시 00분,
+STABLE_DAO_MINT_BUY_DESC2,"Gaia Kronos: 1,200oUSDT \n Gaia Supernova: 1,250oUSDT \n Public Sale: 1,300 oUSDT","Gaia Kronos: 1,200oUSDT \n Gaia Supernova: 1,250oUSDT \n Public Sale: 1,300 oUSDT"
+STABLE_DAO_MINT_BUYBACK_TITLE,Buyback,Buyback
+STABLE_DAO_MINT_BUYBACK_DESC1,4월 8일 오후 9시 00분 ~ 6월 30일 오후 9시 00분,
+STABLE_DAO_MINT_BUYBACK_DESC2,"1,200 oUSDT",
+STABLE_DAO_TEAM_TITLE,TEAM,TEAM
+STABLE_DAO_TEAM_TITLE1,심영재,"Sim, Young Jae"
+STABLE_DAO_TEAM_DESC1,Director,Director
+STABLE_DAO_TEAM_TITLE2,Chowbie,Chowbie
+STABLE_DAO_TEAM_DESC2,Art & Design,Art & Design
+STABLE_DAO_TEAM_TITLE3,TheGreatHB,TheGreatHB
+STABLE_DAO_TEAM_DESC3,Smart contract Developer,Smart contract Developer
+STABLE_DAO_TEAM_TITLE4,이학성,"Lee, Hakseong"
+STABLE_DAO_TEAM_DESC4,Web Developer,Web Developer
+STABLE_DAO_TEAM_TITLE5,강성민,"Kang, Sungmin"
+STABLE_DAO_TEAM_DESC5,Bot Developer,Bot Developer
+STABLE_DAO_TEAM_TITLE6,박민,"Park, Min"
+STABLE_DAO_TEAM_DESC6,Marketing & CS,Marketing & CS
+STABLE_DAO_TEAM_TITLE7,강희민,"Kang, Heemin"
+STABLE_DAO_TEAM_DESC7,Marketing & CS,Marketing & CS
+STABLE_DAO_TEAM_TITLE8,박상우,"Park, Sang woo"
+STABLE_DAO_TEAM_DESC8,Moderator,Moderator
+STABLE_DAO_TEAM_TITLE9,손상현,"Son, Sang hyu"
+STABLE_DAO_TEAM_DESC9,Moderator,Moderator
+STABLE_DAO_FAQ_TITLE,FAQ,FAQ
+STABLE_DAO_FAQ_TITLE1,Q1. 투표(거버넌스)에 참여하지 않아도 수익이 분배되나요?,
+STABLE_DAO_FAQ_DESC1,"기획단계에서는 투표 참여자에게만 수익분배를 하려고 했으나, 최종적으로는 투표에 참여하지 않아도 수익이 분배됩니다.",
+STABLE_DAO_FAQ_TITLE2,"Q2. 스테이블 다오 보유 시, 가이아 슈퍼 이벤트에서 가산점을 부여받나요?",
+STABLE_DAO_FAQ_DESC2,"슈퍼 이벤트에서 가이아 크로노스와 동일한 가산점을 부여받습니다. (슈퍼노바 : 10점 / 크로노스, 스테이블 다오 : 1점) \n단, 슈퍼 이벤트의 추첨 대상자가 되려면 슈퍼노바를 최소 1장 보유해야합니다.",
+STABLE_DAO_FAQ_TITLE3,Q3. 팀에서도 거버넌스에 참여 하나요?,
+STABLE_DAO_FAQ_DESC3,"팀에서는 시스템적인 문제 해결 이외에 별도 투자 관련 제안, 투표 등에는 참여하지 않습니다.\n 다만, 프로젝트의 근본을 파괴하려는 시도, 과도한 커뮤니티 내의 분쟁 등은 팀에서 지속적으로 관리가 진행됩니다.",
+STABLE_DAO_FAQ_TITLE4,Q4. DAO를 통해 선정된 프로젝트에 대한 악용을 막을 방법이 있나요?,
+STABLE_DAO_FAQ_DESC4,"현재 팀에서는 해당 부분에 대하여 큰 우려를 하지 않고 있습니다. \n개인이 움직이는 자금이 선정된 프로젝트의 근간을 흔들 수 있을 것이라고 보지 않습니다. \n더불어, 선매수 단타물량을 방지하기 위해 정확한 자금 투입시간을 공지하지 않고 진행합니다. \n 프로젝트 선정 후 단타로 유의미한 수익이 발생한다해도, 해당 정보를 가장 먼저 접하는 것은 스테이블 다오 홀더들입니다. \n 팀은 지속적으로 어느정도의 보완책을 마련할 것입니다.",
+STABLE_DAO_FAQ_TITLE5,Q5. 투자처의 제한이 있나요?,
+STABLE_DAO_FAQ_DESC5,"투자처는 온체인 상에 있는 투자대상만 투자가 가능합니다. (실물 자산 및 주식시장은 투자 불가, 코인 선물거래등은 가능)",
+STABLE_DAO_FAQ_TITLE6,Q6. 현재 팀에서는 발생할 수 있는 법적 문제들에 대하여 대응체제를 갖추고 있나요?,
+STABLE_DAO_FAQ_DESC6,"현행법상 온체인에서 진행되는 다양한 행위들에 대한 규제가 없습니다. 가이아는 현시점까지는 모든 행위들이 온체인으로 이루어지고 있기때문에 법적으로 저촉되는 부분이 존재하지 않습니다. 다만, 추후 법이 제정된다면 팀에서는 규제에 발맞추어 프로젝트를 진행할 것이며, 문제가 있는 부분들에 대해 적극적으로 대응할 예정입니다.",
+STABLE_DAO_FAQ_TITLE7,"Q7. 투표 결과가 정확하게 50:50이 나오는 경우, 어떻게 해결하나요?",
+STABLE_DAO_FAQ_DESC7,"재투표를 진행 후, 이후에도 또 다시 50:50의 결과가 나온다면 투자 또한 반반 비율로 진행합니다. 팀에서는이러한 상황이 발생할 확률이 몹시 희박하다고 보고 있습니다.",
+STABLE_DAO_PARTNERSHIP_TITLE,PARTNERSHIP,

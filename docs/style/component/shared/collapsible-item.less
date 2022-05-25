@@ -1,0 +1,44 @@
+.collapsible-item {
+    padding: 0px 20px;
+
+    >section {
+        >.collapsible {
+            font-size    : 2.5rem;
+            color        : white;
+            cursor       : pointer;
+            background   : black;
+            padding      : 26px 8px;
+            width        : 100%;
+            text-align   : left;
+            font-size    : 18px;
+            line-height  : 2rem;
+            border-top   : 1px solid #2C2C2C;
+            border-bottom: 1px solid #2C2C2C;
+
+            @media @phone {
+                font-size: 16px;
+            }
+        }
+
+        >.active,
+        .collapsible:hover {
+            background-color: rgba(0, 68, 90, 1);
+        }
+
+
+        >.content {
+            text-align   : left;
+            padding      : 26px 8px;
+            display      : none;
+            overflow     : hidden;
+            font-size    : 16px;
+            line-height  : 2rem;
+            border-bottom: 1px solid #2C2C2C;
+            box-sizing   : border-box;
+
+            @media @phone {
+                font-size: 14px;
+            }
+        }
+    }
+}

@@ -423,6 +423,46 @@ body {
   overflow-y: scroll;
   padding: 20px 0;
 }
+.collapsible-item {
+  padding: 0px 20px;
+}
+.collapsible-item > section > .collapsible {
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  background: black;
+  padding: 26px 8px;
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  line-height: 2rem;
+  border-top: 1px solid #2C2C2C;
+  border-bottom: 1px solid #2C2C2C;
+}
+@media only screen and (max-width: 719px) {
+  .collapsible-item > section > .collapsible {
+    font-size: 16px;
+  }
+}
+.collapsible-item > section > .active,
+.collapsible-item > section .collapsible:hover {
+  background-color: #00445a;
+}
+.collapsible-item > section > .content {
+  text-align: left;
+  padding: 26px 8px;
+  display: none;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 2rem;
+  border-bottom: 1px solid #2C2C2C;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 719px) {
+  .collapsible-item > section > .content {
+    font-size: 14px;
+  }
+}
 .pc-menu > ul {
   display: flex;
 }
@@ -1836,6 +1876,289 @@ body {
   }
 }
 /** Stable DAO */
+.landing-stable-dao-view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1240px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+@media only screen and (max-width: 719px) {
+  .landing-stable-dao-view {
+    padding: 20px;
+  }
+}
+.landing-stable-dao-view > .init-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 4rem;
+}
+.landing-stable-dao-view > .init-container > img {
+  width: 35%;
+  margin: 32px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-stable-dao-view > .init-container > img {
+    width: 80%;
+  }
+}
+.landing-stable-dao-view > .init-container > a {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  padding: 12px;
+  background-color: #00445a;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 2rem;
+  font-family: trajan-pro-3, serif;
+}
+.landing-stable-dao-view > .init-container > a:hover {
+  background-color: rgba(0, 68, 90, 0.8);
+}
+.landing-stable-dao-view > .init-container > .flow-map {
+  width: 50%;
+  margin: 72px;
+  border-radius: 4px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-stable-dao-view > .init-container > .flow-map {
+    width: 100%;
+    margin: 0px;
+  }
+}
+.landing-stable-dao-view > .init-container > p {
+  margin-top: 32px;
+  line-height: 2rem;
+}
+.landing-stable-dao-view > .project-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 45px;
+  color: #00445a;
+  margin-top: 12rem;
+}
+.landing-stable-dao-view > .project-container > a {
+  display: block;
+  text-decoration: underline;
+  font-family: trajan-pro-3, serif;
+  font-weight: 500;
+  margin-top: 1rem;
+  color: #e0d8c8;
+}
+.landing-stable-dao-view > .project-container > a:hover {
+  text-decoration: none;
+}
+.landing-stable-dao-view > .project-container > img {
+  margin-top: 4rem;
+  width: 50%;
+}
+@media only screen and (max-width: 719px) {
+  .landing-stable-dao-view > .project-container > img {
+    width: 100%;
+  }
+}
+.landing-stable-dao-view > .project-container > #ama {
+  height: 30rem;
+  border: 1rem solid rgba(255, 255, 255, 0.1);
+}
+.landing-stable-dao-view > .project-container > h3 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 500;
+  font-size: 21px;
+  margin-top: 4rem;
+  color: #e0d8c8;
+}
+.landing-stable-dao-view > .project-container > p {
+  margin-top: 16px;
+  line-height: 32px;
+}
+.landing-stable-dao-view > .buy-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 45px;
+  color: #00445a;
+  margin-top: 12rem;
+}
+.landing-stable-dao-view > .buy-container > a {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  padding: 12px;
+  background-color: #00445a;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 2rem;
+  font-family: trajan-pro-3, serif;
+}
+.landing-stable-dao-view > .buy-container > a:hover {
+  background-color: rgba(0, 68, 90, 0.8);
+}
+.landing-stable-dao-view > .buy-container > h3 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 500;
+  font-size: 21px;
+  margin-top: 4rem;
+  color: #e0d8c8;
+}
+.landing-stable-dao-view > .buy-container > p {
+  margin-top: 16px;
+  line-height: 32px;
+}
+.landing-stable-dao-view > .video-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 45px;
+  color: #00445a;
+}
+.landing-stable-dao-view > .video-container > .video {
+  margin-top: 1rem;
+}
+.landing-stable-dao-view > .fundflow {
+  margin-top: 12rem;
+  width: 50%;
+}
+@media only screen and (max-width: 719px) {
+  .landing-stable-dao-view > .fundflow {
+    width: 100%;
+  }
+}
+.landing-stable-dao-view > .nft-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #00445a;
+}
+.landing-stable-dao-view > .nft-container > p {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+}
+.landing-stable-dao-view > .nft-container > section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2rem;
+}
+.landing-stable-dao-view > .nft-container > section > img {
+  width: 300px;
+  margin: 8px;
+  border-radius: 4px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-stable-dao-view > .nft-container > section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.landing-stable-dao-view > .mint-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #00445a;
+}
+.landing-stable-dao-view > .mint-container > h3 {
+  margin-top: 4rem;
+  line-height: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.landing-stable-dao-view > .mint-container > h4 {
+  margin-top: 2rem;
+  line-height: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.landing-stable-dao-view > .mint-container > .caption {
+  margin-top: 0.5rem;
+}
+.landing-stable-dao-view > .mint-container > p {
+  margin-top: 1rem;
+}
+.landing-stable-dao-view > .mint-container > a {
+  display: block;
+  font-family: copperplate, serif;
+  cursor: pointer;
+  margin-top: 16px;
+  padding: 16px;
+  text-decoration: none;
+  background-color: #00445a;
+  border-radius: 4px;
+  color: white;
+}
+.landing-stable-dao-view > .mint-container > a:hover {
+  background-color: rgba(0, 68, 90, 0.9);
+}
+.landing-stable-dao-view > .mint-container > a:active {
+  background-color: rgba(0, 68, 90, 0.8);
+}
+.landing-stable-dao-view > .team-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #00445a;
+}
+.landing-stable-dao-view > .team-container > section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media only screen and (max-width: 719px) {
+  .landing-stable-dao-view > .team-container > section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.landing-stable-dao-view > .team-container > section > .team > h3 {
+  margin-top: 4rem;
+  line-height: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.landing-stable-dao-view > .team-container > section > .team > p {
+  margin-top: 1rem;
+  color: rgba(0, 68, 90, 0.8);
+}
+.landing-stable-dao-view > .faq-container,
+.landing-stable-dao-view .partnership-container {
+  width: 100%;
+}
+.landing-stable-dao-view > .faq-container > h2,
+.landing-stable-dao-view .partnership-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #00445a;
+}
+.landing-stable-dao-view > .faq-container > section,
+.landing-stable-dao-view .partnership-container > section {
+  margin-top: 4rem;
+}
+.landing-stable-dao-view > .faq-container > section > a > img,
+.landing-stable-dao-view .partnership-container > section > a > img {
+  width: 100%;
+  height: 96px;
+  padding: 16px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-stable-dao-view > .faq-container > section > a > img,
+  .landing-stable-dao-view .partnership-container > section > a > img {
+    margin-top: 2rem;
+  }
+}
+.landing-stable-dao-view > .faq-container > section > a > .electrikFinance,
+.landing-stable-dao-view .partnership-container > section > a > .electrikFinance {
+  max-width: 351px;
+  height: 129px;
+  padding: 16px;
+}
 .stable-dao-view {
   display: flex;
   flex-direction: column;
