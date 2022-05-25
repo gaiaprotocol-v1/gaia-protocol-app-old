@@ -14,7 +14,7 @@ export default class SupernovaLanding implements View {
                 el(".init-container", { id: "init" },
                     el("img", { src: "/images/logo/gaia-supernova-text.png", alt: "gaia supernova logo", "data-aos": "zoom-in", }),
                     el("p", { "data-aos": "zoom-in" }, msg("SUPERNOVA_INIT_DESC")),
-                    el("img.flow-map", { src: "/images/flow-map.png", alt: "flow map", "data-aos": "zoom-in" }),
+                    el("img.flow-map", { src: "/images/view/supernova-landing/flow-map.png", alt: "flow map", "data-aos": "zoom-in" }),
                 ),
                 el(".video-container",
                     el("h2", { "data-aos": "zoom-in" }, msg("SUPERNOVA_VIDEO_TITLE")),
@@ -39,12 +39,12 @@ export default class SupernovaLanding implements View {
                 el(".nft-container", { id: "nft" },
                     el("h2", { "data-aos": "zoom-in" }, msg("SUPERNOVA_SNEAKPEEK_TITLE")),
                     el("section",
-                        el("img", { "data-aos": "zoom-in", src: "/images/nft/nft1.png" }),
-                        el("img", { "data-aos": "zoom-in", src: "/images/nft/nft2.png" }),
-                        el("img", { "data-aos": "zoom-in", src: "/images/nft/nft3.png" }),
-                        el("img", { "data-aos": "zoom-in", src: "/images/nft/nft4.png" }),
-                        el("img", { "data-aos": "zoom-in", src: "/images/nft/nft5.gif" }),
-                        el("img", { "data-aos": "zoom-in", src: "/images/nft/nft6.gif" }),
+                        el("img", { "data-aos": "zoom-in", src: "/images/view/supernova-landing/nft1.png" }),
+                        el("img", { "data-aos": "zoom-in", src: "/images/view/supernova-landing/nft2.png" }),
+                        el("img", { "data-aos": "zoom-in", src: "/images/view/supernova-landing/nft3.png" }),
+                        el("img", { "data-aos": "zoom-in", src: "/images/view/supernova-landing/nft4.png" }),
+                        el("img", { "data-aos": "zoom-in", src: "/images/view/supernova-landing/nft5.gif" }),
+                        el("img", { "data-aos": "zoom-in", src: "/images/view/supernova-landing/nft6.gif" }),
                     ),
                 ),
                 el(".team-container", { id: "team" },
@@ -63,28 +63,28 @@ export default class SupernovaLanding implements View {
                             el("p", msg("SUPERNOVA_TEAM_DESC3"))
                         ),
                         el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("TEAM_TITLE4")),
-                            el("p", msg("TEAM_DESC4"))
+                            el("h3", msg("SUPERNOVA_TEAM_TITLE4")),
+                            el("p", msg("SUPERNOVA_TEAM_DESC4"))
                         ),
                         el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("TEAM_TITLE5")),
-                            el("p", msg("TEAM_DESC5"))
+                            el("h3", msg("SUPERNOVA_TEAM_TITLE5")),
+                            el("p", msg("SUPERNOVA_TEAM_DESC5"))
                         ),
                         el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("TEAM_TITLE6")),
-                            el("p", msg("TEAM_DESC6"))
+                            el("h3", msg("SUPERNOVA_TEAM_TITLE6")),
+                            el("p", msg("SUPERNOVA_TEAM_DESC6"))
                         ),
                         el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("TEAM_TITLE7")),
-                            el("p", msg("TEAM_DESC7"))
+                            el("h3", msg("SUPERNOVA_TEAM_TITLE7")),
+                            el("p", msg("SUPERNOVA_TEAM_DESC7"))
                         ),
                         el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("TEAM_TITLE8")),
-                            el("p", msg("TEAM_DESC8"))
+                            el("h3", msg("SUPERNOVA_TEAM_TITLE8")),
+                            el("p", msg("SUPERNOVA_TEAM_DESC8"))
                         ),
                         el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("TEAM_TITLE9")),
-                            el("p", msg("TEAM_DESC9"))
+                            el("h3", msg("SUPERNOVA_TEAM_TITLE9")),
+                            el("p", msg("SUPERNOVA_TEAM_DESC9"))
                         ),
                     ),
                 ),
