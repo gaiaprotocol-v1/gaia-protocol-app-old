@@ -2,6 +2,7 @@ import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
 import Layout from "./Layout";
+import ViewUtil from "./ViewUtil";
 
 export default class Home implements View {
 
@@ -16,7 +17,7 @@ export default class Home implements View {
                 el("img", { src: "/images/logo/gaia-protocol-text.png", alt: "Gaia Protocol Logo" }),
             ),
             el("section",
-                el("a.card", { href: "https://gaiagenesis.org", target: "_blank" },
+                el("a.card", { click: () => { ViewUtil.go("genesis") } },
                     el("img", { src: "/images/logo/gaia-genesis.png", alt: "gaia genesis logo" }),
                     el(".content",
                         el("h2", msg("GAIA_GENESIS_TITLE")),
@@ -30,14 +31,14 @@ export default class Home implements View {
                         el("p", msg("GAIA_BRIDGE_DESC")),
                     ),
                 ),
-                el("a.card", { href: "https://gaiasupernova.com", target: "_blank" },
+                el("a.card", { click: () => { ViewUtil.go("supernova") } },
                     el("img", { src: "/images/logo/gaia-supernova.png", alt: "gaia supernova" }),
                     el(".content",
                         el("h2.supernova", msg("GAIA_SUPERNOVA_TITLE")),
                         el("p", msg("GAIA_SUPERNOVA_DESC")),
                     ),
                 ),
-                el("a.card", { href: "https://gaiastabledao.com", target: "_blank" },
+                el("a.card", { click: () => { ViewUtil.go("stabledao") } },
                     el("img", { src: "/images/logo/gaia-stable-dao.png", alt: "gaia stable dao" }),
                     el(".content",
                         el("h2.stabledao", msg("GAIA_STABLE_DAO_TITLE")),

@@ -1,0 +1,279 @@
+.landing-genesis-view {
+    display        : flex;
+    flex-direction : column;
+    width          : 100%;
+    max-width      : 1240px;
+    margin         : auto;
+    align-items    : center;
+    justify-content: center;
+    text-align     : center;
+
+    @media @phone {
+        padding: 8px;
+    }
+
+    >.init-container {
+        width      : 100%;
+        padding-top: 64px;
+
+        >img {
+            width : 35%;
+            margin: 32px;
+
+            @media @phone {
+                width: 80%;
+            }
+        }
+
+        >p {
+            margin-top : 32px;
+            line-height: 32px;
+            color      : #e0d8c8;
+            font-weight: 400;
+        }
+    }
+
+    >.why-container,
+    .gaia-container,
+    .buyback-container {
+        >h2 {
+            font-family: 'Trajan Pro Bold';
+            font-size  : 40px;
+            margin-top : 200px;
+            color      : #b19c76;
+        }
+
+        >p {
+            margin-top : 16px;
+            line-height: 32px;
+            color      : #e0d8c8;
+            font-weight: 400;
+        }
+    }
+
+    >.fundflow {
+        margin-top: 12rem;
+        width     : 50%;
+
+        @media @phone {
+            width: 100%;
+        }
+    }
+
+    >.nft-container {
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 2.5rem;
+            margin-top : 12rem;
+            color      : #b19c76;
+        }
+
+        >p {
+            margin-top: 2rem;
+            font-size : 0.875rem;
+        }
+
+        >.swiper-slide {
+            margin-top: 2rem;
+
+            >img {
+                width        : 300px;
+                margin       : 8px;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    >.mint-container {
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 2.5rem;
+            margin-top : 12rem;
+            color      : #b19c76;
+        }
+
+        >h3 {
+            margin-top : 4rem;
+            line-height: 1.5rem;
+            font-size  : 1.7rem;
+            font-weight: 700;
+        }
+
+        >h4 {
+            margin-top : 2rem;
+            line-height: 1.5rem;
+            font-size  : 1.5rem;
+            font-weight: 700;
+        }
+
+        >.caption {
+            margin-top: 0.5rem;
+            color     : #e4e8eb;
+            font-size : 0.75rem;
+        }
+
+        >p {
+            margin-top: 1rem;
+            color     : #e0d8c8;
+        }
+
+        >a {
+            margin-top      : 32px;
+            cursor          : pointer;
+            display         : flex;
+            align-items     : center;
+            justify-content : center;
+            padding         : 14px 0px;
+            font-size       : 14px;
+            font-weight     : 500;
+            margin-left     : 4px;
+            border-radius   : 4px;
+            margin-right    : 8px;
+            background-color: rgba(224, 216, 200, 1);
+            color           : black;
+
+            >img {
+                height: 48px;
+            }
+
+            &:hover {
+                background-color: rgba(224, 216, 200, 0.9);
+                color           : black;
+            }
+
+            &:active {
+                background-color: rgba(224, 216, 200, 0.8);
+                color           : black;
+            }
+        }
+    }
+
+    >.team-container {
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 2.5rem;
+            margin-top : 12rem;
+            color      : #b19c76;
+        }
+
+        >.swiper-slide {
+            margin-top           : 3rem;
+            display              : grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap             : 1rem 1rem;
+
+            @media @phone {
+                grid-template-columns: 1fr;
+            }
+
+            >.team {
+                position: relative;
+
+                >.content {
+                    transform: rotateY(0deg);
+
+                    >.front,
+                    >.back {
+                        display                   : block;
+                        transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+                        transition-duration       : 2.4s;
+                        transition-property       : transform, opacity;
+                    }
+
+                    >.front {
+                        >img {
+                            width: 100%;
+                        }
+                    }
+
+                    >.back {
+                        position : absolute;
+                        opacity  : 0;
+                        top      : 20%;
+                        left     : 0px;
+                        width    : 100%;
+                        transform: rotateY(-180deg);
+
+                        @media @phone {
+                            top: 10%;
+                        }
+
+                        >a {
+                            margin-top     : 1rem;
+                            font-size      : 2rem;
+                            color          : #e0d8c8;
+                            font-weight    : 700;
+                            text-decoration: none;
+                        }
+
+                        >h4 {
+                            margin-top: 0.5rem;
+                            font-size : 0.825rem;
+                        }
+
+                        >p {
+                            margin-top : 1rem;
+                            line-height: 1.5rem;
+                        }
+                    }
+
+                    &:hover {
+
+                        >.front {
+                            transform: rotateY(180deg);
+                        }
+
+                        >.back {
+                            background-color: rgba(0, 0, 0, 0.7);
+                            border-radius   : 128px;
+                            padding         : 2rem;
+                            opacity         : 1;
+                            transform       : rotateY(0deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    >.partnership-container {
+        width: 100%;
+
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 2.5rem;
+            margin-top : 12rem;
+            color      : #b19c76;
+        }
+
+        >section {
+            margin-top: 4rem;
+
+            >a {
+                display   : block;
+                margin-top: 32px;
+
+                >img {
+                    width  : 100%;
+                    height : 96px;
+                    padding: 16px;
+
+                    @media @phone {
+                        margin-top: 2rem;
+                    }
+                }
+
+                >.electrikFinance {
+                    width  : 320px;
+                    height : 97px;
+                    padding: 0px;
+                    margin : 16px 0px;
+                }
+            }
+        }
+    }
+}

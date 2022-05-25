@@ -86,3 +86,89 @@ HOLDER_CHECK_DESC,Welcome to the community for investors.,Welcome to the communi
 HOLDER_CHECK_BUTTON,Login Discord,Login Discord,,
 HOLDER_CHECK_SUCCESS_DESC,Holder Verification Success,Holder Verification Success,,
 HOLDER_CHECK_FAIL_DESC,Holder Verification Fail,Holder Verification Fail,,
+WHY_MENU,WHY,WHY,為什麼,为什么
+BUYBACK_FUND_MENU,BUYBACK FUND,BUYBACK FUND,回購基金,回购基金
+SNEAK_PEEK_MENU,SNEAK PEEK,SNEAK PEEK,搶先看,抢先看
+TEAM_MENU,TEAM,TEAM,團隊,团队
+PARTNER_MENU,PARTNER,PARTNER,合作夥伴,合作伙伴
+ENTER_APP_BUTTON,Enter App,Enter App,進入App,进入App
+ENTER_APP_TITLE,현재 준비중입니다.,현재 준비중입니다.,準備中,准备中
+ENTER_APP_DESC,Gaia Protocol은 2022년 2월 10일에 민팅이 이루어 집니다.,Minting will be made on 10th February 2022,鑄幣將在2022年2月10日進行。,铸币将在2022年2月10日进行。
+CONFIRM_BUTTON,확인,Confirm,確認,确认
+CANCEL_BUTTON,취소,Cancel,取消,取消
+GENESIS_INIT_DESC,Gaia Protocol은 최초의 투자형 PFP(프로필 이미지) NFT 프로젝트입니다.\n투자자들의 초기 투자비용을 최대한 보장하고 지지(Backing)합니다.\nNFT 투자자들은 수준 높은 커뮤니티를 구성하고 매력적인 문화를 만들고 최고의 NFT 허브를 구축해 나갑니다.,Gaia Protocol is an investment-purposed Klaytn network PFP NFT project by combining Defi 2.0 and NFT concepts. \nGaia Project will secure and back up the investors’ principal as much as the project can could. \nNFT holders will build up the refined community to become a hub of NFT investment.,Gaia Protocol是一個投資用途，在Klaytn上的PFP NFT項目，由DeFi 2.0和NFT元素結合而成。 \nGaia Protocol項目會最大化保障好投資者的本金利益。 NFT的持有者會形成一個強壯的投資社區。,Gaia Protocol是一个投资用途，在Klaytn上的PFP NFT项目，由DeFi 2.0和NFT元素结合而成。Gaia Protocol项目会最大化保障好投资者的本金利益。NFT的持有者会形成一个强壮的投资社区。
+GENESIS_WHY_TITLE,Why Gaia Protocol?,Why Gaia Protocol?,為什麼選擇Gaia Protocol,为什么选择Gaia Protocol
+GENESIS_WHY_DESC,Gaia Protocol NFT를 소유한 홀더들을 중심으로 NFT & Crypto 투자자들의 사교모임을 형성하여 매력적이고 강력한 커뮤니티 형성을 목표로 합니다.,"The project deposits 50% of all minted Klay permanently on Kronos DAO, the first Defi 2.0 initiative on Klaytn network. \nThe compound interest generated from the deposit will be distributed to the NFT holders. \nWe have a prospective mission to create a proactive community with enthusiasts in both DeFi 2.0 and NFT investment, with information exchange as well as various internal events exclusively for our community members.",項目於鑄幣所得的收入中，有百分之50的金額會被儲存到Kronos DAO ，是Klaytn上的第一個DeFi 2.0的項目。滾存的利息會永遠分發給NFT的投資者。\n我們團隊的任務是建立一個活躍的平台，會員能積極參與和交換投資相關的資訊，也可以參與定期舉行的會員專屬的活動，促進社區的發展。,项目于铸币所得的收入中，有百分之50的金额会被储存到Kronos DAO ，是Klaytn上的第一个DeFi 2.0的项目。滚存的利息会永远分发给NFT的投资者。\n我们团队的任务是建立一个活跃的平台，会员能积极参与和交换投资相关的资讯，也可以参与定期举行的会员专属的活动，促进社区的发展。
+GENESIS_DEFI_TITLE,WHY DeFi 2.0?,WHY DeFi 2.0?,為什麼選擇DeFi 2.0?,为什么选择DeFi 2.0?
+GENESIS_DEFI_DESC,DeFi 2.0 은 창의적인 방법으로 유동성을 프토토콜이 확보하며\n 강력한 커뮤니티 파워에 힘입어 투자의 이윤을 극대화한 성공적인 프로젝트입니다.\nGaia Protocol의 핵심은 NFT를 구매한 투자자들의 자산을 DeFi 2.0에 예치함으로써 투자자들이 영구적으로 이자 혜택을 누릴 수 있도록 하는 것입니다.,"DeFi 2.0 is a successful project that maximizes the return on investment thanks to the strong community power that secures liquidity in a creative way. \nThe key to Gaia Protocol is to deposit the assets of investors who purchased NFT in DeFi 2.0, allowing investors to enjoy interest benefits permanently.",DeFi 2.0是一個成功的項目，憑藉強大的社區力量，項目能有效地最大化投資回報，並保障投資本金。 \nGaia Protocol成功的竅門就在於把投資者於DeFi 2.0買NFT的資產進行投資，讓投資者能永遠得到收益。,DeFi 2.0是一个成功的项目，凭借强大的社区力量，项目能有效地最大化投资回报，并保障投资本金。\nGaia Protocol成功的窍门就在于把投资者于DeFi 2.0买NFT的资产进行投资，让投资者能永远得到收益。
+GENESIS_BUYBACK_FUND_TITLE,GAIA FUND,BUYBACK FUND,回購基金,回购基金
+GENESIS_BUYBACK_FUND_DESC,"Gaia Protocol 은 초기 민팅액 45%와 OpenSea 2차 거래 수수료를 가이아 펀드로 운용합니다.\n 바닥가 유지 정책으로 투자자들은 투자금의 손실에 대한 심리적 부담 없이 민팅에 참여할 수 있습니다. \n 가이아 펀드는 BTC 혹은 기업의 지분을 매입하여 Gaia Protocol의 전체 가치를 지지하고, KRNO를 구매하여 락업 물량을 증가시켜 홀더들에게 더 큰 가치를 환원합니다. \n Gaia Fund는 디스코드 거버넌스 투표를 통해 의사결정을 진행합니다.","Gaia Protocol operates 45% of the initial minting amount as a Buyback fund to guarantee investors' investment principal. \n Through this, investors can participate in the minting without pressure of loss of investment and apply for buyback through the Gaia website at any time.",Gaia Protocol把鑄幣所得收入中百分之45的金額分到回購基金來保障投資者的本金。 \n透過這樣，投資者能參與鑄幣，而同時不用擔心投資失利，因為有回購基金的保證，本金是最大化被保障了。,Gaia Protocol把铸币所得收入中百分之45的金额分到回购基金来保障投资者的本金。\n透过这样，投资者能参与铸币，而同时不用担心投资失利，因为有回购基金的保证，本金是最大化被保障了。
+GENESIS_SNEAK_PEEK_TITLE,SNEAK PEEK,SNEAK PEEK,搶先看,抢先看
+GENESIS_SNEAK_PEEK_DESC,본 이미지는 스닉픽으로 실제 NFT 민팅되는 NFT와 다를 수 있습니다.,Real image of NFTs may differ from Sneak Peek design,搶先看只供參考，可能和真正圖片有偏差。,抢先看只供参考，可能和真正图片有偏差。
+GENESIS_MINT_TITLE,MINT,MINT,鑄幣,铸币
+GENESIS_MINT_DESC,민팅은 종료되었습니다.\n오픈씨에서 2차 구매 가능합니다.,Minting has been completed, so you can buy a second time at OpenSea.
+GENESIS_MINT_BUTTON,구매하기 >,Buy >
+GENESIS_PRE_SALE_TITLE,Pre Sale,Pre-Sale,預售,预售
+GENESIS_PRE_SALE_DESC1,(Whitelist),(Whitelist),（白名单）,（白名单）
+GENESIS_PRE_SALE_DESC2,2월 10일 밤 10:00시,10th of February 22:00 (UTC + 9),2022年2月10日晚上10點 (UTC+9),2022年2月10日晚上10点 (UTC+9)
+GENESIS_PRE_SALE_DESC3,"1,000 Klay","1,000 Klay","1,000 Klay","1,000 Klay"
+GENESIS_PRE_SALE_DESC4,"총 4,000개","4,000 NFTs","4,000個 NFT","4,000个 NFT"
+GENESIS_PUBLIC_SALE_TITLE,Public Sale,Public-Sale,公開發售,公开发售
+GENESIS_PUBLIC_SALE_DESC1,2월 10일 밤 11:00시,10th of February 23:00 (UTC + 9),2022年2月10日晚上11點 (UTC+9),2022年2月10日晚上11点 (UTC+9)
+GENESIS_PUBLIC_SALE_DESC2,"1,000 Klay","1,000 Klay","1,000 Klay","1,000 Klay"
+GENESIS_PUBLIC_SALE_DESC3,"총 6,000개","6,000 NFTs","6,000個 NFT","6,000个 NFT"
+GENESIS_TEAM_TITLE,TEAM,TEAM,團隊,团队
+GENESIS_TEAM_NAME_TITLE1,심영재,"Sim, Young Jae","Sim, Young Jae","Sim, Young Jae"
+GENESIS_TEAM_ROLE_DESC1,Director,Director,理事,理事
+GENESIS_TEAM_NAME_DESC1,"그는 국내 최초로 PFP를 만든 DSC의 개발자이자, 클레이튼 최초의 밈코인 인절미를 만든 떡방앗간 커뮤니티의 창시자이기도 합니다. 가이아 프로토콜에 대한 아이디어를 냈으며 가이아 프로토콜의 디렉터 역할을 맡게 되었습니다.","Sim, Young Jae is the developer of the first PFP project DSC eMATES in Korea, and the first developer of MEME coin Inejeolmi token on Kalytn network. He is the director of Gaia Protocol project.","Sim, Young Jae 是韓國第一個PFP項目DSC的開發者，也是Kalytn 網絡上第一個迷因幣Inejeolmi的開發者。現在為Gaia  Protocol項目的理事。","Sim, Young Jae 是韩国第一个PFP项目DSC的开发者，也是Kalytn 网络上第一个迷因币Inejeolmi的开发者。现在为Gaia  Protocol项目的理事。"
+GENESIS_TEAM_NAME_TITLE2,조선우,"Cho, Sunwoo","Cho, Sunwoo","Cho, Sunwoo"
+GENESIS_TEAM_ROLE_DESC2,Art & Design,Art & Design,藝術和設計師,艺术和设计师 
+GENESIS_TEAM_NAME_DESC2,"현직 게임 개발자이자 NFT 아티스트입니다. 다년간 트위터 작품 활동을 통해 32만 팔로워를 보유하고 있으며, 최근에는 한국의 NFT 및 P2E 게임 프로젝트에도 참여하고 있습니다.","Cho, Sunwoo is a game developer as well as an NFT artist. He has 320K followers on Twitter through his long-term activity. Recently he has participated in several Korean NFT and P2E projects.","Cho, Sunwoo 是一名遊戲開發者，同時也是NFT 設計師。他在推特有32萬追踪者，也在推特上十分活躍。他最近也活躍於數個著名的韓國 NFT 和P2E 項目。","Cho, Sunwoo 是一名游戏开发者，同时也是NFT 设计师。他在推特有32万追踪者，也在推特上十分活跃。他最近也活跃于数个著名的韩国 NFT 和P2E 项目。"
+GENESIS_TEAM_NAME_TITLE3,TheGreatHB,TheGreatHB,TheGreatHB,TheGreatHB
+GENESIS_TEAM_ROLE_DESC3,Development,Development,開發者,开发者
+GENESIS_TEAM_NAME_DESC3,"SushiSwap의 Contributor (스마트계약 내부 오디터)로서 Shoyu 및 Mirin 개발 등에 참여했습니다. 국내에서는 DSC, MIX 생태계, Klubs 생태계 등의 스마트계약을 감사 및 개발해왔습니다. 또한 클레이튼 최초의 밈코인 인절미의 스마트계약 개발자이기도 합니다.","TheGreatHB is a SushiSwap Contributor (Internal Smartcontract Auditor). He participated in Shoyu and Mirin projects as a developmer. In Korea, he audited as well as developed DSC and ecosystems of Klubs and MIX token. He has also developed Inejeolmi token's smart contract.",TheGreatHB 是SushiSwap 的貢獻者（智能合約審計師）。他曾擔任Shoyu 和Mirin 項目的開發者角色。在韓國 ，他負責審計和開發 DSC 以及Klubs 和 MIX 幣的開發。他也擔任過迷因幣Inejeolmi的智能合約開發。,TheGreatHB 是SushiSwap 的贡献者（智能合约审计师）。他曾担任Shoyu 和Mirin 项目的开发者角色。在韩国 ，他负责审计和开发 DSC 以及Klubs 和 MIX 币的开发。他也担任过迷因币Inejeolmi的智能合约开发。
+GENESIS_TEAM_NAME_TITLE4,이학성,"Lee, Hakseong","Lee, Hakseong","Lee, Hakseong"
+GENESIS_TEAM_ROLE_DESC4,Development,Development,開發者,开发者
+GENESIS_TEAM_NAME_DESC4,"그는 MIX 웹 사이트, Klubs, 떡방앗간의 웹 디자인 및 프론트 개발을 담당하고 있는 개발자입니다. 웹 뿐 아니라 애플리케이션, 서버 개발 경험도 다수 가지고 있어 가이아 프로토콜의 웹 개발자 역할을 맡게 되었습니다.","Lee, Hakseong is a full stack developer of the MIX token website, Klubs and Injeolmi webdesign. His experience in application development and server development is the key to Gaia Protocol's success.","Lee, Hakseong 是一名前後台開發者，擔任過MIX幣, Klubs 和Injeolmi 的開發者。他對於應用程式和後台開發有著相當豐富的經驗，為Gaia Protocol的成功奠定基礎。","Lee, Hakseong 是一名前后台开发者，担任过MIX币, Klubs 和Injeolmi 的开发者。他对于应用程式和后台开发有着相当丰富的经验，为Gaia Protocol的成功奠定基础。"
+GENESIS_TEAM_NAME_TITLE5,박민,"Park, Min","Park, Min","Park, Min"
+GENESIS_TEAM_ROLE_DESC5,Marketing & CS,Marketing & CS,客服，市場推廣,客服，市场推广
+GENESIS_TEAM_NAME_DESC5,"그는 DSC 커뮤니티에서 활동하고 있으며, 떡방앗간 커뮤니티 매니저를 담당하고 있습니다. 트위터 뿐 아니라 여러 커뮤니티에서 활동적인 모습으로 커뮤니티의 원동력이 되고 있습니다.가이아의 기획단계에서 함께 했으며 커뮤니티 에디터를 맡게 되었습니다.","Park Min is a part of DSC community, currently managing Injeolmi token community. He proactively fosters several Crypto SNS to motivate holders to participate in various events. He joined from the initial phase of Gaia Protocol, and currently he works as a community editor for the proejct.",Park Min 是DSC 社區的一員，現在負責迷因幣Injeolmi 的社區管理。他促進各社交平台的加密貨幣社區交流，包括舉辦各種線上線下的活動。他在Gaia  Protocol的初期已經加入團隊，現在擔任Gaia  Protocol各社區的管理員。,Park Min 是DSC 社区的一员，现在负责迷因币Injeolmi 的社区管理。他促进各社交平台的加密货币社区交流，包括举办各种线上线下的活动。他在Gaia  Protocol的初期已经加入团队，现在担任Gaia  Protocol各社区的管理员。
+GENESIS_TEAM_NAME_TITLE6,강희민,"Kang, Heemin","Kang, Heemin","Kang, Heemin"
+GENESIS_TEAM_ROLE_DESC6,Marketing & CS,Marketing & CS,客服，市場推廣,客服，市场推广
+GENESIS_TEAM_NAME_DESC6,"Klubs, FoxPunks의 커뮤니티 매니징 및 마케팅을 담당하고 있습니다. 홍콩에 거주하고 있으며 국내 팀 뿐 아니라 다양한 해외 팀과의 협업을 통해 커뮤니티를 확장시키고 나아가 해외 크립토 투자자들까지 참여할 수 있는 프로젝트로 성장시킬 예정입니다.","Kang Heemin is the marketer and community manager of Klubs, FoxPunks projects. He is currently located at Hong Kong. He is responsible in building up partnerships in Korea as well as expanding the relationship with interantional project teams to attract global crypto investors to Gaia Protocol.",Kang Heemin 是Klubs和 FoxPunks項目的市場推廣和社區管理員。他現在位於香港，以鞏固韓國社區和拓展合作規模至海外地區為目標，積極地與不同項目建立合作關係，以吸引更多海外的加密貨幣投資者加入Gaia Protocol。,Kang Heemin 是Klubs和 FoxPunks项目的市场推广和社区管理员。他现在位于香港，以巩固韩国社区和拓展合作规模至海外地区为目标，积极地与不同项目建立合作关系，以吸引更多海外的加密货币投资者加入Gaia Protocol。
+SUPERNOVA_TITLE,Gaia Supernova,Gaia Supernova
+SUPERNOVA_WHY_MENU,WHY,WHY
+SUPERNOVA_FUND_MENU,FUND,FUND
+SUPERNOVA_MINT_MENU,MINT,MINT
+SUPERNOVA_SNEAKPEEK_MENU,SNEAK PEEK,SNEAK PEEK
+SUPERNOVA_TEAM_MENU,TEAM,TEAM
+SUPERNOVA_INIT_DESC,Gaia Protocol의 2nd NFT Proj.\nSupernova 홀더들만을 대상으로 파격적인 이벤트를 지속 진행\n오픈씨 로열티 중 90% 를 홀더과 공유\n투자자들의 초기 투자비용을\n최대한 보장하고 지지(Backing),Second Gaia Protocol NFT Project; Continuous giveaway events only for \nGaia Supernova holders\nShare 90% of the OpenSea resale royalty with holders\n Investors' principals will be\n secured and supported as much as possible.
+SUPERNOVA_WHY_TITLE,Passive Income,Passive Income
+SUPERNOVA_WHY_DESC,Opensea 거래 수수료의 90% 모든 홀더들에게 분배,Distribute 90% of OpenSea resale royalty with Gaia Supernova holders
+SUPERNOVA_FUND_TITLE,Event Fund,Event Fund
+SUPERNOVA_FUND_DESC,Gaia Supernova 민팅 금액 90% Event Fund\n안정적인 DeFi 영구 예치를 통한 이자 발생\n이자 수익을 사용하여 지속적 이벤트를 진행\nNFT 홀더 대상 추첨하여 고급스러운 경품 지급\n민팅가 아래로 리스팅 된 물량 비정기적 바이백\n가격 최저 지지선을 확보,90% of Minted Fund will be run as an Event Fund\n Interest accrued through stable DeFi permanent deposit\n Use interest revenue to continue various giveaway events\n for NFT Holder by luck draw. The team may use part of the interest to secure a value of Gaia Supernova from Opensea
+SUPERNOVA_SNEAKPEEK_TITLE,SNEAK PEEK,SNEAK PEEK
+SUPERNOVA_MINT_TITLE,Minting Info,Minting Info
+SUPERNOVA_MINT_VIP_TITLE,민팅 종료,Minting is end.
+SUPERNOVA_MINT_VIP_DESC,오픈씨 구매 가능,You can buy OpenSea.
+SUPERNOVA_MINT_PUBLIC_TITLE,Public Sale,Public Sale
+SUPERNOVA_MINT_PUBLIC_DESC,3월 10일 밤 10시 00분,"22:00 UTC + 9, 10th of March"
+SUPERNOVA_TEAM_TITLE,TEAM,TEAM
+SUPERNOVA_TEAM_TITLE1,심영재,"Sim, Young Jae"
+SUPERNOVA_TEAM_DESC1,Director,Director
+SUPERNOVA_TEAM_TITLE2,Chowbie,Chowbie
+SUPERNOVA_TEAM_DESC2,Art & Design,Art & Design
+SUPERNOVA_TEAM_TITLE3,TheGreatHB,TheGreatHB
+SUPERNOVA_TEAM_DESC3,Smart contract Developer,Smart contract Developer
+SUPERNOVA_TEAM_TITLE4,이학성,"Lee, Hakseong"
+SUPERNOVA_TEAM_DESC4,Web Developer,Web Developer
+SUPERNOVA_TEAM_TITLE5,강성민,"Kang, Sungmin"
+SUPERNOVA_TEAM_DESC5,Bot Developer,Bot Developer
+SUPERNOVA_TEAM_TITLE6,박민,"Park, Min"
+SUPERNOVA_TEAM_DESC6,Marketing & CS,Marketing & CS
+SUPERNOVA_TEAM_TITLE7,강희민,"Kang, Heemin"
+SUPERNOVA_TEAM_DESC7,Marketing & CS,Marketing & CS
+SUPERNOVA_TEAM_TITLE8,박상우,"Park, Sang woo"
+SUPERNOVA_TEAM_DESC8,Moderator,Moderator
+SUPERNOVA_TEAM_TITLE9,손상현,"Son, Sang hyu"
+SUPERNOVA_TEAM_DESC9,Moderator,Moderator

@@ -67,7 +67,7 @@ export default class Layout implements View {
     }
 
     public set title(title: string) {
-        document.title = `${title} | Gaia Stable DAO`;
+        document.title = `${title} | Gaia Protocol`;
     }
 
     public changeParams(params: ViewParams, uri: string): void { }

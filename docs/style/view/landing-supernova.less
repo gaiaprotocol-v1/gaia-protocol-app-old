@@ -1,0 +1,205 @@
+.landing-supernova-view {
+    display        : flex;
+    flex-direction : column;
+    width          : 100%;
+    max-width      : 1240px;
+    margin         : auto;
+    align-items    : center;
+    justify-content: center;
+    text-align     : center;
+
+    @media @phone {
+        padding: 20px;
+    }
+
+    >.init-container {
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+        width          : 100%;
+        padding-top    : 4rem;
+
+        >img {
+            width : 35%;
+            margin: 32px;
+
+            @media @phone {
+                width: 80%;
+            }
+        }
+
+        >.flow-map {
+            width        : 50%;
+            margin       : 72px;
+            border-radius: 4px;
+
+            @media @phone {
+                width : 100%;
+                margin: 0px;
+            }
+        }
+
+        >p {
+            margin-top : 32px;
+            line-height: 2rem;
+        }
+    }
+
+    >.why-container,
+    .fund-container {
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 45px;
+            margin-top : 12rem;
+            color      : rgba(153, 0, 19, 1);
+        }
+
+        >p {
+            margin-top : 1rem;
+            line-height: 2rem;
+        }
+    }
+
+    >.video-container {
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 45px;
+            color      : rgba(153, 0, 19, 1);
+        }
+
+        >.video {
+            margin-top: 1rem;
+        }
+    }
+
+    >.fundflow {
+        margin-top: 12rem;
+        width     : 50%;
+
+        @media @phone {
+            width: 100%;
+        }
+    }
+
+    >.nft-container {
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 2.5rem;
+            margin-top : 12rem;
+            color      : rgba(153, 0, 19, 1);
+        }
+
+        >p {
+            margin-top: 2rem;
+            font-size : 0.875rem;
+        }
+
+
+        >section {
+            display              : grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            margin-top: 2rem;
+
+            >img {
+                width        : 300px;
+                margin       : 8px;
+                border-radius: 4px;
+            }
+
+            @media @phone {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+
+    >.mint-container {
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 2.5rem;
+            margin-top : 12rem;
+            color      : rgba(153, 0, 19, 1);
+        }
+
+        >h3 {
+            margin-top : 4rem;
+            line-height: 1.5rem;
+            font-size  : 2rem;
+            font-weight: 700;
+        }
+
+        >h4 {
+            margin-top : 2rem;
+            line-height: 1.5rem;
+            font-size  : 1.5rem;
+            font-weight: 700;
+        }
+
+        >.caption {
+            margin-top: 0.5rem;
+        }
+
+        >p {
+            margin-top: 1rem;
+        }
+
+        >a {
+            display         : block;
+            font-family     : copperplate, serif;
+            cursor          : pointer;
+            margin-top      : 16px;
+            padding         : 16px;
+            text-decoration : none;
+            background-color: rgba(153, 0, 19, 1);
+            border-radius   : 4px;
+            color           : white;
+
+            &:hover {
+                background-color: rgba(153, 0, 19, 0.9);
+            }
+
+            &:active {
+                background-color: rgba(153, 0, 19, 0.8);
+            }
+        }
+    }
+
+    >.team-container {
+
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 2.5rem;
+            margin-top : 12rem;
+            color      : rgba(153, 0, 19, 1);
+        }
+
+        >section {
+            display              : grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            @media @phone {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            >.team {
+                >h3 {
+                    margin-top : 4rem;
+                    line-height: 1.5rem;
+                    font-size  : 2rem;
+                    font-weight: 700;
+                }
+
+                >p {
+                    margin-top: 1rem;
+                    color     : rgba(153, 0, 19, 0.8);
+                }
+            }
+        }
+    }
+}
