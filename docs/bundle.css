@@ -1246,6 +1246,74 @@ body {
 .check-holder-view > article > a:active {
   background-color: rgba(177, 156, 118, 0.8);
 }
+.team-view > header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.team-view > header > h2 {
+  font-family: trajan-pro-3, serif;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #b19c76;
+}
+.team-view > article {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.team-view > article > .team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64px;
+}
+.team-view > article > .team-container > h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.team-view > article > .team-container > p {
+  margin-top: 16px;
+  color: #e0d8c8;
+  font-weight: 300;
+}
+.partners-view {
+  width: 100%;
+}
+.partners-view > h2 {
+  display: flex;
+  justify-content: center;
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #b19c76;
+}
+.partners-view > section {
+  margin-top: 4rem;
+}
+.partners-view > section > a {
+  display: block;
+  margin-top: 32px;
+}
+.partners-view > section > a > img {
+  width: 100%;
+  height: 96px;
+  padding: 16px;
+}
+@media only screen and (max-width: 719px) {
+  .partners-view > section > a > img {
+    margin-top: 2rem;
+  }
+}
+.partners-view > section > a > .electrikFinance {
+  width: 320px;
+  height: 97px;
+  padding: 0px;
+  margin: 16px 0px;
+}
 /** Genesis */
 .landing-genesis-view {
   display: flex;

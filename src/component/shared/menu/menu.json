@@ -14,6 +14,14 @@
                 {
                     "uri": "landing/stabledao",
                     "key": "STABLEDAO_MENU"
+                },
+                {
+                    "uri": "partners",
+                    "key": "PARTNERS_MENU"
+                },
+                {
+                    "uri": "team",
+                    "key": "TEAM_MENU"
                 }
             ]
         },

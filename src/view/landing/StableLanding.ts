@@ -65,47 +65,6 @@ export default class StableDaoLanding implements View {
                         el("img", { "data-aos": "fade-up", src: "/images/view/stabledao-landing/nft8.png" }),
                     ),
                 ),
-                el(".team-container", { id: "team" },
-                    el("h2", { "data-aos": "fade-up" }, msg("STABLE_DAO_TEAM_TITLE")),
-                    el("section",
-                        el(".team", { "data-aos": "fade-up" },
-                            el("h3", msg("STABLE_DAO_TEAM_TITLE1")),
-                            el("p", msg("STABLE_DAO_TEAM_DESC1"))
-                        ),
-                        el(".team", { "data-aos": "fade-up" },
-                            el("h3", msg("STABLE_DAO_TEAM_TITLE2")),
-                            el("p", msg("STABLE_DAO_TEAM_DESC2"))
-                        ),
-                        el(".team", { "data-aos": "fade-up" },
-                            el("h3", msg("STABLE_DAO_TEAM_TITLE3")),
-                            el("p", msg("STABLE_DAO_TEAM_DESC3"))
-                        ),
-                        el(".team", { "data-aos": "fade-up" },
-                            el("h3", msg("STABLE_DAO_TEAM_TITLE4")),
-                            el("p", msg("STABLE_DAO_TEAM_DESC4"))
-                        ),
-                        el(".team", { "data-aos": "fade-up" },
-                            el("h3", msg("STABLE_DAO_TEAM_TITLE5")),
-                            el("p", msg("STABLE_DAO_TEAM_DESC5"))
-                        ),
-                        el(".team", { "data-aos": "fade-up" },
-                            el("h3", msg("STABLE_DAO_TEAM_TITLE6")),
-                            el("p", msg("STABLE_DAO_TEAM_DESC6"))
-                        ),
-                        el(".team", { "data-aos": "fade-up" },
-                            el("h3", msg("STABLE_DAO_TEAM_TITLE7")),
-                            el("p", msg("STABLE_DAO_TEAM_DESC7"))
-                        ),
-                        el(".team", { "data-aos": "fade-up" },
-                            el("h3", msg("STABLE_DAO_TEAM_TITLE8")),
-                            el("p", msg("STABLE_DAO_TEAM_DESC8"))
-                        ),
-                        el(".team", { "data-aos": "fade-up" },
-                            el("h3", msg("STABLE_DAO_TEAM_TITLE9")),
-                            el("p", msg("STABLE_DAO_TEAM_DESC9"))
-                        ),
-                    ),
-                ),
                 el(".faq-container", { id: "faq" },
                     el("h2", { "data-aos": "fade-up" }, msg("STABLE_DAO_FAQ_TITLE")),
                     el("section",

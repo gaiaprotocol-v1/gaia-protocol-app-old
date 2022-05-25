@@ -47,47 +47,6 @@ export default class SupernovaLanding implements View {
                         el("img", { "data-aos": "zoom-in", src: "/images/view/supernova-landing/nft6.gif" }),
                     ),
                 ),
-                el(".team-container", { id: "team" },
-                    el("h2", { "data-aos": "zoom-in" }, msg("SUPERNOVA_TEAM_TITLE")),
-                    el("section",
-                        el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("SUPERNOVA_TEAM_TITLE1")),
-                            el("p", msg("SUPERNOVA_TEAM_DESC1"))
-                        ),
-                        el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("SUPERNOVA_TEAM_TITLE2")),
-                            el("p", msg("SUPERNOVA_TEAM_DESC2"))
-                        ),
-                        el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("SUPERNOVA_TEAM_TITLE3")),
-                            el("p", msg("SUPERNOVA_TEAM_DESC3"))
-                        ),
-                        el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("SUPERNOVA_TEAM_TITLE4")),
-                            el("p", msg("SUPERNOVA_TEAM_DESC4"))
-                        ),
-                        el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("SUPERNOVA_TEAM_TITLE5")),
-                            el("p", msg("SUPERNOVA_TEAM_DESC5"))
-                        ),
-                        el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("SUPERNOVA_TEAM_TITLE6")),
-                            el("p", msg("SUPERNOVA_TEAM_DESC6"))
-                        ),
-                        el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("SUPERNOVA_TEAM_TITLE7")),
-                            el("p", msg("SUPERNOVA_TEAM_DESC7"))
-                        ),
-                        el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("SUPERNOVA_TEAM_TITLE8")),
-                            el("p", msg("SUPERNOVA_TEAM_DESC8"))
-                        ),
-                        el(".team", { "data-aos": "zoom-in" },
-                            el("h3", msg("SUPERNOVA_TEAM_TITLE9")),
-                            el("p", msg("SUPERNOVA_TEAM_DESC9"))
-                        ),
-                    ),
-                ),
             ));
         this.init();
     }

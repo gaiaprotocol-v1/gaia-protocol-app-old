@@ -79,7 +79,7 @@ BUY_INPUT,NFT 구매 수량 입력,
 BUY_APPROVE_BUTTON,oUSDT 사용 승인,
 BUY_NFT_BUTTON,NFT 구입,
 BUY_USDT_BUTTON,oUSDT 구매하기,
-LANDING_MENU,LANDING,LANDING
+LANDING_MENU,INTRO,INTRO
 APP_MENU,APP,APP
 HOLDER_CHECK_TITLE,Gaia Holder Verification,,
 HOLDER_CHECK_DESC,Welcome to the community for investors.,Welcome to the community for investors.,,
@@ -89,7 +89,8 @@ HOLDER_CHECK_FAIL_DESC,Holder Verification Fail,Holder Verification Fail,,
 WHY_MENU,WHY,WHY,為什麼,为什么
 BUYBACK_FUND_MENU,BUYBACK FUND,BUYBACK FUND,回購基金,回购基金
 SNEAK_PEEK_MENU,SNEAK PEEK,SNEAK PEEK,搶先看,抢先看
-TEAM_MENU,TEAM,TEAM,團隊,团队
+TEAM_MENU,Team,Team,團隊,团队
+PARTNERS_MENU,Partners,Partners
 PARTNER_MENU,PARTNER,PARTNER,合作夥伴,合作伙伴
 ENTER_APP_BUTTON,Enter App,Enter App,進入App,进入App
 ENTER_APP_TITLE,현재 준비중입니다.,현재 준비중입니다.,準備中,准备中
@@ -199,25 +200,28 @@ STABLE_DAO_MINT_BUY_DESC2,"Gaia Kronos: 1,200oUSDT \n Gaia Supernova: 1,250oUSDT
 STABLE_DAO_MINT_BUYBACK_TITLE,Buyback,Buyback
 STABLE_DAO_MINT_BUYBACK_DESC1,4월 8일 오후 9시 00분 ~ 6월 30일 오후 9시 00분,
 STABLE_DAO_MINT_BUYBACK_DESC2,"1,200 oUSDT",
-STABLE_DAO_TEAM_TITLE,TEAM,TEAM
-STABLE_DAO_TEAM_TITLE1,심영재,"Sim, Young Jae"
-STABLE_DAO_TEAM_DESC1,Director,Director
-STABLE_DAO_TEAM_TITLE2,Chowbie,Chowbie
-STABLE_DAO_TEAM_DESC2,Art & Design,Art & Design
-STABLE_DAO_TEAM_TITLE3,TheGreatHB,TheGreatHB
-STABLE_DAO_TEAM_DESC3,Smart contract Developer,Smart contract Developer
-STABLE_DAO_TEAM_TITLE4,이학성,"Lee, Hakseong"
-STABLE_DAO_TEAM_DESC4,Web Developer,Web Developer
-STABLE_DAO_TEAM_TITLE5,강성민,"Kang, Sungmin"
-STABLE_DAO_TEAM_DESC5,Bot Developer,Bot Developer
-STABLE_DAO_TEAM_TITLE6,박민,"Park, Min"
-STABLE_DAO_TEAM_DESC6,Marketing & CS,Marketing & CS
-STABLE_DAO_TEAM_TITLE7,강희민,"Kang, Heemin"
-STABLE_DAO_TEAM_DESC7,Marketing & CS,Marketing & CS
-STABLE_DAO_TEAM_TITLE8,박상우,"Park, Sang woo"
-STABLE_DAO_TEAM_DESC8,Moderator,Moderator
-STABLE_DAO_TEAM_TITLE9,손상현,"Son, Sang hyu"
-STABLE_DAO_TEAM_DESC9,Moderator,Moderator
+TEAM_TITLE,GAIA TEAM,GAIA TEAM
+TEAM_TITLE1,심영재,"Sim, Young Jae"
+TEAM_DESC1,Director,Director
+TEAM_TITLE2,Chowbie,Chowbie
+TEAM_DESC2,Art & Design,Art & Design
+TEAM_TITLE3,TheGreatHB,TheGreatHB
+TEAM_DESC3,Smart contract Developer,Smart contract Developer
+TEAM_TITLE4,이학성,"Lee, Hakseong"
+TEAM_DESC4,Web Developer,Web Developer
+TEAM_TITLE5,강성민,"Kang, Sungmin"
+TEAM_DESC5,Bot Developer,Bot Developer
+TEAM_TITLE6,박민,"Park, Min"
+TEAM_DESC6,Marketing & CS,Marketing & CS
+TEAM_TITLE7,강희민,"Kang, Heemin"
+TEAM_DESC7,Marketing & CS,Marketing & CS
+TEAM_TITLE8,박상우,"Park, Sang woo"
+TEAM_DESC8,Moderator,Moderator
+TEAM_TITLE9,손상현,"Son, Sang hyu"
+TEAM_DESC9,Moderator,Moderator
+TEAM_TITLE10,홍두경,"hong, du kyung"
+TEAM_DESC10,Marketing,Marketing,
+PARTNERSHIP_TITLE,PARTNERSHIP,PARTNERSHIP
 STABLE_DAO_FAQ_TITLE,FAQ,FAQ
 STABLE_DAO_FAQ_TITLE1,Q1. 투표(거버넌스)에 참여하지 않아도 수익이 분배되나요?,
 STABLE_DAO_FAQ_DESC1,"기획단계에서는 투표 참여자에게만 수익분배를 하려고 했으나, 최종적으로는 투표에 참여하지 않아도 수익이 분배됩니다.",
