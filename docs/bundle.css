@@ -1253,10 +1253,13 @@ body {
   justify-content: center;
 }
 .team-view > header > h2 {
+  display: flex;
+  justify-content: center;
   font-family: trajan-pro-3, serif;
-  font-size: 2.5rem;
-  margin-top: 12rem;
+  font-weight: 700;
+  font-size: 40px;
   color: #b19c76;
+  margin-top: 64px;
 }
 .team-view > article {
   display: grid;
@@ -1287,15 +1290,16 @@ body {
   justify-content: center;
   font-family: trajan-pro-3, serif;
   font-weight: 700;
-  font-size: 2.5rem;
-  margin-top: 12rem;
+  font-size: 40px;
   color: #b19c76;
+  margin-top: 64px;
 }
 .partners-view > section {
   margin-top: 4rem;
 }
 .partners-view > section > a {
-  display: block;
+  display: flex;
+  justify-content: center;
   margin-top: 32px;
 }
 .partners-view > section > a > img {
@@ -1311,6 +1315,18 @@ body {
 .partners-view > section > a > .electrikFinance {
   width: 320px;
   height: 97px;
+  padding: 0px;
+  margin: 16px 0px;
+}
+.partners-view > section > a > .layerlab {
+  width: 256px;
+  height: 197px;
+  padding: 0px;
+  margin: 16px 0px;
+}
+.partners-view > section > a > .dncMedia {
+  width: 312px;
+  height: 161px;
   padding: 0px;
   margin: 16px 0px;
 }
