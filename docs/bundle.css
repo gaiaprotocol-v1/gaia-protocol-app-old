@@ -1330,6 +1330,12 @@ body {
   padding: 0px;
   margin: 16px 0px;
 }
+.partners-view > section > a > .spoon {
+  width: 188px;
+  height: 144px;
+  padding: 0px;
+  margin: 16px 0px;
+}
 /** Genesis */
 .landing-genesis-view {
   display: flex;
