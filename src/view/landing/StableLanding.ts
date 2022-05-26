@@ -26,12 +26,11 @@ export default class StableDaoLanding implements View {
                 ),
                 el(".project-container", { id: "project" },
                     el("h2", { "data-aos": "fade-up" }, msg("STABLE_DAO_PROJECT_TITLE")),
-                    el("img", { src: "/images/view/stabledao-landing/ama.png", alt: "ama" }),
+                    el("img", { src: "/images/view/stabledao-landing/ama.png", alt: "ama", "data-aos": "fade-up" }),
                     el("a", {
                         href: "/Gaia_Protocol_4th_AMA_Final.pdf",
                         download: ""
                     }, msg("PROJECT_DOC_LINK")),
-                    // el("#ama", { height: "100vh" }),
                     el("h3", { "data-aos": "fade-up" }, msg("STABLE_DAO_PROJECT_TITLE1")),
                     el("p", { "data-aos": "fade-up" }, msg("STABLE_DAO_PROJECT_DESC1")),
                     el("h3", { "data-aos": "fade-up" }, msg("STABLE_DAO_PROJECT_TITLE2")),
