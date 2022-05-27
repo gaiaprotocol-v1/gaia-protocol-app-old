@@ -58,7 +58,8 @@ EMERGENCY_DESC,이머전시 리워드,Emergency Reward
 CLAIM_REWARDS_BUTTON,리워드 받기,Claim Rewards
 GENESIS_MENU,Genesis,Genesis
 SUPERNOVA_MENU,Supernova,Supernova
-STABLEDAO_MENU,StableDAO,StableDAO
+STABLEDAO_MENU,StableDAO,StableDAO,
+DIVIDEND_MENU,Dividend,Dividend
 STABLEDAO_INTEREST_ACCRUED_DESC,쌓여진 이자:,Interest accrued:
 TOTAL_KRW_DESC,총 한화:,Total Korean currency:
 EARNING_BUTTON,수익 받기,Earning revenue
@@ -238,3 +239,7 @@ STABLE_DAO_FAQ_DESC6,"현행법상 온체인에서 진행되는 다양한 행위
 STABLE_DAO_FAQ_TITLE7,"Q7. 투표 결과가 정확하게 50:50이 나오는 경우, 어떻게 해결하나요?",
 STABLE_DAO_FAQ_DESC7,"재투표를 진행 후, 이후에도 또 다시 50:50의 결과가 나온다면 투자 또한 반반 비율로 진행합니다. 팀에서는이러한 상황이 발생할 확률이 몹시 희박하다고 보고 있습니다.",
 STABLE_DAO_PARTNERSHIP_TITLE,PARTNERSHIP,
+DIVIDEND_TITLE,
+DIVIDEND_INIT_DESC,가이아 프로토콜의 서비스와 타 프로젝트 접목을 통해 꾸준히 발생하는 수익을 Gaia NFT 보유 홀더들에게 꾸준히 분배하며 이윤을 제공합니다. 
+DIVIDEND_STRATEGY_TITLE,VALUE BOOSTING STRATEGY
+DIVIDEND_STRATEGY_DESC, GAIA Dividend는 현재 수익 분배를 위해 준비 중입니다.

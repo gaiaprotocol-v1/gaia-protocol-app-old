@@ -1,0 +1,78 @@
+.landing-dividend-view {
+    display        : flex;
+    flex-direction : column;
+    width          : 100%;
+    max-width      : 1240px;
+    margin         : auto;
+    align-items    : center;
+    justify-content: center;
+    text-align     : center;
+
+    >.init-container {
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+        width          : 100%;
+        padding-top    : 4rem;
+
+        >img {
+            width : 35%;
+            margin: 32px;
+
+            @media @phone {
+                width: 80%;
+            }
+        }
+
+        >.flow-map {
+            width        : 50%;
+            margin       : 72px;
+            border-radius: 4px;
+
+            @media @phone {
+                width : 100%;
+                margin: 0px;
+            }
+        }
+
+        >p {
+            margin-top : 32px;
+            line-height: 32px;
+            color      : #e0d8c8;
+            font-weight: 400;
+        }
+    }
+
+    >.strategy-container {
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+        width          : 100%;
+        padding-top    : 4rem;
+
+        >h2 {
+            font-family: 'Trajan Pro Bold';
+            font-size  : 42px;
+            margin-top : 200px;
+            color      : #b19c76;
+        }
+
+        >img {
+            width        : 70%;
+            margin       : 40px;
+            border-radius: 4px;
+
+            @media @phone {
+                width : 100%;
+                margin: 0px;
+            }
+        }
+
+        >p {
+            color      : #e0d8c8;
+            font-weight: 400;
+        }
+    }
+}

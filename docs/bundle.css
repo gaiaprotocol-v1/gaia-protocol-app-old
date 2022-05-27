@@ -1163,6 +1163,15 @@ body {
   font-size: 14px;
   font-weight: 300;
 }
+.home-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 32px;
+}
 .home-view > header > img {
   width: 256px;
   height: 256px;
@@ -1574,7 +1583,7 @@ body {
   padding: 0px;
   margin: 16px 0px;
 }
-.home-view {
+.genesis-view {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1585,50 +1594,50 @@ body {
   padding: 32px;
 }
 @media only screen and (max-width: 719px) {
-  .home-view {
+  .genesis-view {
     margin: 64px 8px;
     padding: 16px;
   }
 }
-.home-view > header > .title-container > h2 {
+.genesis-view > header > .title-container > h2 {
   font-size: 32px;
   font-weight: 700;
 }
-.home-view > header > .title-container > p {
+.genesis-view > header > .title-container > p {
   font-size: 12px;
   padding-top: 8px;
   color: #e0d8c8;
   font-weight: 300;
 }
-.home-view > header > .tool-container {
+.genesis-view > header > .tool-container {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
 @media only screen and (max-width: 719px) {
-  .home-view > header > .tool-container {
+  .genesis-view > header > .tool-container {
     flex-direction: column;
   }
 }
-.home-view > header > .tool-container > .title-container {
+.genesis-view > header > .tool-container > .title-container {
   text-align: left;
 }
-.home-view > header > .tool-container > .title-container > h3 {
+.genesis-view > header > .tool-container > .title-container > h3 {
   font-size: 21px;
   font-weight: 300;
   margin-bottom: 16px;
 }
-.home-view > header > .tool-container > .title-container > p {
+.genesis-view > header > .tool-container > .title-container > p {
   color: #e0d8c8;
   margin-top: 8px;
   font-size: 12px;
   font-weight: 300;
 }
-.home-view > header > .tool-container > .button-container {
+.genesis-view > header > .tool-container > .button-container {
   display: flex;
   gap: 16px;
 }
-.home-view > header > .tool-container > .button-container > a {
+.genesis-view > header > .tool-container > .button-container > a {
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -1641,26 +1650,26 @@ body {
   color: black;
 }
 @media only screen and (max-width: 719px) {
-  .home-view > header > .tool-container > .button-container > a {
+  .genesis-view > header > .tool-container > .button-container > a {
     margin-top: 8px;
   }
 }
-.home-view > header > .tool-container > .button-container > a:hover {
+.genesis-view > header > .tool-container > .button-container > a:hover {
   background-color: rgba(224, 216, 200, 0.9);
   color: white;
 }
-.home-view > header > .tool-container > .button-container > a:active {
+.genesis-view > header > .tool-container > .button-container > a:active {
   background-color: #e0d8c8;
   color: white;
 }
-.home-view > .nft-container {
+.genesis-view > .nft-container {
   margin-top: 16px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 @media only screen and (max-width: 719px) {
-  .home-view > .nft-container {
+  .genesis-view > .nft-container {
     grid-template-columns: repeat(1, 1fr);
   }
 }
@@ -2544,5 +2553,79 @@ body {
   .buy-stable-dao-view > .nft-container > section {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+/** Dividend */
+.landing-dividend-view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1240px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.landing-dividend-view > .init-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 4rem;
+}
+.landing-dividend-view > .init-container > img {
+  width: 35%;
+  margin: 32px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-dividend-view > .init-container > img {
+    width: 80%;
+  }
+}
+.landing-dividend-view > .init-container > .flow-map {
+  width: 50%;
+  margin: 72px;
+  border-radius: 4px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-dividend-view > .init-container > .flow-map {
+    width: 100%;
+    margin: 0px;
+  }
+}
+.landing-dividend-view > .init-container > p {
+  margin-top: 32px;
+  line-height: 32px;
+  color: #e0d8c8;
+  font-weight: 400;
+}
+.landing-dividend-view > .strategy-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 4rem;
+}
+.landing-dividend-view > .strategy-container > h2 {
+  font-family: 'Trajan Pro Bold';
+  font-size: 42px;
+  margin-top: 200px;
+  color: #b19c76;
+}
+.landing-dividend-view > .strategy-container > img {
+  width: 70%;
+  margin: 40px;
+  border-radius: 4px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-dividend-view > .strategy-container > img {
+    width: 100%;
+    margin: 0px;
+  }
+}
+.landing-dividend-view > .strategy-container > p {
+  color: #e0d8c8;
+  font-weight: 400;
 }
 

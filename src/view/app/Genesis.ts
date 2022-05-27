@@ -23,7 +23,7 @@ export default class Genesis implements View {
 
     constructor() {
         Layout.current.title = "Genesis";
-        Layout.current.content.append(this.container = el(".home-view",
+        Layout.current.content.append(this.container = el(".genesis-view",
             el("header",
                 el(".title-container",
                     el("h2", msg("GAIA_GENESIS_TITLE")),

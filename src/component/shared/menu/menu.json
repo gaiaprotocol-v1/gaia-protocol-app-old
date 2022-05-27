@@ -16,6 +16,10 @@
                     "key": "STABLEDAO_MENU"
                 },
                 {
+                    "uri": "landing/dividend",
+                    "key": "DIVIDEND_MENU"
+                },
+                {
                     "uri": "partners",
                     "key": "PARTNERS_MENU"
                 },
