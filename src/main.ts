@@ -15,6 +15,7 @@ import StableDaoLanding from "./view/landing/StableLanding";
 import Partners from "./view/landing/Partners";
 import Team from "./view/landing/Team";
 import DividendLanding from "./view/landing/DividendLanding";
+import SupernovaEvent from "./view/app/SupernovaEvent";
 
 (async () => {
     msg.language = BrowserInfo.language;
@@ -32,6 +33,7 @@ import DividendLanding from "./view/landing/DividendLanding";
 
     // Supernova
     SkyRouter.route("supernova", Supernova);
+    SkyRouter.route("supernova/event", SupernovaEvent);
     SkyRouter.route("landing/supernova", SupernovaLanding);
 
     // StableDAO

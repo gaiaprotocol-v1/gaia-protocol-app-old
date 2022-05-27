@@ -7,6 +7,7 @@ import SupernovaNftItem from "../../component/SupernovaNftItem";
 import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
 import SupernovaRewardDistributor from "../../contracts/SupernovaRewardDistributor";
 import Wallet from "../../klaytn/Wallet";
+import ViewUtil from "../ViewUtil";
 import Layout from "./../Layout";
 
 export default class Supernova implements View {
@@ -84,6 +85,10 @@ export default class Supernova implements View {
                         }),
                     ),
                 ),
+            ),
+            el(".warning-container",
+                el("p", "GAIA SUPERNOVA는 경품 이벤트를 진행하고 있으며 디스코드에서 확인 가능합니다."),
+                el("a", "역대 상품 보기 >", { click: () => { ViewUtil.go("/supernova/event") } }),
             ),
             this.nftList = el(".nft-container"),
         ));

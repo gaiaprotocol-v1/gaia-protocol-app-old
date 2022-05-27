@@ -1,0 +1,38 @@
+.supernova-event-view {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    text-align      : center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius   : 4px;
+    padding         : 32px;
+
+    @media @phone {
+        margin : 64px 8px;
+        padding: 16px;
+    }
+
+    >header {
+        >.title-container {
+            >h2 {
+                color      : rgba(153, 0, 19, 1);
+                font-size  : 32px;
+                font-weight: 700;
+            }
+
+            >p {
+                font-size  : 12px;
+                padding-top: 8px;
+                color      : #e0d8c8;
+                font-weight: 300;
+            }
+        }
+    }
+
+    >.event-list {
+        display        : grid;
+        justify-content: center;
+        gap            : 64px;
+        margin-top     : 64px;
+    }
+}
