@@ -1,9 +1,9 @@
 import { DomNode, el, msg } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
-import SupernovaEventItem from "../../component/SupernovaEventItem";
-import supernovaEvent from "./supernovaEvent.json";
-import Layout from "../Layout";
 import AOS from "aos";
+import superagent from "superagent";
+import SupernovaEventItem from "../../component/SupernovaEventItem";
+import Layout from "../Layout";
 
 export default class SupernovaEvent implements View {
 
@@ -29,10 +29,11 @@ export default class SupernovaEvent implements View {
         this.loadEvent();
     }
 
-    private loadEvent(): void {
-        supernovaEvent.map((data) => {
+    private async loadEvent(): Promise<void> {
+        const res = await superagent.get("https://api.gaiaprotocol.com/supernova/events");
+        res.body.data.map((data: any) => {
             this.eventList.append(
-                new SupernovaEventItem(data.image, data.name, data.date),
+                new SupernovaEventItem(data.imgUrl, data.name, data.rewardTime),
             );
         })
     }

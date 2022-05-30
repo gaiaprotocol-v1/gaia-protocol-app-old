@@ -11,6 +11,7 @@
     "@types/superagent": "^4.1.12",
     "@walletconnect/web3-provider": "^1.4.1",
     "aos": "^2.3.4",
+    "dayjs": "^1.11.2",
     "ethers": "^5.0.32",
     "klip-sdk": "^2.0.1",
     "less": "^4.1.1",
