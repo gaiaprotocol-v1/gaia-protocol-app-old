@@ -2594,7 +2594,7 @@ body {
 .buy-stable-dao-view > .input-container > .button-container > .disabled:active {
   background: #C8C8C8;
 }
-.buy-stable-dao-view > .input-container > .usdt {
+.buy-stable-dao-view > .input-container > .usdc {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -2609,10 +2609,10 @@ body {
   justify-content: center;
   align-items: center;
 }
-.buy-stable-dao-view > .input-container > .usdt:hover {
+.buy-stable-dao-view > .input-container > .usdc:hover {
   background-color: rgba(0, 68, 90, 0.2);
 }
-.buy-stable-dao-view > .input-container > .usdt:active {
+.buy-stable-dao-view > .input-container > .usdc:active {
   background-color: rgba(0, 68, 90, 0.5);
 }
 .buy-stable-dao-view > .warning-container {
