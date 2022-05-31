@@ -28,21 +28,21 @@ import SupernovaEvent from "./view/app/SupernovaEvent";
     SkyRouter.route("partners", Partners);
 
     // Genesis
-    SkyRouter.route("genesis", Genesis);
-    SkyRouter.route("landing/genesis", GenesisLanding);
+    SkyRouter.route("genesis/app", Genesis);
+    SkyRouter.route("genesis", GenesisLanding);
 
     // Supernova
-    SkyRouter.route("supernova", Supernova);
+    SkyRouter.route("supernova/app", Supernova);
     SkyRouter.route("supernova/event", SupernovaEvent);
-    SkyRouter.route("landing/supernova", SupernovaLanding);
+    SkyRouter.route("supernova", SupernovaLanding);
 
     // StableDAO
-    SkyRouter.route("stabledao", StableDAO);
-    SkyRouter.route("landing/stabledao", StableDaoLanding);
+    SkyRouter.route("stabledao/app", StableDAO);
+    SkyRouter.route("stabledao", StableDaoLanding);
     SkyRouter.route("stabledao/buy", BuyStableDAO);
 
     // Dividend
-    SkyRouter.route("landing/dividend", DividendLanding);
+    SkyRouter.route("dividend", DividendLanding);
 
     if (sessionStorage.__spa_path) {
         SkyRouter.go(sessionStorage.__spa_path);
