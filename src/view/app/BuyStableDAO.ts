@@ -114,7 +114,7 @@ export default class BuyStableDAO implements View {
                         },
                     }),
                 ),
-                el("a.usdc", msg("BUY_USDC_BUTTON"), { href: "https://swapscanner.io/ko/swap?from=0x0000000000000000000000000000000000000000&to=0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167", target: "_blank" }),
+                el("a.usdc", msg("BUY_USDC_BUTTON"), { href: "https://swapscanner.io/ko/swap?from=0x0000000000000000000000000000000000000000&to=0x754288077d0ff82af7a5317c7cb8c444d421d103", target: "_blank" }),
             ),
             el(".warning-container",
                 el("p", "예치금을 Mesh Swap으로 이전하는 거버넌스가 통과됨에 따라서 바이백 시스템 가동이 불가능합니다."),

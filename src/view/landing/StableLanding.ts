@@ -1,8 +1,9 @@
+import AOS from "aos";
 import { DomNode, el, msg } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
-import Layout from "../Layout";
-import AOS from "aos";
 import CollapsibleItem from "../../component/shared/CollapsibleItem";
+import Layout from "../Layout";
+import ViewUtil from "../ViewUtil";
 
 export default class StableDaoLanding implements View {
 
@@ -14,7 +15,7 @@ export default class StableDaoLanding implements View {
             this.container = el(".landing-stable-dao-view",
                 el(".init-container", { id: "init" },
                     el("img", { "data-aos": "fade-up" }, { src: "/images/logo/gaia-stabledao-text.png", alt: "gaia stable dao logo" }),
-                    el("a", { href: "/buy", "data-aos": "fade-up" }, msg("STABLE_DAO_MINT_BUY_BUTTON")),
+                    el("a", { click: () => { ViewUtil.go("/stabledao/buy") }, "data-aos": "fade-up" }, msg("STABLE_DAO_MINT_BUY_BUTTON")),
                     el("p", { "data-aos": "fade-up" }, msg("STABLE_DAO_INIT_DESC")),
                     el("img.flow-map", { src: "/images/view/stabledao-landing/flow-map.png", alt: "flow map", "data-aos": "fade-up" }),
                 ),
