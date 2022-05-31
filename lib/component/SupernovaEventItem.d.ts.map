@@ -1,0 +1,1 @@
+{"version":3,"file":"SupernovaEventItem.d.ts","sourceRoot":"","sources":["../../src/component/SupernovaEventItem.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAM,MAAM,iBAAiB,CAAC;AAI9C,MAAM,CAAC,OAAO,OAAO,kBAAmB,SAAQ,OAAO;gBAEvC,KAAK,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM;IAcrD,OAAO,CAAC,IAAI;IAIL,MAAM;CAGhB"}

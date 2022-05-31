@@ -1,5 +1,5 @@
 import { BigNumber } from "ethers";
-import GaiaStableDAOArtifact from "./abi/gaia-stable/artifacts/contracts/GaiaStableDAO.sol/GaiaStableDAO.json";
+import GaiaStableDAOArtifact from "./abi/gaia-stable-dao/artifacts/contracts/GaiaStableDAO.sol/GaiaStableDAO.json";
 import KIP17Contract from "./standard/KIP17Contract";
 
 class GaiaGenesisContract extends KIP17Contract {

@@ -1,0 +1,1 @@
+{"version":3,"file":"DividendLanding.d.ts","sourceRoot":"","sources":["../../../src/view/landing/DividendLanding.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,IAAI,EAAE,UAAU,EAAE,MAAM,gBAAgB,CAAC;AAIlD,MAAM,CAAC,OAAO,OAAO,eAAgB,YAAW,IAAI;IAEhD,OAAO,CAAC,SAAS,CAAU;;IAsB3B,OAAO,CAAC,IAAI;IAIL,YAAY,CAAC,MAAM,EAAE,UAAU,EAAE,GAAG,EAAE,MAAM,GAAG,IAAI;IAEnD,KAAK,IAAI,IAAI;CAGvB"}

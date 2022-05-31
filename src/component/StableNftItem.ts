@@ -1,6 +1,6 @@
 import { DomNode, el, msg } from "skydapp-browser";
 import GaiaStableDAOContract from "../contracts/GaiaStableDAOContract";
-import GaiaStableDAOOperatorContract from "../contracts/GaiaStableDAOOperatorContract";
+import GaiaStableDAOOperatorV2Contract from "../contracts/GaiaStableDAOOperatorV2Contract";
 import ViewUtil from "../view/ViewUtil";
 import Confirm from "./shared/dialogue/Confirm";
 import Prompt from "./shared/dialogue/Prompt";

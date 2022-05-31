@@ -1,0 +1,1 @@
+{"version":3,"file":"SupernovaLanding.d.ts","sourceRoot":"","sources":["../../../src/view/landing/SupernovaLanding.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,IAAI,EAAE,UAAU,EAAE,MAAM,gBAAgB,CAAC;AAIlD,MAAM,CAAC,OAAO,OAAO,gBAAiB,YAAW,IAAI;IAEjD,OAAO,CAAC,SAAS,CAAU;;IA8C3B,OAAO,CAAC,IAAI;IAIL,YAAY,CAAC,MAAM,EAAE,UAAU,EAAE,GAAG,EAAE,MAAM,GAAG,IAAI;IAEnD,KAAK,IAAI,IAAI;CAGvB"}

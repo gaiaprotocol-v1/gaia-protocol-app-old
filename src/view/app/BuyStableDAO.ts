@@ -6,9 +6,9 @@ import NftItem from "../../component/StableNftItem";
 import Alert from "../../component/shared/dialogue/Alert";
 import GaiaGenesisContract from "../../contracts/GaiaGenesisContract";
 import GaiaStableDAOContract from "../../contracts/GaiaStableDAOContract";
-import GaiaStableDAOOperatorContract from "../../contracts/GaiaStableDAOOperatorContract";
+import GaiaStableDAOOperatorV2Contract from "../../contracts/GaiaStableDAOOperatorV2Contract";
 import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
-import KUSDTContract from "../../contracts/KUSDTContract";
+import oUSDCContract from "../../contracts/oUSDCContract";
 import Wallet from "../../klaytn/Wallet";
 import Layout from "../Layout";
 import ViewUtil from "../ViewUtil";
@@ -52,8 +52,8 @@ export default class BuyStableDAO implements View {
             el(".selector-container",
                 this.salesDisplay = el("p", "SALES: ... EA"),
                 this.ticketDisplay = el("p", "TICKET: ... 개"),
-                this.priceDisplay = el("p", "PRICE: ... oUSDT"),
-                this.totalDisplay = el("p", "TOTAL: ... oUSDT"),
+                this.priceDisplay = el("p", "PRICE: ... oUSDC"),
+                this.totalDisplay = el("p", "TOTAL: ... oUSDC"),
                 el(".select",
                     this.kronosTab = el("a.disable", "Genesis", { click: () => this.loadTab("kronos") }),
                     el("hr"),
@@ -76,8 +76,8 @@ export default class BuyStableDAO implements View {
                         click: async () => {
                             const address = await Wallet.loadAddress();
                             if (address !== undefined) {
-                                if ((await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
-                                    await KUSDTContract.approve(GaiaStableDAOOperatorContract.address, constants.MaxUint256);
+                                if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV2Contract.address)).eq(0)) {
+                                    await oUSDCContract.approve(GaiaStableDAOOperatorV2Contract.address, constants.MaxUint256);
                                 } else {
                                     new Alert("오류", "이미 사용 승인 하셨습니다.");
                                 }
@@ -88,9 +88,9 @@ export default class BuyStableDAO implements View {
                         click: async () => {
                             const address = await Wallet.loadAddress();
                             if (address !== undefined) {
-                                if ((await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
-                                    new Alert("오류", "oUSDT 사용 승인이 필요합니다.");
-                                } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorContract.address) !== true) {
+                                if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV2Contract.address)).eq(0)) {
+                                    new Alert("오류", "oUSDC 사용 승인이 필요합니다.");
+                                } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorV2Contract.address) !== true) {
                                     new Alert("오류", "아직 판매중이 아닙니다.");
                                 } else {
                                     let nft = constants.AddressZero;
@@ -105,7 +105,7 @@ export default class BuyStableDAO implements View {
                                     } else if (this.count.toNumber() > this.ticket) {
                                         new Alert("오류", `갖고 계신 티켓 개수는 ${this.ticket}개 입니다.`);
                                     } else {
-                                        await GaiaStableDAOOperatorContract.mintStableDAO(this.count, nft);
+                                        await GaiaStableDAOOperatorV2Contract.mintStableDAO(this.count, nft);
                                         new Alert("구매 성공!", "Gaia Stable DAO 구매에 성공했습니다. 환영합니다!");
                                         ViewUtil.waitTransactionAndRefresh();
                                     }
@@ -114,7 +114,7 @@ export default class BuyStableDAO implements View {
                         },
                     }),
                 ),
-                el("a.usdt", msg("BUY_USDT_BUTTON"), { href: "https://swapscanner.io/ko/swap?from=0x0000000000000000000000000000000000000000&to=0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167", target: "_blank" }),
+                el("a.usdc", msg("BUY_USDC_BUTTON"), { href: "https://swapscanner.io/ko/swap?from=0x0000000000000000000000000000000000000000&to=0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167", target: "_blank" }),
             ),
             el(".warning-container",
                 el("p", "예치금을 Mesh Swap으로 이전하는 거버넌스가 통과됨에 따라서 바이백 시스템 가동이 불가능합니다."),
@@ -141,7 +141,7 @@ export default class BuyStableDAO implements View {
 
     private async loadSales() {
 
-        if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorContract.address) !== true) {
+        if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorV2Contract.address) !== true) {
             this.notice.empty().appendText("아직 판매중이 아닙니다.");
         } else {
             this.notice.empty().appendText("현재 판매중입니다.");
@@ -152,7 +152,7 @@ export default class BuyStableDAO implements View {
 
         const address = await Wallet.loadAddress();
         if (address !== undefined) {
-            if ((await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
+            if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV2Contract.address)).eq(0)) {
                 this.approveButton.deleteClass("disabled");
                 this.buyButton.addClass("disabled");
             } else {
@@ -179,7 +179,7 @@ export default class BuyStableDAO implements View {
             const address = await Wallet.loadAddress();
             if (address !== undefined) {
                 const balance = (await GaiaGenesisContract.balanceOf(address)).toNumber();
-                const minted = (await GaiaStableDAOOperatorContract.mintedAmountWithGaiaKronos(address)).toNumber();
+                const minted = (await GaiaStableDAOOperatorV2Contract.mintedAmountWithGaiaKronos(address)).toNumber();
                 this.ticket = balance < minted ? 0 : balance - minted;
                 this.ticketDisplay.empty().appendText(`TICKET: ${this.ticket} 개`);
             }
@@ -190,7 +190,7 @@ export default class BuyStableDAO implements View {
             const address = await Wallet.loadAddress();
             if (address !== undefined) {
                 const balance = (await GaiaSupernovaContract.balanceOf(address)).toNumber();
-                const minted = (await GaiaStableDAOOperatorContract.mintedAmountWithGaiaSupernova(address)).toNumber();
+                const minted = (await GaiaStableDAOOperatorV2Contract.mintedAmountWithGaiaSupernova(address)).toNumber();
                 this.ticket = balance < minted ? 0 : balance - minted;
                 this.ticketDisplay.empty().appendText(`TICKET: ${this.ticket} 개`);
             }
@@ -201,12 +201,12 @@ export default class BuyStableDAO implements View {
             this.ticketDisplay.style({ display: "none" });
         }
 
-        this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} oUSDT`);
+        this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} oUSDC`);
         this.loadTotal();
     }
 
     private async loadTotal() {
-        this.totalDisplay.empty().appendText(`TOTAL: ${CommonUtil.numberWithCommas(utils.formatUnits(this.count.mul(this.price), 6))} oUSDT`);
+        this.totalDisplay.empty().appendText(`TOTAL: ${CommonUtil.numberWithCommas(utils.formatUnits(this.count.mul(this.price), 6))} oUSDC`);
     }
 
     private async loadNFTs() {
