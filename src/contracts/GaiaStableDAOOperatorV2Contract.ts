@@ -8,7 +8,7 @@ import GaiaStableDAOContract from "./GaiaStableDAOContract";
 class GaiaStableDAOOperatorV2Contract extends Contract {
 
     constructor() {
-        super(Config.contracts.GaiaStableDAOOperator, GaiaStableDAOOperatorV2Artifact.abi);
+        super(Config.contracts.GaiaStableDAOOperatorV2, GaiaStableDAOOperatorV2Artifact.abi);
     }
 
     public async claimableInterest(): Promise<BigNumber> {
@@ -17,14 +17,6 @@ class GaiaStableDAOOperatorV2Contract extends Contract {
 
     public async claimableKSPReward(): Promise<BigNumber> {
         return BigNumber.from(await this.runMethod("claimableKSPReward"));
-    }
-
-    public async mintedAmountWithGaiaKronos(user: string): Promise<BigNumber> {
-        return BigNumber.from(await this.runMethod("mintedAmountWithGaiaKronos", user));
-    }
-
-    public async mintedAmountWithGaiaSupernova(user: string): Promise<BigNumber> {
-        return BigNumber.from(await this.runMethod("mintedAmountWithGaiaSupernova", user));
     }
 
     public async whitelistedAmount(user: string): Promise<BigNumber> {

@@ -12,6 +12,7 @@ import oUSDCContract from "../../contracts/oUSDCContract";
 import Wallet from "../../klaytn/Wallet";
 import Layout from "../Layout";
 import ViewUtil from "../ViewUtil";
+import Confirm from "../../component/shared/dialogue/Confirm";
 
 export default class BuyStableDAO implements View {
 
@@ -20,16 +21,14 @@ export default class BuyStableDAO implements View {
 
     private tabType = "public";
 
-    private ticket = 0;
     private price = BigNumber.from(0);
     private count = BigNumber.from(1);
 
-    private kronosTab: DomNode;
+    private genesisTab: DomNode;
     private supernovaTab: DomNode;
     private publicTab: DomNode;
 
     private totalDisplay: DomNode;
-    private ticketDisplay: DomNode;
     private priceDisplay: DomNode;
     private salesDisplay: DomNode;
 
@@ -51,11 +50,10 @@ export default class BuyStableDAO implements View {
             el("img", { src: "/images/logo/gaia-stable-dao.png", alt: "logo" }),
             el(".selector-container",
                 this.salesDisplay = el("p", "SALES: ... EA"),
-                this.ticketDisplay = el("p", "TICKET: ... 개"),
                 this.priceDisplay = el("p", "PRICE: ... oUSDC"),
                 this.totalDisplay = el("p", "TOTAL: ... oUSDC"),
                 el(".select",
-                    this.kronosTab = el("a.disable", "Genesis", { click: () => this.loadTab("kronos") }),
+                    this.genesisTab = el("a.disable", "Genesis", { click: () => this.loadTab("genesis") }),
                     el("hr"),
                     this.supernovaTab = el("a.disable", "Supernova", { click: () => this.loadTab("supernova") }),
                     el("hr"),
@@ -90,11 +88,15 @@ export default class BuyStableDAO implements View {
                             if (address !== undefined) {
                                 if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV2Contract.address)).eq(0)) {
                                     new Alert("오류", "oUSDC 사용 승인이 필요합니다.");
+                                } else if ((await oUSDCContract.balanceOf(address)).lt(this.price.mul(this.count))) {
+                                    new Confirm("오류", "oUSDC 개수가 부족합니다. 구매하시겠습니까?", "oUSDC 구매하기", () => {
+                                        open("https://swapscanner.io/ko/swap?from=0x0000000000000000000000000000000000000000&to=0x754288077d0ff82af7a5317c7cb8c444d421d103");
+                                    });
                                 } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorV2Contract.address) !== true) {
                                     new Alert("오류", "아직 판매중이 아닙니다.");
                                 } else {
                                     let nft = constants.AddressZero;
-                                    if (this.tabType === "kronos") {
+                                    if (this.tabType === "genesis") {
                                         nft = GaiaGenesisContract.address;
                                     }
                                     if (this.tabType === "supernova") {
@@ -102,8 +104,6 @@ export default class BuyStableDAO implements View {
                                     }
                                     if (this.count.toNumber() > 10) {
                                         new Alert("오류", "한 번에 최대 10개까지 구매가 가능합니다.");
-                                    } else if (this.count.toNumber() > this.ticket) {
-                                        new Alert("오류", `갖고 계신 티켓 개수는 ${this.ticket}개 입니다.`);
                                     } else {
                                         await GaiaStableDAOOperatorV2Contract.mintStableDAO(this.count, nft);
                                         new Alert("구매 성공!", "Gaia Stable DAO 구매에 성공했습니다. 환영합니다!");
@@ -162,43 +162,24 @@ export default class BuyStableDAO implements View {
         }
     }
 
-    private async loadTab(type: "kronos" | "supernova" | "public") {
+    private async loadTab(type: "genesis" | "supernova" | "public") {
 
         this.tabStore.set("type", this.tabType = type);
-        this.kronosTab.addClass("disable");
+        this.genesisTab.addClass("disable");
         this.supernovaTab.addClass("disable");
         this.publicTab.addClass("disable");
-        this.ticketDisplay.style({ display: "block" });
-        this.ticketDisplay.empty();
 
-        this.ticket = 999999;
-
-        if (type === "kronos") {
-            this.kronosTab.deleteClass("disable");
+        if (type === "genesis") {
+            this.genesisTab.deleteClass("disable");
             this.price = utils.parseUnits("1200", 6);
-            const address = await Wallet.loadAddress();
-            if (address !== undefined) {
-                const balance = (await GaiaGenesisContract.balanceOf(address)).toNumber();
-                const minted = (await GaiaStableDAOOperatorV2Contract.mintedAmountWithGaiaKronos(address)).toNumber();
-                this.ticket = balance < minted ? 0 : balance - minted;
-                this.ticketDisplay.empty().appendText(`TICKET: ${this.ticket} 개`);
-            }
         }
         if (type === "supernova") {
             this.supernovaTab.deleteClass("disable");
             this.price = utils.parseUnits("1250", 6);
-            const address = await Wallet.loadAddress();
-            if (address !== undefined) {
-                const balance = (await GaiaSupernovaContract.balanceOf(address)).toNumber();
-                const minted = (await GaiaStableDAOOperatorV2Contract.mintedAmountWithGaiaSupernova(address)).toNumber();
-                this.ticket = balance < minted ? 0 : balance - minted;
-                this.ticketDisplay.empty().appendText(`TICKET: ${this.ticket} 개`);
-            }
         }
         if (type === "public") {
             this.publicTab.deleteClass("disable");
             this.price = utils.parseUnits("1300", 6);
-            this.ticketDisplay.style({ display: "none" });
         }
 
         this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} oUSDC`);

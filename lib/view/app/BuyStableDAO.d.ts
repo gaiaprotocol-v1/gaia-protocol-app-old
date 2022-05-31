@@ -3,14 +3,12 @@ export default class BuyStableDAO implements View {
     private container;
     private notice;
     private tabType;
-    private ticket;
     private price;
     private count;
-    private kronosTab;
+    private genesisTab;
     private supernovaTab;
     private publicTab;
     private totalDisplay;
-    private ticketDisplay;
     private priceDisplay;
     private salesDisplay;
     private approveButton;

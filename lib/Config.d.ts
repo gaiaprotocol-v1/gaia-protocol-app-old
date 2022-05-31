@@ -7,7 +7,7 @@ declare const _default: {
         GaiaSupernova: string;
         SupernovaRewardDistributor: string;
         GaiaStableDAO: string;
-        GaiaStableDAOOperator: string;
+        GaiaStableDAOOperatorV2: string;
         GaiaGenesisUSDCDistributor: string;
     };
 };

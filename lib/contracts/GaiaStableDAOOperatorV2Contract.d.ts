@@ -4,8 +4,6 @@ declare class GaiaStableDAOOperatorV2Contract extends Contract {
     constructor();
     claimableInterest(): Promise<BigNumber>;
     claimableKSPReward(): Promise<BigNumber>;
-    mintedAmountWithGaiaKronos(user: string): Promise<BigNumber>;
-    mintedAmountWithGaiaSupernova(user: string): Promise<BigNumber>;
     whitelistedAmount(user: string): Promise<BigNumber>;
     mintStableDAO(amount: BigNumberish, nft: string): Promise<void>;
     buyBack(ids: BigNumberish[]): Promise<void>;
