@@ -1092,10 +1092,20 @@ body {
   width: 200px;
   text-align: left;
 }
+@media only screen and (max-width: 719px) {
+  .governance-item > a > .nfts {
+    display: none;
+  }
+}
 .governance-item > a > .endTime {
   font-size: 14px;
   font-weight: 300;
   margin-right: 8px;
+}
+@media only screen and (max-width: 719px) {
+  .governance-item > a > .endTime {
+    display: none;
+  }
 }
 .governance-item > hr {
   border: none;

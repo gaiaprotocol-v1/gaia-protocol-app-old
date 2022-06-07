@@ -2,7 +2,6 @@ import dayjs from "dayjs";
 import { DomNode, el, msg } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
 import superagent from "superagent";
-import GovernancesItem from "../../component/GovernanceItem";
 import Layout from "../Layout";
 
 export default class Governance implements View {
@@ -54,7 +53,7 @@ export default class Governance implements View {
         this.title.empty().appendText(data.title);
         this.createTime.empty().appendText(`생성일 | ${dayjs(data.createTime).format("YYYY. MM. DD")}`);
         this.endTime.empty().appendText(`종료일 | ${dayjs(data.createTime).format("YYYY. MM. DD")}`);
-        this.content.empty().appendText(data.content);
+        this.content.appendText(data.content);
         this.creatorDisplay.empty().appendText(`@${data.creator}`);
         this.loadNfts(data.nfts);
         this.loadStatus(data.status);
@@ -124,3 +123,4 @@ export default class Governance implements View {
         this.container.delete();
     }
 }
+
