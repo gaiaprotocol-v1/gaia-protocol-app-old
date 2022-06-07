@@ -105,7 +105,7 @@ export default class StableDAO implements View {
         const balance = await MeshswapUSDCPairLPContract.balanceOf("0x8033cEB86c71EbBF575fF7015FcB8F1689d90aC1");
         const miningIndex = await MeshswapUSDCPairLPContract.miningIndex();
         const userLastIndex = await MeshswapUSDCPairLPContract.userLastIndex("0x8033cEB86c71EbBF575fF7015FcB8F1689d90aC1");
-        const mesh = balance.mul(miningIndex.sub(userLastIndex)).div(utils.parseEther("1"));
+        const mesh = utils.parseEther("2561.959989").add(balance.mul(miningIndex.sub(userLastIndex)).div(utils.parseEther("1")));
         const totalMatic = await MaticContract.balanceOf("0x07a7ab21b582058b71d2aee1b1719926e3451adf");
         const totalMesh = await MeshContract.balanceOf("0x07a7ab21b582058b71d2aee1b1719926e3451adf");
         const result = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=matic-network");
