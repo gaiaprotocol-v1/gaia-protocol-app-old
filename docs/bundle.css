@@ -1049,6 +1049,61 @@ body {
   font-weight: 300;
   margin-top: 8px;
 }
+.governance-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+.governance-item > a {
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}
+.governance-item > a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.governance-item > a > h6 {
+  width: 100%;
+  max-width: 200px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: auto;
+  margin-left: 8px;
+}
+.governance-item > a > .status {
+  width: 75px;
+  font-size: 12px;
+  font-weight: 300;
+  border: 1px solid #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+.governance-item > a > .nfts {
+  font-size: 12px;
+  font-weight: 300;
+  width: 200px;
+  text-align: left;
+}
+.governance-item > a > .endTime {
+  font-size: 14px;
+  font-weight: 300;
+  margin-right: 8px;
+}
+.governance-item > hr {
+  border: none;
+  width: 100%;
+  height: 0.5px;
+  background-color: #606060;
+  margin: 0px;
+}
 .layout {
   width: 100%;
   background-color: black;
@@ -1385,6 +1440,131 @@ body {
   height: 172px;
   padding: 0px;
   margin: 16px 0px;
+}
+.governance-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 32px;
+}
+.governance-view > header > .title-container > h2 {
+  color: #b19c76;
+  font-size: 32px;
+  font-weight: 700;
+}
+.governance-view > header > .title-container > p {
+  font-size: 12px;
+  padding-top: 8px;
+  color: #e0d8c8;
+  font-weight: 300;
+}
+.governance-view > .governance-table {
+  margin: auto;
+  width: 100%;
+  max-width: 768px;
+  margin-top: 32px;
+}
+.governance-view > .governance-table > .governance-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0px;
+}
+.governance-view > .governance-table > .governance-header > h3 {
+  font-weight: bold;
+  font-size: 14px;
+}
+.governance-view > .governance-table > .governance-header > select {
+  color: #fff;
+  border: none;
+  background: #000;
+  font-size: 14px;
+}
+.governance-view > .governance-table > hr {
+  border: none;
+  height: 0.5px;
+  background-color: #606060;
+  margin: 0;
+}
+.governance-detail-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 8px;
+  margin: auto;
+  width: 100%;
+  max-width: 1240px;
+}
+.governance-detail-view > header > h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+.governance-detail-view > header > .subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.governance-detail-view > header > .subtitle > p {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #999;
+}
+.governance-detail-view > header > .subtitle > .status {
+  width: 75px;
+  font-size: 12px;
+  font-weight: 300;
+  text-align: center;
+  border: 1px solid #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+.governance-detail-view > hr {
+  border: none;
+  width: 100%;
+  height: 0.5px;
+  background-color: #606060;
+}
+.governance-detail-view > .content {
+  margin: 16px 0px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.governance-detail-view > h6 {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e0d8c8;
+}
+.governance-detail-view > .candidate {
+  margin-bottom: 8px;
+}
+.governance-detail-view > .candidate > .candidate-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  margin-top: 16px;
+  padding: 0px 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 48px;
+}
+.governance-detail-view > .candidate > .candidate-container > p {
+  font-weight: 400;
+}
+.governance-detail-view > .candidate > .candidate-container > .vote {
+  font-weight: 300;
+}
+.governance-detail-view > .creator {
+  margin-top: 8px;
+  font-size: 14px;
 }
 /** Genesis */
 .landing-genesis-view {

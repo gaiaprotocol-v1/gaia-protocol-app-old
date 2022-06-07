@@ -16,6 +16,8 @@ import Partners from "./view/landing/Partners";
 import Team from "./view/landing/Team";
 import DividendLanding from "./view/landing/DividendLanding";
 import SupernovaEvent from "./view/app/SupernovaEvent";
+import Governance from "./view/app/Governance";
+import GovernanceDetail from "./view/app/GovernanceDetail";
 
 (async () => {
     msg.language = BrowserInfo.language;
@@ -43,6 +45,10 @@ import SupernovaEvent from "./view/app/SupernovaEvent";
 
     // Dividend
     SkyRouter.route("dividend", DividendLanding);
+
+    // Governance
+    SkyRouter.route("governances", Governance);
+    SkyRouter.route("governance/{id}", GovernanceDetail);
 
     if (sessionStorage.__spa_path) {
         SkyRouter.go(sessionStorage.__spa_path);

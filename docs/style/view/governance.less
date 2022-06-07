@@ -1,0 +1,58 @@
+.governance-view {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    text-align      : center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius   : 4px;
+    padding         : 32px;
+
+    >header {
+        >.title-container {
+            >h2 {
+                color      : rgba(177, 156, 118, 1);
+                font-size  : 32px;
+                font-weight: 700;
+            }
+
+            >p {
+                font-size  : 12px;
+                padding-top: 8px;
+                color      : #e0d8c8;
+                font-weight: 300;
+            }
+        }
+    }
+
+    >.governance-table {
+        margin    : auto;
+        width     : 100%;
+        max-width : 768px;
+        margin-top: 32px;
+
+        >.governance-header {
+            display        : flex;
+            justify-content: space-between;
+            padding        : 16px 0px;
+
+            >h3 {
+                font-weight: bold;
+                font-size  : 14px;
+            }
+
+            >select {
+                color     : #fff;
+                border    : none;
+                background: #000;
+                font-size : 14px;
+            }
+        }
+
+        >hr {
+            border          : none;
+            height          : 0.5px;
+            background-color: #606060;
+            margin          : 0;
+        }
+    }
+}

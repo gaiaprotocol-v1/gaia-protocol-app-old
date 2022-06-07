@@ -43,6 +43,10 @@
                 {
                     "uri": "stabledao/app",
                     "key": "STABLEDAO_MENU"
+                },
+                {
+                    "uri": "governances",
+                    "key": "GOVERNANCE_MENU"
                 }
             ]
         },
