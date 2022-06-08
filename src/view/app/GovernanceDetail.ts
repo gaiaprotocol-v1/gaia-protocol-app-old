@@ -1,8 +1,10 @@
 import dayjs from "dayjs";
 import { DomNode, el, msg } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
+import { Chart, registerables } from "chart.js";
 import superagent from "superagent";
 import Layout from "../Layout";
+import CommonUtil from "../../CommonUtil";
 
 export default class Governance implements View {
 
@@ -15,6 +17,7 @@ export default class Governance implements View {
     private statusDisplay: DomNode;
     private candidateDisplay: DomNode;
     private creatorDisplay: DomNode;
+    private candidateChartDisplay: DomNode<HTMLCanvasElement>;
     private content: DomNode;
 
     constructor(params: ViewParams) {
@@ -36,6 +39,7 @@ export default class Governance implements View {
             el("hr"),
             el("h6", "후보"),
             this.candidateDisplay = el(".candidate"),
+            this.candidateChartDisplay = el("canvas"),
             el("h6", "제안자"),
             this.creatorDisplay = el(".creator"),
         ),
@@ -58,6 +62,7 @@ export default class Governance implements View {
         this.loadNfts(data.nfts);
         this.loadStatus(data.status);
         this.loadCandidate(data.candidate);
+        this.loadChart(data.candidate);
     }
 
     public loadCandidate(candidate: Array<{ name: string, users: Array<string> }>): void {
@@ -68,7 +73,38 @@ export default class Governance implements View {
                     el("p.vote", `${data.users.length.toLocaleString("ko-KR")}표 받음`),
                 ),
             );
-        })
+        });
+    }
+
+    public loadChart(candidate: Array<{ name: string, users: Array<string> }>): void {
+        const chartData: any = {
+            labels: [],
+            datasets: [{
+                data: [],
+                backgroundColor: [],
+            }],
+        };
+
+        candidate.map(data => {
+            chartData.labels.push(data.name);
+            chartData.datasets[0].data.push(data.users.length);
+            chartData.datasets[0].backgroundColor.push(CommonUtil.randColorHex());
+        });
+
+        Chart.register(...registerables);
+        new Chart(this.candidateChartDisplay.domElement.getContext("2d"), {
+            type: "pie",
+            data: chartData,
+            option: {
+                responsive: true,
+                color: "#ffffff",
+                plugins: {
+                    legend: {
+                        position: "bottom",
+                    },
+                },
+            },
+        });
     }
 
     public loadStatus(status: string): void {

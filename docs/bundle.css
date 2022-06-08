@@ -1572,6 +1572,10 @@ body {
 .governance-detail-view > .candidate > .candidate-container > .vote {
   font-weight: 300;
 }
+.governance-detail-view > canvas {
+  margin-top: 8px;
+  max-height: 250px;
+}
 .governance-detail-view > .creator {
   margin-top: 8px;
   font-size: 14px;

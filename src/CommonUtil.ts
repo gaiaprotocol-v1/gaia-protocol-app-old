@@ -36,6 +36,10 @@ class CommonUtil {
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return parts.join(".");
     }
+
+    public randColorHex() {
+        return "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase();
+    }
 }
 
 export default new CommonUtil();
