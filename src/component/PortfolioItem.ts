@@ -22,6 +22,7 @@ export default class PortfolioItem extends DomNode {
         name: string,
         startPrice: number,
         startPriceUSD: number,
+        amount: number,
         desc2: string,
         desc3: string,
         desc4?: string,
@@ -49,10 +50,10 @@ export default class PortfolioItem extends DomNode {
             // this.claimButton = el("button", msg("PORTFOLIO_BUTTON")),
         );
 
-        this.getPrice(symbol, startPrice, startPriceUSD);
+        this.getPrice(symbol, startPrice, startPriceUSD, amount);
     }
 
-    async getPrice(symbol: string, price: number, priceUSD: number) {
+    async getPrice(symbol: string, price: number, priceUSD: number, amount: number) {
         const krw = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=krw&ids=${symbol}`);
         const usd = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${symbol}`);
         const dataKRW = await krw.json();
@@ -61,8 +62,8 @@ export default class PortfolioItem extends DomNode {
         this.priceDisplay.empty();
         this.priceDisplay.appendText(`${msg("PRESENT_PRICE_TITLE")} ₩${CommonUtil.numberWithCommas(dataKRW[0].current_price)}`);
 
-        const rateKRW = (dataKRW[0].current_price - price) * 1938.279905549;
-        const rateUSD = (dataUSD[0].current_price - priceUSD) * 1938.279905549;
+        const rateKRW = (dataKRW[0].current_price - price) * amount;
+        const rateUSD = (dataUSD[0].current_price - priceUSD) * amount;
         this.rateDisplay.appendText(`${rate.toFixed(2)}% (₩ ${CommonUtil.numberWithCommas(rateKRW.toFixed(2))} / $ ${CommonUtil.numberWithCommas(rateUSD.toFixed(2))})`);
 
         if (rate > 0) {
