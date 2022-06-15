@@ -39,6 +39,9 @@ export default class Partners implements View {
                     el("a", { href: "http://www.dncmedia.co.kr/", target: "_blank" },
                         el("img.dncMedia", { src: "/images/view/partners/dncMedia.png" }),
                     ),
+                    el("a", { href: "https://lazygourmet.club/", target: "_blank" },
+                        el("img.lazygourmet", { src: "/images/view/partners/lazyGourmetClub.png" }),
+                    ),
                 ),
             ));
     }
