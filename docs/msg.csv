@@ -38,7 +38,7 @@ INFO_TITLE2,다음 로열티 수령 가능 일자,Next Resale Royalty Distributi
 INFO_TITLE3,내가 받은 누적 로열티,My Accumulated Resale Royalty
 INFO_TITLE4,쌓인 로열티,Accumulated Resale Royalty
 WARNING_DESC,다음 로열티 수령 이전에 NFT를 판매하거나 다른 지갑에 전송하면 현재 쌓여진 모든 로열티가 타인에게 분배됩니다.,"If you sell the NFT or send it to another wallet before the next resale royalty calim period, the current accumulated resale royalty will be distributed to others."
-REWARD_BUTTON,로열티 받기,Getting royalties.
+REWARD_BUTTON,수익 받기,Getting royalties.
 OPENSEA_BUTTON,NFT 보기,Watch NFT.
 CONNECT_WALLET_BUTTON,지갑연결,Connect Wallet
 ALERT_UNABLE_RECEIVE_TITLE,오류,Error
@@ -53,7 +53,7 @@ ALERT_UNABLE_RECEIVE_DESC,아직 수령할 수 없습니다.,Can't receive it ye
 "GAIA_STABLE_DAO_DESC,Holder led participatory NFT project,,",,
 ALL_EMERGENCY_BUTTON,모든 이머전시 리워드 받기,All Claim Emergency Reward
 ALL_EMERGENCY_DESC,총 이머전시 리워드,Total Emergency Reward:
-UNCOLLECTED_INTEREST_DESC,미수령 이자,Uncollected Interest
+UNCOLLECTED_INTEREST_DESC,미수령 수익,Uncollected Profit
 EMERGENCY_DESC,이머전시 리워드,Emergency Reward
 CLAIM_REWARDS_BUTTON,리워드 받기,Claim Rewards
 GENESIS_MENU,Genesis,Genesis

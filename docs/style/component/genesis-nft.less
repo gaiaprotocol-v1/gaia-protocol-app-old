@@ -52,11 +52,38 @@
 
         >section {
             >header {
+                position   : relative;
+                display    : flex;
+                align-items: center;
                 text-align : left;
                 margin-left: 4px;
                 font-size  : 12px;
                 font-weight: 300;
                 color      : #e0d8c8;
+
+                >img {
+                    width      : 16px;
+                    margin-left: 2px;
+                }
+
+                >.tooltip {
+                    display: none;
+                }
+
+                &:hover {
+
+                    >.tooltip {
+                        width           : 150px;
+                        font-weight     : 500;
+                        position        : absolute;
+                        display         : flex;
+                        justify-content : center;
+                        top             : -40px;
+                        background-color: rgba(0, 0, 0, 0.9);
+                        padding         : 8px;
+                        border-radius   : 4px;
+                    }
+                }
             }
 
             >.amount-wrap {

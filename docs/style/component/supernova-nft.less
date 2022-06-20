@@ -48,4 +48,91 @@
             }
         }
     }
+
+    >.content-wrap {
+        display        : flex;
+        justify-content: space-between;
+        margin-top     : 8px;
+
+        >section {
+            >header {
+                position   : relative;
+                display    : flex;
+                align-items: center;
+                text-align : left;
+                margin-left: 4px;
+                font-size  : 12px;
+                font-weight: 300;
+                color      : #e0d8c8;
+
+                >img {
+                    width      : 16px;
+                    margin-left: 2px;
+                }
+
+                >.tooltip {
+                    display: none;
+                }
+
+                &:hover {
+
+                    >.tooltip {
+                        width           : 150px;
+                        font-weight     : 500;
+                        position        : absolute;
+                        display         : flex;
+                        justify-content : center;
+                        top             : -40px;
+                        background-color: rgba(0, 0, 0, 0.9);
+                        padding         : 8px;
+                        border-radius   : 4px;
+                    }
+                }
+            }
+
+            >.amount-wrap {
+                text-align: left;
+
+                >.klay {
+                    margin-top : 4px;
+                    margin-left: 4px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        >.button-wrap {
+            display: flex;
+
+            >a {
+                display      : flex;
+                align-items  : center;
+                cursor       : pointer;
+                text-align   : center;
+                padding      : 0px 8px;
+                min-height   : 20px;
+                font-weight  : 700;
+                font-size    : 12px;
+                border-radius: 4px;
+                border-color : rgba(153, 0, 19, 1);
+                ;
+                border: solid 1px;
+                color : rgba(153, 0, 19, 1);
+                ;
+                background-color: transparent;
+
+                &:hover {
+                    background-color: rgba(153, 0, 19, 0.9);
+                    border-color    : transparent;
+                    color           : white;
+                }
+
+                &:active {
+                    background-color: rgba(153, 0, 19, 1);
+                    border-color    : transparent;
+                    color           : white;
+                }
+            }
+        }
+    }
 }

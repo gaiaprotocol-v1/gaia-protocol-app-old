@@ -708,11 +708,32 @@ body {
   margin-top: 8px;
 }
 .genesis-nft-item > .content-wrap > section > header {
+  position: relative;
+  display: flex;
+  align-items: center;
   text-align: left;
   margin-left: 4px;
   font-size: 12px;
   font-weight: 300;
   color: #e0d8c8;
+}
+.genesis-nft-item > .content-wrap > section > header > img {
+  width: 16px;
+  margin-left: 2px;
+}
+.genesis-nft-item > .content-wrap > section > header > .tooltip {
+  display: none;
+}
+.genesis-nft-item > .content-wrap > section > header:hover > .tooltip {
+  width: 150px;
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -40px;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 8px;
+  border-radius: 4px;
 }
 .genesis-nft-item > .content-wrap > section > .amount-wrap {
   text-align: left;
@@ -795,6 +816,75 @@ body {
 .supernova-nft-item > a > .send:active {
   background-color: #990013;
 }
+.supernova-nft-item > .content-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.supernova-nft-item > .content-wrap > section > header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #e0d8c8;
+}
+.supernova-nft-item > .content-wrap > section > header > img {
+  width: 16px;
+  margin-left: 2px;
+}
+.supernova-nft-item > .content-wrap > section > header > .tooltip {
+  display: none;
+}
+.supernova-nft-item > .content-wrap > section > header:hover > .tooltip {
+  width: 150px;
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -40px;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 8px;
+  border-radius: 4px;
+}
+.supernova-nft-item > .content-wrap > section > .amount-wrap {
+  text-align: left;
+}
+.supernova-nft-item > .content-wrap > section > .amount-wrap > .klay {
+  margin-top: 4px;
+  margin-left: 4px;
+  font-weight: 500;
+}
+.supernova-nft-item > .content-wrap > .button-wrap {
+  display: flex;
+}
+.supernova-nft-item > .content-wrap > .button-wrap > a {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  padding: 0px 8px;
+  min-height: 20px;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 4px;
+  border-color: #990013;
+  border: solid 1px;
+  color: #990013;
+  background-color: transparent;
+}
+.supernova-nft-item > .content-wrap > .button-wrap > a:hover {
+  background-color: rgba(153, 0, 19, 0.9);
+  border-color: transparent;
+  color: white;
+}
+.supernova-nft-item > .content-wrap > .button-wrap > a:active {
+  background-color: #990013;
+  border-color: transparent;
+  color: white;
+}
 .stable-nft-item {
   display: flex;
   position: relative;
@@ -856,6 +946,75 @@ body {
 }
 .stable-nft-item > button:active {
   background-color: rgba(0, 68, 90, 0.8);
+}
+.stable-nft-item > .content-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.stable-nft-item > .content-wrap > section > header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #e0d8c8;
+}
+.stable-nft-item > .content-wrap > section > header > img {
+  width: 16px;
+  margin-left: 2px;
+}
+.stable-nft-item > .content-wrap > section > header > .tooltip {
+  display: none;
+}
+.stable-nft-item > .content-wrap > section > header:hover > .tooltip {
+  width: 150px;
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -40px;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 8px;
+  border-radius: 4px;
+}
+.stable-nft-item > .content-wrap > section > .amount-wrap {
+  text-align: left;
+}
+.stable-nft-item > .content-wrap > section > .amount-wrap > .klay {
+  margin-top: 4px;
+  margin-left: 4px;
+  font-weight: 500;
+}
+.stable-nft-item > .content-wrap > .button-wrap {
+  display: flex;
+}
+.stable-nft-item > .content-wrap > .button-wrap > a {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  padding: 0px 8px;
+  min-height: 20px;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 4px;
+  border-color: #00445a;
+  border: solid 1px;
+  color: #00445a;
+  background-color: transparent;
+}
+.stable-nft-item > .content-wrap > .button-wrap > a:hover {
+  background-color: rgba(0, 68, 90, 0.9);
+  border-color: transparent;
+  color: white;
+}
+.stable-nft-item > .content-wrap > .button-wrap > a:active {
+  background-color: #00445a;
+  border-color: transparent;
+  color: white;
 }
 .dialogue.transfer-popup {
   position: relative;
