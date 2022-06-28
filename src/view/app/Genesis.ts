@@ -13,7 +13,6 @@ export default class Genesis implements View {
 
     private container: DomNode;
     private totalKlayDisplay: DomNode;
-    private totalEmergencyDisplay: DomNode;
     private nftList: DomNode;
     private interval: any;
 
@@ -33,18 +32,11 @@ export default class Genesis implements View {
                     el(".title-container",
                         el("h3", "My NFT"),
                         this.totalKlayDisplay = el("p", ""),
-                        this.totalEmergencyDisplay = el("p", ""),
                     ),
                     el(".button-container",
-                        el("a", "모든 미수령 이자 받기", {
+                        el("a", "모든 수익 받기", {
                             click: async () => {
                                 await GaiaGenesisUSDCDistributorContract.claim(this.usdcTokenIds);
-                                ViewUtil.waitTransactionAndRefresh();
-                            },
-                        }),
-                        el("a", msg("ALL_EMERGENCY_BUTTON"), {
-                            click: async () => {
-                                await NFTAirdropContract.collectAirdropReward(0, this.tokenIds);
                                 ViewUtil.waitTransactionAndRefresh();
                             },
                         }),
@@ -100,8 +92,7 @@ export default class Genesis implements View {
             for (const usdc of this.usdcs) {
                 totalUSDC = totalUSDC.add(usdc);
             }
-            this.totalKlayDisplay.empty().appendText(`${"총 미수령 이자 {amount} USDC".replace(/{amount}/, String(utils.formatUnits(totalUSDC, 6)))}`);
-            this.totalEmergencyDisplay.empty().appendText(`${msg("ALL_EMERGENCY_DESC")} ${String(utils.formatEther(totalEmergency))} KLAY`);
+            this.totalKlayDisplay.empty().appendText(`${"총 미수령 수익 {amount} USDC".replace(/{amount}/, String(utils.formatUnits(totalUSDC, 6)))}`);
         }
     }
 

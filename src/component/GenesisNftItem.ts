@@ -13,7 +13,6 @@ export default class GenesisNftItem extends DomNode {
     private nameDisplay: DomNode;
     private klayDisplay: DomNode;
     private claimButton: DomNode;
-    private emergencyDisplay: DomNode;
 
     private id = -1;
 
@@ -33,9 +32,13 @@ export default class GenesisNftItem extends DomNode {
             ),
             el(".content-wrap",
                 el("section",
-                    el("header", msg("UNCOLLECTED_INTEREST_DESC")),
+                    el("header",
+                        el("p", msg("UNCOLLECTED_INTEREST_DESC")),
+                        el("img", { src: "/images/icn/help.svg", alt: "help" }),
+                        el(".tooltip", "Gaia Dividend"),
+                    ),
                     el(".amount-wrap",
-                        this.klayDisplay = el(".klay", "... KLAY"),
+                        this.klayDisplay = el(".klay", "... USDC"),
                     ),
                 ),
                 el(".button-wrap",
@@ -46,22 +49,6 @@ export default class GenesisNftItem extends DomNode {
                         }
                     }),
                 ),
-            ),
-            el(".content-wrap",
-                el("section",
-                    el("header", msg("EMERGENCY_DESC")),
-                    el(".amount-wrap",
-                        this.emergencyDisplay = el(".klay", "... KLAY"),
-                    ),
-                ),
-                // el(".button-wrap",
-                //     el("a.klay-button", msg("CLAIM_REWARDS_BUTTON"), {
-                //         click: async () => {
-                //             await NFTAirdropContract.collectAirdropReward(0, [this.id]);
-                //             ViewUtil.waitTransactionAndRefresh();
-                //         }
-                //     }),
-                // ),
             ),
         );
     }
@@ -74,7 +61,6 @@ export default class GenesisNftItem extends DomNode {
             this.claimButton.delete();
         }
         this.klayDisplay.empty().appendText(`${CommonUtil.numberWithCommas(usdcCollected === true ? "0" : utils.formatUnits(usdc, 6))} USDC`);
-        this.emergencyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(reward.sub(collected)), 5)} KLAY`);
     }
 
     public delete() {

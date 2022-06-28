@@ -1,6 +1,6 @@
-import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
-import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
+import { View, ViewParams } from "skydapp-common";
+import Prompt from "../component/shared/dialogue/Prompt";
 import Layout from "./Layout";
 import ViewUtil from "./ViewUtil";
 

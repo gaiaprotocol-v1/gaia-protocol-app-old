@@ -56,7 +56,7 @@ export default class StableDAO implements View {
                             el("h3", "My NFT"),
                         ),
                         el(".button-container",
-                            // el("a", msg("EARNING_BUTTON")),
+                            el("a", "모든 수익 받기"),
                         ),
                     ),
                 ),
