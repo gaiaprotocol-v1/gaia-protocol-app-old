@@ -40,7 +40,7 @@ export default class GenesisLanding implements View {
                 el(".mint-container", { id: "MINT" },
                     el("h2", msg("GENESIS_MINT_TITLE"), { "data-aos": "fade-up" },),
                     el("p", msg("GENESIS_MINT_DESC"), { "data-aos": "fade-up" },),
-                    el("a", msg("GENESIS_MINT_BUTTON"),)
+                    el("a", { href: "https://opensea.io/collection/gaia-genesis", target: "_blank" }, msg("GENESIS_MINT_BUTTON"),)
                 ),
             ));
         this.init();

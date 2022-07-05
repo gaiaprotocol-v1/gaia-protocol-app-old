@@ -1708,6 +1708,7 @@ body {
   margin-right: 8px;
   background-color: #e0d8c8;
   color: black;
+  text-decoration: none;
 }
 .landing-genesis-view > .mint-container > a > img {
   height: 48px;
@@ -2051,10 +2052,10 @@ body {
   cursor: pointer;
   margin-top: 16px;
   padding: 16px;
-  text-decoration: none;
   background-color: #990013;
   border-radius: 4px;
   color: white;
+  text-decoration: none;
 }
 .landing-supernova-view > .mint-container > a:hover {
   background-color: rgba(153, 0, 19, 0.9);

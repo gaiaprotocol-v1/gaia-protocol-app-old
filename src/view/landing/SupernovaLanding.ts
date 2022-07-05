@@ -34,7 +34,7 @@ export default class SupernovaLanding implements View {
                     el("h2", { "data-aos": "zoom-in" }, msg("SUPERNOVA_MINT_TITLE")),
                     el("h3", { "data-aos": "zoom-in" }, msg("SUPERNOVA_MINT_VIP_TITLE")),
                     el("p", { "data-aos": "zoom-in" }, msg("SUPERNOVA_MINT_VIP_DESC")),
-                    el("a", { "data-aos": "zoom-in", href: "https://mint.gaiasupernova.com/", target: "_blank" }, "Go to Opensea"),
+                    el("a", { "data-aos": "zoom-in", href: "https://opensea.io/collection/gaia-supernova", target: "_blank" }, "Go to Opensea"),
                 ),
                 el(".nft-container", { id: "nft" },
                     el("h2", { "data-aos": "zoom-in" }, msg("SUPERNOVA_SNEAKPEEK_TITLE")),
