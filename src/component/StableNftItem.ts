@@ -1,6 +1,6 @@
 import { DomNode, el, msg } from "skydapp-browser";
 import GaiaStableDAOContract from "../contracts/GaiaStableDAOContract";
-import GaiaStableDAOOperatorV2Contract from "../contracts/GaiaStableDAOOperatorV2Contract";
+import GaiaStableDAOOperatorV2Contract from "../contracts/GaiaStableDAOOperatorV3Contract";
 import ViewUtil from "../view/ViewUtil";
 import Confirm from "./shared/dialogue/Confirm";
 import Prompt from "./shared/dialogue/Prompt";
@@ -27,6 +27,12 @@ export default class StableNftItem extends DomNode {
                     }),
                 }
             ),
+            el("button", msg("BUYBACK_BUTTON"), {
+                click: () => new Confirm(msg("BUYBACK_CONFIRM_TITLE"), msg("BUYBACK_CONFIRM_DESC"), msg("BUYBACK_CONFIRM_BUTTON"), async () => {
+                    await GaiaStableDAOOperatorV2Contract.buyBack([this.id]);
+                    ViewUtil.waitTransactionAndRefresh();
+                }),
+            }),
         );
     }
 
