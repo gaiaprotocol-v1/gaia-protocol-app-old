@@ -4,19 +4,19 @@
             "key": "LANDING_MENU",
             "children": [
                 {
-                    "uri": "landing/genesis",
+                    "uri": "genesis",
                     "key": "GENESIS_MENU"
                 },
                 {
-                    "uri": "landing/supernova",
+                    "uri": "supernova",
                     "key": "SUPERNOVA_MENU"
                 },
                 {
-                    "uri": "landing/stabledao",
+                    "uri": "stabledao",
                     "key": "STABLEDAO_MENU"
                 },
                 {
-                    "uri": "landing/dividend",
+                    "uri": "dividend",
                     "key": "DIVIDEND_MENU"
                 },
                 {
@@ -33,16 +33,20 @@
             "key": "APP_MENU",
             "children": [
                 {
-                    "uri": "genesis",
+                    "uri": "genesis/app",
                     "key": "GENESIS_MENU"
                 },
                 {
-                    "uri": "supernova",
+                    "uri": "supernova/app",
                     "key": "SUPERNOVA_MENU"
                 },
                 {
-                    "uri": "stabledao",
+                    "uri": "stabledao/app",
                     "key": "STABLEDAO_MENU"
+                },
+                {
+                    "uri": "governances",
+                    "key": "GOVERNANCE_MENU"
                 }
             ]
         },

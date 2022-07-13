@@ -6,7 +6,7 @@ import NftItem from "../../component/StableNftItem";
 import Alert from "../../component/shared/dialogue/Alert";
 import GaiaGenesisContract from "../../contracts/GaiaGenesisContract";
 import GaiaStableDAOContract from "../../contracts/GaiaStableDAOContract";
-import GaiaStableDAOOperatorV2Contract from "../../contracts/GaiaStableDAOOperatorV2Contract";
+import GaiaStableDAOOperatorV3Contract from "../../contracts/GaiaStableDAOOperatorV3Contract";
 import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
 import oUSDCContract from "../../contracts/oUSDCContract";
 import Wallet from "../../klaytn/Wallet";
@@ -74,8 +74,8 @@ export default class BuyStableDAO implements View {
                         click: async () => {
                             const address = await Wallet.loadAddress();
                             if (address !== undefined) {
-                                if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV2Contract.address)).eq(0)) {
-                                    await oUSDCContract.approve(GaiaStableDAOOperatorV2Contract.address, constants.MaxUint256);
+                                if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV3Contract.address)).eq(0)) {
+                                    await oUSDCContract.approve(GaiaStableDAOOperatorV3Contract.address, constants.MaxUint256);
                                 } else {
                                     new Alert("오류", "이미 사용 승인 하셨습니다.");
                                 }
@@ -86,13 +86,13 @@ export default class BuyStableDAO implements View {
                         click: async () => {
                             const address = await Wallet.loadAddress();
                             if (address !== undefined) {
-                                if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV2Contract.address)).eq(0)) {
+                                if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV3Contract.address)).eq(0)) {
                                     new Alert("오류", "oUSDC 사용 승인이 필요합니다.");
                                 } else if ((await oUSDCContract.balanceOf(address)).lt(this.price.mul(this.count))) {
                                     new Confirm("오류", "oUSDC 개수가 부족합니다. 구매하시겠습니까?", "oUSDC 구매하기", () => {
                                         open("https://swapscanner.io/ko/swap?from=0x0000000000000000000000000000000000000000&to=0x754288077d0ff82af7a5317c7cb8c444d421d103");
                                     });
-                                } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorV2Contract.address) !== true) {
+                                } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorV3Contract.address) !== true) {
                                     new Alert("오류", "아직 판매중이 아닙니다.");
                                 } else {
                                     let nft = constants.AddressZero;
@@ -105,7 +105,7 @@ export default class BuyStableDAO implements View {
                                     if (this.count.toNumber() > 10) {
                                         new Alert("오류", "한 번에 최대 10개까지 구매가 가능합니다.");
                                     } else {
-                                        await GaiaStableDAOOperatorV2Contract.mintStableDAO(this.count, nft);
+                                        await GaiaStableDAOOperatorV3Contract.mintStableDAO(this.count, nft);
                                         new Alert("구매 성공!", "Gaia Stable DAO 구매에 성공했습니다. 환영합니다!");
                                         ViewUtil.waitTransactionAndRefresh();
                                     }
@@ -141,7 +141,7 @@ export default class BuyStableDAO implements View {
 
     private async loadSales() {
 
-        if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorV2Contract.address) !== true) {
+        if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorV3Contract.address) !== true) {
             this.notice.empty().appendText("아직 판매중이 아닙니다.");
         } else {
             this.notice.empty().appendText("현재 판매중입니다.");
@@ -152,7 +152,7 @@ export default class BuyStableDAO implements View {
 
         const address = await Wallet.loadAddress();
         if (address !== undefined) {
-            if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV2Contract.address)).eq(0)) {
+            if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV3Contract.address)).eq(0)) {
                 this.approveButton.deleteClass("disabled");
                 this.buyButton.addClass("disabled");
             } else {
