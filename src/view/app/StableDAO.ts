@@ -46,7 +46,6 @@ export default class StableDAO implements View {
                 ),
             ),
             el(".warning-container",
-                el("p", "GAIA STABLE DAO는 6월 30일까지 구매가능합니다."),
                 el("a", "구매하기 >", { click: () => { ViewUtil.go("/stabledao/buy") } }),
             ),
             el("section",
