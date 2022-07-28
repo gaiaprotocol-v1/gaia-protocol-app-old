@@ -17,9 +17,6 @@ export default class StableDAO implements View {
     private container: DomNode;
     private interval: any;
 
-    private interestMeshDisplay: DomNode;
-    private interestKrwDisplay: DomNode;
-
     private tokenIds: number[] = [];
     private nftList: DomNode;
 
@@ -35,8 +32,6 @@ export default class StableDAO implements View {
                     el(".tool-container",
                         el(".title-container",
                             el("h3", "Portfolio"),
-                            // this.interestMeshDisplay = el("p", msg("STABLEDAO_INTEREST_ACCRUED_DESC")),
-                            // this.interestKrwDisplay = el("p", msg("TOTAL_KRW_DESC")),
                         ),
                     ),
                 ),
@@ -116,8 +111,6 @@ export default class StableDAO implements View {
         const result2 = await fetch("https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD");
         const data2 = await result2.json();
         const krw = interest * data2[0].basePrice;
-        this.interestMeshDisplay.empty().appendText(`${msg("STABLEDAO_INTEREST_ACCRUED_DESC")} ${CommonUtil.numberWithCommas(utils.formatEther(mesh))} MESH`);
-        this.interestKrwDisplay.empty().appendText(`${msg("TOTAL_KRW_DESC")} ${CommonUtil.numberWithCommas(String(krw))} 원`);
     }
 
     public changeParams(params: ViewParams, uri: string): void { }
