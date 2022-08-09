@@ -68,6 +68,7 @@ PORTFOLIO_ITEM_TITLE,번째  투자,st Investment
 PRESENT_PRICE_TITLE,현재가:,present price:
 RATE_OF_RETURN_TITLE,수익률:,rate of return: 
 START_PRICE_TITLE,시작가:,start price:
+PORTFOLIO_END_DESC, 종료가:,end price:
 WARNING_DESC,다음 로열티 수령 이전에 하나라도 NFT를 판매하거나 다른 지갑에 전송하면 현재 쌓여진 모든 로열티가 타인에게 분배됩니다.,"If your Gaia Supernova NFT balance is changed, you will lose all accumulated resale royalty that you can get at the point. The royalty will be distributed to other holders."
 SEND_PROMPT_WARNING_DESC,"전송이 완료되면 절대 되찾을 수 없으니, 지갑 주소를 여러번 확인하시기 바랍니다.","Once the transmission is completed, you can never get it back, so please check your wallet address several times."
 BUY_TITLE,BUY & BUYBACK,BUY & BUYBACK

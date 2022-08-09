@@ -36,7 +36,7 @@ export default class StableDAO implements View {
                     ),
                 ),
                 el(".portfolio-container",
-                    new PortfolioItem(1, "stepn", "gmt", 3403, 2.67, 1938.279905549, "₩6,593,031.06 (1938.279905549 GMT)", "2022.05.08 ~ 2022.08.08"),
+                    new PortfolioItem(1, "stepn", "gmt", 3403, 2.67, 1938.279905549, "₩6,593,031.06 (1938.279905549 GMT)", "2022.05.08 ~ 2022.08.08", "1897.62 USDC (1,997.63405178 GMT)"),
                     new PortfolioItem(2, "bitcoin", "btc", 38277205, 2.67, 0.104883, "₩4,044,116.736 (0.104883 BTC)", "2022.06.08 ~ 2022.09.08"),
                     new PortfolioItem(3, "ethereum", "eth", 1963000, 2.67, 1.558394, "₩3,058,943 (1.558394 ETH)", "2022.07.21 ~ 2022.10.21"),
                 ),

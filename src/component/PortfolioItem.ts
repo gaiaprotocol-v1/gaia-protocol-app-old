@@ -9,7 +9,7 @@ export default class PortfolioItem extends DomNode {
     private desc1Display: DomNode;
     private desc2Display: DomNode;
     private desc3Display: DomNode;
-    //private desc4Display: DomNode;
+    private desc4Display: DomNode;
     //private desc5Display: DomNode;
     private priceDisplay: DomNode;
     private rateDisplay: DomNode;
@@ -44,16 +44,16 @@ export default class PortfolioItem extends DomNode {
                     this.rateDisplay = el("p.rate", ""),
                 ),
                 this.desc3Display = el("p", `${msg("PORTFOLIO_ITEM_DESC3")} ${desc3}`),
-                // this.desc4Display = el("p", `${msg("PORTFOLIO_ITEM_DESC4")}: ${desc4}`),
+                this.desc4Display = el("p.ended-price", `${msg("PORTFOLIO_END_DESC")} ${desc4}`),
                 // this.desc5Display = el("p", `${msg("PORTFOLIO_ITEM_DESC5")}: ${desc5}`),
             ),
             // this.claimButton = el("button", msg("PORTFOLIO_BUTTON")),
         );
 
-        this.getPrice(symbol, startPrice, startPriceUSD, amount);
+        this.getPrice(symbol, startPrice, startPriceUSD, amount, desc4!);
     }
 
-    async getPrice(symbol: string, price: number, priceUSD: number, amount: number) {
+    async getPrice(symbol: string, price: number, priceUSD: number, amount: number, endedPrice: string) {
         const krw = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=krw&ids=${symbol}`);
         const usd = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${symbol}`);
         const dataKRW = await krw.json();
@@ -74,6 +74,12 @@ export default class PortfolioItem extends DomNode {
             this.rateDisplay.style({
                 color: "#1738C1"
             })
+        }
+
+        if (endedPrice === undefined) {
+            this.desc4Display.empty();
+        } else {
+            this.desc4Display.empty().appendText(`${msg("PORTFOLIO_END_DESC")} ${endedPrice}`);
         }
     }
 

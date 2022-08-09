@@ -984,6 +984,9 @@ body {
   margin-top: 16px;
   font-weight: 300;
 }
+.portfolio-item > .content > .ended-price {
+  font-weight: bold;
+}
 .portfolio-item > button {
   height: 42px;
   color: #00445a;
