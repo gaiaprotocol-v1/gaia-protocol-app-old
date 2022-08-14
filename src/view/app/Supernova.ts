@@ -4,6 +4,7 @@ import { Debouncer, View, ViewParams } from "skydapp-common";
 import CommonUtil from "../../CommonUtil";
 import Alert from "../../component/shared/dialogue/Alert";
 import SupernovaNftItem from "../../component/SupernovaNftItem";
+import Config from "../../Config";
 import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
 import SupernovaRewardDistributor from "../../contracts/SupernovaRewardDistributor";
 import Wallet from "../../klaytn/Wallet";
@@ -130,7 +131,7 @@ export default class Supernova implements View {
             const promises: Promise<void>[] = [];
 
             this.tokenIds = [];
-            const result = await fetch(`https://nft-holder-collector.webplusone.com/nfts/klaytn/0x20a33C651373cde978daE404760e853fAE877588/${address}`);
+            const result = await fetch(`https://nft-holder-collector.webplusone.com/nfts/klaytn/${Config.contracts.GaiaSupernova}/${address}`);
             const dataSet = await result.json();
             for (const data of dataSet) {
                 const promise = async () => {

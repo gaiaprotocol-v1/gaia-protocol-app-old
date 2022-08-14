@@ -2,6 +2,7 @@ import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
 import GenesisNftItem from "../../component/GenesisNftItem";
+import Config from "../../Config";
 import GaiaGenesisUSDCDistributorContract from "../../contracts/GaiaGenesisUSDCDistributorContract";
 import GaiaNFTContract from "../../contracts/GaiaNFTContract";
 import NFTAirdropContract from "../../contracts/NFTAirdropContract";
@@ -72,7 +73,7 @@ export default class Genesis implements View {
             this.tokenIds = [];
 
             let totalEmergency = BigNumber.from(0);
-            const result = await fetch(`https://nft-holder-collector.webplusone.com/nfts/klaytn/0xe9A10bB97DDb4bCD7677393405B4b769273CeF3c/${address}`);
+            const result = await fetch(`https://nft-holder-collector.webplusone.com/nfts/klaytn/${Config.contracts.GaiaNFT}/${address}`);
             const dataSet = await result.json();
             for (const data of dataSet) {
                 const promise = async () => {

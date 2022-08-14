@@ -4,6 +4,7 @@ import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
 import CommonUtil from "../../CommonUtil";
 import PortfolioItem from "../../component/PortfolioItem";
 import StableNftItem from "../../component/StableNftItem";
+import Config from "../../Config";
 import GaiaStableDAOContract from "../../contracts/GaiaStableDAOContract";
 import MaticContract from "../../contracts/MaticContract";
 import MeshContract from "../../contracts/MeshContract";
@@ -78,7 +79,7 @@ export default class StableDAO implements View {
             const promises: Promise<void>[] = [];
 
             this.tokenIds = [];
-            const result = await fetch(`https://nft-holder-collector.webplusone.com/nfts/klaytn/0x20a33C651373cde978daE404760e853fAE877588/${address}`);
+            const result = await fetch(`https://nft-holder-collector.webplusone.com/nfts/klaytn/${Config.contracts.GaiaStableDAO}/${address}`);
             const dataSet = await result.json();
             for (const data of dataSet) {
                 const promise = async () => {

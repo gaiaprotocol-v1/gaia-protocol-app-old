@@ -27,12 +27,12 @@ export default class StableNftItem extends DomNode {
                     }),
                 }
             ),
-            el("button", msg("BUYBACK_BUTTON"), {
+            /*el("button", msg("BUYBACK_BUTTON"), {
                 click: () => new Confirm(msg("BUYBACK_CONFIRM_TITLE"), msg("BUYBACK_CONFIRM_DESC"), msg("BUYBACK_CONFIRM_BUTTON"), async () => {
                     await GaiaStableDAOOperatorV2Contract.buyBack([this.id]);
                     ViewUtil.waitTransactionAndRefresh();
                 }),
-            }),
+            }),*/
         );
     }
 
