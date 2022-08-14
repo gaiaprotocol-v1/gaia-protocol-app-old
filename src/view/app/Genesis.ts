@@ -36,7 +36,7 @@ export default class Genesis implements View {
                         this.totalEmergencyDisplay = el("p", ""),
                     ),
                     el(".button-container",
-                        el("a", "모든 미수령 이자 받기", {
+                        /*el("a", "모든 미수령 이자 받기", {
                             click: async () => {
                                 await GaiaGenesisUSDCDistributorContract.claim(this.usdcTokenIds);
                                 ViewUtil.waitTransactionAndRefresh();
@@ -47,7 +47,7 @@ export default class Genesis implements View {
                                 await NFTAirdropContract.collectAirdropReward(0, this.tokenIds);
                                 ViewUtil.waitTransactionAndRefresh();
                             },
-                        }),
+                        }),*/
                     ),
                 ),
             ),
@@ -72,28 +72,32 @@ export default class Genesis implements View {
             this.tokenIds = [];
 
             let totalEmergency = BigNumber.from(0);
-            SkyUtil.repeat(balance, (i: number) => {
-                const promise = async (index: number) => {
+            const result = await fetch(`https://nft-holder-collector.webplusone.com/nfts/klaytn/0xe9A10bB97DDb4bCD7677393405B4b769273CeF3c/${address}`);
+            const dataSet = await result.json();
+            for (const data of dataSet) {
+                const promise = async () => {
                     const item = new GenesisNftItem().appendTo(this.nftList);
-                    const tokenId = (await GaiaNFTContract.tokenOfOwnerByIndex(address, index)).toNumber();
+                    //const tokenId = (await GaiaNFTContract.tokenOfOwnerByIndex(address, index)).toNumber();
+                    const tokenId = data.tokenId;
                     if (tokenId === 0) {
                         item.delete();
                     } else {
-                        const usdc = await GaiaGenesisUSDCDistributorContract.rewardPerId(tokenId);
-                        const usdcCollected = await GaiaGenesisUSDCDistributorContract.isRewardCollected(tokenId);
-                        const collected = await NFTAirdropContract.airdropCollected(0, tokenId);
+                        //const usdc = await GaiaGenesisUSDCDistributorContract.rewardPerId(tokenId);
+                        //const usdcCollected = await GaiaGenesisUSDCDistributorContract.isRewardCollected(tokenId);
+                        //const collected = await NFTAirdropContract.airdropCollected(0, tokenId);
 
-                        item.init(tokenId, usdc, usdcCollected, reward, collected);
+                        //item.init(tokenId, usdc, usdcCollected, reward, collected);
+                        item.init(tokenId, BigNumber.from(0), false, reward, BigNumber.from(0));
                         this.tokenIds.push(tokenId);
-                        if (usdcCollected !== true) {
+                        /*if (usdcCollected !== true) {
                             this.usdcs.push(usdc);
                             this.usdcTokenIds.push(tokenId);
-                        }
-                        totalEmergency = totalEmergency.add(reward.sub(collected));
+                        }*/
+                        //totalEmergency = totalEmergency.add(reward.sub(collected));
                     }
                 };
-                promises.push(promise(i));
-            });
+                promises.push(promise());
+            }
             await Promise.all(promises);
 
             let totalUSDC = BigNumber.from(0);

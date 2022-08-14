@@ -1,6 +1,6 @@
 import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
-import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
+import { Debouncer, View, ViewParams } from "skydapp-common";
 import CommonUtil from "../../CommonUtil";
 import Alert from "../../component/shared/dialogue/Alert";
 import SupernovaNftItem from "../../component/SupernovaNftItem";
@@ -130,10 +130,12 @@ export default class Supernova implements View {
             const promises: Promise<void>[] = [];
 
             this.tokenIds = [];
-            SkyUtil.repeat(balance, (i: number) => {
-                const promise = async (index: number) => {
+            const result = await fetch(`https://nft-holder-collector.webplusone.com/nfts/klaytn/0x20a33C651373cde978daE404760e853fAE877588/${address}`);
+            const dataSet = await result.json();
+            for (const data of dataSet) {
+                const promise = async () => {
                     const item = new SupernovaNftItem().appendTo(this.nftList);
-                    const tokenId = (await GaiaSupernovaContract.tokenOfOwnerByIndex(address, index)).toNumber();
+                    const tokenId = data.tokenId;
                     if (tokenId === 0) {
                         item.delete();
                     } else {
@@ -141,8 +143,8 @@ export default class Supernova implements View {
                         this.tokenIds.push(tokenId);
                     }
                 };
-                promises.push(promise(i));
-            });
+                promises.push(promise());
+            }
             await Promise.all(promises);
         }
         const promises: Promise<void>[] = [];

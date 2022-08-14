@@ -11,9 +11,9 @@ export default class GenesisNftItem extends DomNode {
 
     private imageDisplay: DomNode<HTMLImageElement>;
     private nameDisplay: DomNode;
-    private klayDisplay: DomNode;
-    private claimButton: DomNode;
-    private emergencyDisplay: DomNode;
+    //private klayDisplay: DomNode;
+    //private claimButton: DomNode;
+    //private emergencyDisplay: DomNode;
 
     private id = -1;
 
@@ -35,23 +35,23 @@ export default class GenesisNftItem extends DomNode {
                 el("section",
                     el("header", msg("UNCOLLECTED_INTEREST_DESC")),
                     el(".amount-wrap",
-                        this.klayDisplay = el(".klay", "... KLAY"),
+                        //this.klayDisplay = el(".klay", "... KLAY"),
                     ),
                 ),
-                el(".button-wrap",
+                /*el(".button-wrap",
                     this.claimButton = el("a.klay-button", "미수령 이자 받기", {
                         click: async () => {
                             await GaiaGenesisUSDCDistributorContract.claim([this.id]);
                             ViewUtil.waitTransactionAndRefresh();
                         }
                     }),
-                ),
+                ),*/
             ),
             el(".content-wrap",
                 el("section",
                     el("header", msg("EMERGENCY_DESC")),
                     el(".amount-wrap",
-                        this.emergencyDisplay = el(".klay", "... KLAY"),
+                        //this.emergencyDisplay = el(".klay", "... KLAY"),
                     ),
                 ),
                 // el(".button-wrap",
@@ -71,10 +71,10 @@ export default class GenesisNftItem extends DomNode {
         this.imageDisplay.domElement.src = `https://storage.googleapis.com/gaia-protocol/kronos/${id}.png`;
         this.nameDisplay.appendText(`#${this.id}`);
         if (usdcCollected === true) {
-            this.claimButton.delete();
+            //this.claimButton.delete();
         }
-        this.klayDisplay.empty().appendText(`${CommonUtil.numberWithCommas(usdcCollected === true ? "0" : utils.formatUnits(usdc, 6))} USDC`);
-        this.emergencyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(reward.sub(collected)), 5)} KLAY`);
+        //this.klayDisplay.empty().appendText(`${CommonUtil.numberWithCommas(usdcCollected === true ? "0" : utils.formatUnits(usdc, 6))} USDC`);
+        //this.emergencyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(reward.sub(collected)), 5)} KLAY`);
     }
 
     public delete() {

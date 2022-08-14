@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
 import Config from "../Config";
-import GaiaSupernovaArtifact from "./abi/gaia-supernova/artifacts/contracts/GaiaSupernova.sol/GaiaSupernova.json";
+import GaiaSupernovaArtifact from "./abi/gaia-protocol-pfp/artifacts/contracts/GaiaSupernova.sol/GaiaSupernova.json";
 import KIP17Contract from "./standard/KIP17Contract";
 
 class GaiaSupernovaContract extends KIP17Contract {

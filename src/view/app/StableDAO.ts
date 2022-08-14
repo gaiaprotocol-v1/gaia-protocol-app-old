@@ -78,10 +78,12 @@ export default class StableDAO implements View {
             const promises: Promise<void>[] = [];
 
             this.tokenIds = [];
-            SkyUtil.repeat(balance, (i: number) => {
-                const promise = async (index: number) => {
+            const result = await fetch(`https://nft-holder-collector.webplusone.com/nfts/klaytn/0x20a33C651373cde978daE404760e853fAE877588/${address}`);
+            const dataSet = await result.json();
+            for (const data of dataSet) {
+                const promise = async () => {
                     const item = new StableNftItem().appendTo(this.nftList);
-                    const tokenId = (await GaiaStableDAOContract.tokenOfOwnerByIndex(address, index)).toNumber();
+                    const tokenId = data.tokenId;
                     if (tokenId === 0) {
                         item.delete();
                     } else {
@@ -89,8 +91,8 @@ export default class StableDAO implements View {
                         this.tokenIds.push(tokenId);
                     }
                 };
-                promises.push(promise(i));
-            });
+                promises.push(promise());
+            }
             await Promise.all(promises);
         }
         const promises: Promise<void>[] = [];
