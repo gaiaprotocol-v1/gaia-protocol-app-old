@@ -2,8 +2,6 @@ import { View, ViewParams } from "skydapp-common";
 export default class StableDAO implements View {
     private container;
     private interval;
-    private interestMeshDisplay;
-    private interestKrwDisplay;
     private tokenIds;
     private nftList;
     constructor();
