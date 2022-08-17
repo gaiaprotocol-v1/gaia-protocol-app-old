@@ -16,6 +16,10 @@ class GaiaStableDAOContract extends KIP17Contract {
     public async isMinter(addr: string): Promise<boolean> {
         return await this.runMethod("isMinter", addr);
     }
+
+    public async burn(id: number) {
+        await this.runWalletMethod("burn", id);
+    }
 }
 
 export default new GaiaStableDAOContract();

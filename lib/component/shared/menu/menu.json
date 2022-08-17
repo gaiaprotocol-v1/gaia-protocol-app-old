@@ -49,10 +49,6 @@
                     "key": "GOVERNANCE_MENU"
                 }
             ]
-        },
-        {
-            "key": "BUY_STABLE_DAO_MENU",
-            "uri": "stabledao/buy"
         }
     ]
 }

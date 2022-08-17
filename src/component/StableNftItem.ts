@@ -33,6 +33,12 @@ export default class StableNftItem extends DomNode {
                     ViewUtil.waitTransactionAndRefresh();
                 }),
             }),*/
+            /*el("button", "Burn", {
+                click: async () => {
+                    await GaiaStableDAOContract.burn(this.id);
+                    ViewUtil.waitTransactionAndRefresh();
+                },
+            }),*/
         );
     }
 
