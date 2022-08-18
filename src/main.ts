@@ -18,6 +18,7 @@ import DividendLanding from "./view/landing/DividendLanding";
 import SupernovaEvent from "./view/app/SupernovaEvent";
 import Governance from "./view/app/Governance";
 import GovernanceDetail from "./view/app/GovernanceDetail";
+import GaiaDividend from "./view/app/GaiaDividend";
 
 (async () => {
     msg.language = BrowserInfo.language;
@@ -45,6 +46,7 @@ import GovernanceDetail from "./view/app/GovernanceDetail";
 
     // Dividend
     SkyRouter.route("dividend", DividendLanding);
+    SkyRouter.route("dividend/distributor", GaiaDividend);
 
     // Governance
     SkyRouter.route("governances", Governance);
