@@ -1,0 +1,1 @@
+//# sourceMappingURL=KlaySupernova.d.ts.map
