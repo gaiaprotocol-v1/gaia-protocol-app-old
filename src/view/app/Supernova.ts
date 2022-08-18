@@ -19,12 +19,12 @@ export default class Supernova implements View {
     private tokenIds: number[] = [];
     private nftList: DomNode;
 
-    private allRoyaltyDisplay: DomNode;
+    /*private allRoyaltyDisplay: DomNode;
     private nftRoyaltyDisplay: DomNode;
     private allNftDisplay: DomNode;
     private blockDisplay: DomNode;
     private receivedDisplay: DomNode;
-    private totalInterestDisplay: DomNode;
+    private totalInterestDisplay: DomNode;*/
 
     constructor() {
         Layout.current.title = msg("GAIA_SUPERNOVA_TITLE");
@@ -34,7 +34,7 @@ export default class Supernova implements View {
                     el("h2", msg("GAIA_SUPERNOVA_TITLE")),
                     el("p", msg("GAIA_SUPERNOVA_DESC")),
                 ),
-                el(".dashboard-container",
+                /*el(".dashboard-container",
                     el(".content",
                         el("h3", msg("DASHBOARD_TITLE1")),
                         this.allRoyaltyDisplay = el("p", "... KLAY"),
@@ -65,12 +65,12 @@ export default class Supernova implements View {
                         el("img", { src: "/images/icn/error-red.svg", alt: "warning" }),
                         el("p", msg("WARNING_DESC")),
                     ),
-                ),
+                ),*/
                 el(".tool-container",
                     el(".title-container",
                         el("h3", "My NFT"),
                     ),
-                    el(".button-container",
+                    /*el(".button-container",
                         el("a", msg("REWARD_BUTTON"), {
                             click: async () => {
                                 const address = await Wallet.loadAddress();
@@ -84,7 +84,7 @@ export default class Supernova implements View {
                                 }
                             },
                         }),
-                    ),
+                    ),*/
                 ),
             ),
             el(".warning-container",
@@ -104,10 +104,10 @@ export default class Supernova implements View {
     private async load() {
 
         const totalDistribution = (await SupernovaRewardDistributor.totalDistribution()).add("14450505446857445842091");
-        this.allRoyaltyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(totalDistribution))} KLAY`);
-        this.nftRoyaltyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(totalDistribution.div(1000)))} KLAY`);
+        //this.allRoyaltyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(totalDistribution))} KLAY`);
+        //this.nftRoyaltyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(totalDistribution.div(1000)))} KLAY`);
 
-        const address = await Wallet.loadAddress();
+        /*const address = await Wallet.loadAddress();
         if (address !== undefined) {
 
             const balance = await GaiaSupernovaContract.balanceOf(address);
@@ -121,7 +121,7 @@ export default class Supernova implements View {
 
             const claimableReward = await SupernovaRewardDistributor.claimableReward(address);
             this.totalInterestDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(claimableReward))} KLAY`);
-        }
+        }*/
     }
 
     private async loadNFTs() {

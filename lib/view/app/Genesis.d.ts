@@ -1,8 +1,6 @@
 import { View, ViewParams } from "skydapp-common";
 export default class Genesis implements View {
     private container;
-    private totalKlayDisplay;
-    private totalEmergencyDisplay;
     private nftList;
     private interval;
     private tokenIds;

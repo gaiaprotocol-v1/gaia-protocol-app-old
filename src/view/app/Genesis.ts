@@ -13,8 +13,8 @@ import ViewUtil from "../ViewUtil";
 export default class Genesis implements View {
 
     private container: DomNode;
-    private totalKlayDisplay: DomNode;
-    private totalEmergencyDisplay: DomNode;
+    //private totalKlayDisplay: DomNode;
+    //private totalEmergencyDisplay: DomNode;
     private nftList: DomNode;
     private interval: any;
 
@@ -33,8 +33,8 @@ export default class Genesis implements View {
                 el(".tool-container",
                     el(".title-container",
                         el("h3", "My NFT"),
-                        this.totalKlayDisplay = el("p", ""),
-                        this.totalEmergencyDisplay = el("p", ""),
+                        //this.totalKlayDisplay = el("p", ""),
+                        //this.totalEmergencyDisplay = el("p", ""),
                     ),
                     el(".button-container",
                         /*el("a", "모든 미수령 이자 받기", {
@@ -105,8 +105,8 @@ export default class Genesis implements View {
             for (const usdc of this.usdcs) {
                 totalUSDC = totalUSDC.add(usdc);
             }
-            this.totalKlayDisplay.empty().appendText(`${"총 미수령 이자 {amount} USDC".replace(/{amount}/, String(utils.formatUnits(totalUSDC, 6)))}`);
-            this.totalEmergencyDisplay.empty().appendText(`${msg("ALL_EMERGENCY_DESC")} ${String(utils.formatEther(totalEmergency))} KLAY`);
+            //this.totalKlayDisplay.empty().appendText(`${"총 미수령 이자 {amount} USDC".replace(/{amount}/, String(utils.formatUnits(totalUSDC, 6)))}`);
+            //this.totalEmergencyDisplay.empty().appendText(`${msg("ALL_EMERGENCY_DESC")} ${String(utils.formatEther(totalEmergency))} KLAY`);
         }
     }
 

@@ -13,7 +13,7 @@ export default class GaiaDividend implements View {
                 el(".title-container",
                     el("h2", "GAIA Dividend"),
                     el("p", "Total Distribution of revenue from Gaia Protocol"),
-                    el("p.total", "9,999,999 USDC"),
+                    el("p.total", "0 USDC"),
                 ),
             ),
             el(".revenue-container",
@@ -28,7 +28,7 @@ export default class GaiaDividend implements View {
                         ),
                     ),
                     el("tbody",
-                        el("tr",
+                        /*el("tr",
                             el("th",
                                 el("a.done", "수령 완료"),
                             ),
@@ -45,7 +45,7 @@ export default class GaiaDividend implements View {
                             el("td", "200USDC"),
                             el("td", "300USDC"),
                             el("td", "600USDC"),
-                        ),
+                        ),*/
                     ),
                 )
             ),
