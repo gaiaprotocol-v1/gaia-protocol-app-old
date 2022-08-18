@@ -1,0 +1,116 @@
+.gaia-dividend-view {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    text-align      : center;
+    margin-top      : 64px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius   : 4px;
+    padding         : 32px;
+
+    @media @phone {
+        margin : 64px 8px;
+        padding: 16px;
+    }
+
+    >header {
+        >.title-container {
+            >h2 {
+                color      : rgba(177, 156, 118, 1);
+                font-size  : 32px;
+                font-weight: 700;
+            }
+
+            >p {
+                font-size  : 12px;
+                padding-top: 8px;
+                color      : #e0d8c8;
+                font-weight: 300;
+            }
+
+            >.total {
+                font-size  : 16px;
+                font-weight: 500;
+                color      : #fff;
+            }
+        }
+    }
+
+    >.revenue-container {
+        display        : flex;
+        justify-content: center;
+        margin-top     : 32px;
+
+        >table {
+            width          : 100%;
+            border-collapse: collapse;
+
+            >thead {
+                >tr {
+                    background-color: #e0d8c8;
+                    color           : #000;
+                    font-size       : 18px;
+
+                    >th {
+                        padding    : 16px 32px;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            >tbody {
+                >tr {
+                    border-bottom: 1px #aaa solid;
+
+                    >th {
+                        padding: 16px 0px;
+
+                        >a {
+                            border       : 1px solid rgba(177, 156, 118, 1);
+                            border-radius: 4px;
+                            padding      : 8px;
+                            font-size    : 14px;
+
+                            &:hover {
+                                background-color: rgba(177, 156, 118, 1);
+                                color           : #fff;
+                            }
+                        }
+
+                        >.done {
+                            border-color    : #666;
+                            background-color: #666;
+                            color           : #CCC;
+
+                            &:hover {
+                                border-color    : #666;
+                                background-color: #666;
+                                color           : #CCC;
+                            }
+                        }
+                    }
+
+                    >td {
+                        padding: 32px;
+                    }
+                }
+            }
+
+            @media @phone {
+                display : block;
+                overflow: scroll;
+
+                >thead {
+
+                    >tr {
+                        font-size: 16px;
+                    }
+                }
+
+                >tbody {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

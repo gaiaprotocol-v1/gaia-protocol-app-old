@@ -2,6 +2,7 @@ import { DomNode, el, msg } from "skydapp-browser";
 import CommonUtil from "../../../CommonUtil";
 import Klip from "../../../klaytn/Klip";
 import Wallet from "../../../klaytn/Wallet";
+import ConnectWalletPopup from "../ConnectWalletPopup";
 
 export default class UserInfo extends DomNode {
 
@@ -12,9 +13,15 @@ export default class UserInfo extends DomNode {
         super(".user-menu");
         this.append(
             this.connectWalletButton = el("a.connect-wallet", msg("CONNECT_WALLET_BUTTON"), {
-                click: () => Wallet.connect(),
+                click: () => {
+                    return new Promise<void>((resolve) => new ConnectWalletPopup(resolve));
+                }
             }),
-            this.addressDisplay = el(".wallet-address"),
+            this.addressDisplay = el(".wallet-address", {
+                click: () => {
+                    return new Promise<void>((resolve) => new ConnectWalletPopup(resolve));
+                }
+            }),
         );
         this.addressDisplay.style({ display: "none" });
         Wallet.on("connect", this.connectHandler);
