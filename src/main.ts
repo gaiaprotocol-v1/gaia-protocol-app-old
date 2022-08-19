@@ -1,24 +1,26 @@
 import { BrowserInfo, msg } from "skydapp-browser";
 import { SkyRouter } from "skydapp-common";
 import superagent from "superagent";
+import ConnectWalletPopup from "./component/shared/ConnectWalletPopup";
+import EthereumWallet from "./ethereum/EthereumWallet";
 import KlaytnWallet from "./klaytn/KlaytnWallet";
-import Home from "./view/Home";
-import Genesis from "./view/app/Genesis";
-import Layout from "./view/Layout";
-import StableDAO from "./view/app/StableDAO";
-import Supernova from "./view/app/Supernova";
 import BuyStableDAO from "./view/app/BuyStableDAO";
-import CheckHolder from "./view/CheckHolder";
-import GenesisLanding from "./view/landing/GenesisLanding";
-import SupernovaLanding from "./view/landing/SupernovaLanding";
-import StableDaoLanding from "./view/landing/StableLanding";
-import Partners from "./view/landing/Partners";
-import Team from "./view/landing/Team";
-import DividendLanding from "./view/landing/DividendLanding";
-import SupernovaEvent from "./view/app/SupernovaEvent";
+import GaiaDividend from "./view/app/GaiaDividend";
+import Genesis from "./view/app/Genesis";
 import Governance from "./view/app/Governance";
 import GovernanceDetail from "./view/app/GovernanceDetail";
-import GaiaDividend from "./view/app/GaiaDividend";
+import StableDAO from "./view/app/StableDAO";
+import Supernova from "./view/app/Supernova";
+import SupernovaEvent from "./view/app/SupernovaEvent";
+import CheckHolder from "./view/CheckHolder";
+import Home from "./view/Home";
+import DividendLanding from "./view/landing/DividendLanding";
+import GenesisLanding from "./view/landing/GenesisLanding";
+import Partners from "./view/landing/Partners";
+import StableDaoLanding from "./view/landing/StableLanding";
+import SupernovaLanding from "./view/landing/SupernovaLanding";
+import Team from "./view/landing/Team";
+import Layout from "./view/Layout";
 
 (async () => {
     msg.language = BrowserInfo.language;
@@ -57,7 +59,10 @@ import GaiaDividend from "./view/app/GaiaDividend";
         sessionStorage.removeItem("__spa_path");
     }
 
-    if (await KlaytnWallet.connected() !== true) {
-        await KlaytnWallet.connect();
+    if (
+        await KlaytnWallet.connected() !== true &&
+        await EthereumWallet.connected() !== true
+    ) {
+        new ConnectWalletPopup(() => { });
     }
 })();
