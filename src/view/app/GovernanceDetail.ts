@@ -1,10 +1,10 @@
+import { Chart, registerables } from "chart.js";
 import dayjs from "dayjs";
 import { DomNode, el, msg } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
-import { Chart, registerables } from "chart.js";
 import superagent from "superagent";
-import Layout from "../Layout";
 import CommonUtil from "../../CommonUtil";
+import Layout from "../Layout";
 
 export default class Governance implements View {
 
@@ -92,7 +92,7 @@ export default class Governance implements View {
         });
 
         Chart.register(...registerables);
-        new Chart(this.candidateChartDisplay.domElement.getContext("2d"), {
+        new Chart(this.candidateChartDisplay.domElement.getContext("2d")!, {
             type: "pie",
             data: chartData,
             option: {
@@ -104,7 +104,7 @@ export default class Governance implements View {
                     },
                 },
             },
-        });
+        } as any);
     }
 
     public loadStatus(status: string): void {

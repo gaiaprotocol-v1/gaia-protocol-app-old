@@ -1,8 +1,8 @@
 import { BigNumber, BigNumberish } from "ethers";
 import Config from "../Config";
-import Wallet from "../klaytn/Wallet";
+import KlaytnWallet from "../klaytn/KlaytnWallet";
 import GaiaBuyBackFundArtifact from "./abi/gaia-genesis/artifacts/contracts/GaiaBuyBackFund.sol/GaiaBuyBackFund.json";
-import Contract from "./Contract";
+import Contract from "./KlaytnContract";
 import GaiaNFTContract from "./GaiaNFTContract";
 
 class GaiaBuyBackFundContract extends Contract {
@@ -12,7 +12,7 @@ class GaiaBuyBackFundContract extends Contract {
     }
 
     public async sellGaiaNFT(ids: BigNumberish[]) {
-        const owner = await Wallet.loadAddress();
+        const owner = await KlaytnWallet.loadAddress();
         if (owner !== undefined) {
             if (await GaiaNFTContract.isApprovedForAll(owner, this.address) !== true) {
                 await GaiaNFTContract.setApprovalForAll(this.address, true);

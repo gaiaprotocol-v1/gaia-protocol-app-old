@@ -5,7 +5,7 @@ import Config from "../Config";
 import ExtWallet from "../klaytn/ExtWallet";
 import Klaytn from "../klaytn/Klaytn";
 import Klip from "../klaytn/Klip";
-import Wallet from "../klaytn/Wallet";
+import KlaytnWallet from "../klaytn/KlaytnWallet";
 
 export default abstract class Contract extends EventContainer {
 
@@ -37,7 +37,7 @@ export default abstract class Contract extends EventContainer {
     }
 
     protected async runMethodNew(methodName: string, ...params: any[]) {
-        const from = await Wallet.loadAddress();
+        const from = await KlaytnWallet.loadAddress();
         await ExtWallet.caver.klay.sendTransaction({
             type: "SMART_CONTRACT_EXECUTION",
             from: from,
@@ -53,7 +53,7 @@ export default abstract class Contract extends EventContainer {
 
     private async runWalletMethodWithGas(methodName: string, gas: number, ...params: any[]) {
         if (ExtWallet.installed === true) {
-            const from = await Wallet.loadAddress();
+            const from = await KlaytnWallet.loadAddress();
             const contract = await this.loadExtWalletContract();
             await contract?.methods[methodName](...params).send({ from, gas });
         } else if (Klip.connected === true) {
@@ -77,7 +77,7 @@ export default abstract class Contract extends EventContainer {
 
     protected async runWalletMethodWithValue(value: BigNumber, methodName: string, ...params: any[]) {
         if (ExtWallet.installed === true) {
-            const from = await Wallet.loadAddress();
+            const from = await KlaytnWallet.loadAddress();
             const contract = await this.loadExtWalletContract();
             await contract?.methods[methodName](...params).send({ from, gas: 1500000, value });
         } else if (Klip.connected === true) {

@@ -1,20 +1,20 @@
-import { BigNumber, utils } from "ethers";
+import { BigNumber } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
-import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
+import { Debouncer, View, ViewParams } from "skydapp-common";
+import EthGenesisNftItem from "../../component/EthGenesisNftItem";
 import GenesisNftItem from "../../component/GenesisNftItem";
 import Config from "../../Config";
-import GaiaGenesisUSDCDistributorContract from "../../contracts/GaiaGenesisUSDCDistributorContract";
 import GaiaNFTContract from "../../contracts/GaiaNFTContract";
 import NFTAirdropContract from "../../contracts/NFTAirdropContract";
-import Wallet from "../../klaytn/Wallet";
+import EthereumWallet from "../../ethereum/EthereumWallet";
+import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import Layout from "../Layout";
-import ViewUtil from "../ViewUtil";
 
 export default class Genesis implements View {
 
     private container: DomNode;
-    private totalKlayDisplay: DomNode;
-    private totalEmergencyDisplay: DomNode;
+    //private totalKlayDisplay: DomNode;
+    //private totalEmergencyDisplay: DomNode;
     private nftList: DomNode;
     private interval: any;
 
@@ -33,8 +33,8 @@ export default class Genesis implements View {
                 el(".tool-container",
                     el(".title-container",
                         el("h3", "My NFT"),
-                        this.totalKlayDisplay = el("p", ""),
-                        this.totalEmergencyDisplay = el("p", ""),
+                        //this.totalKlayDisplay = el("p", ""),
+                        //this.totalEmergencyDisplay = el("p", ""),
                     ),
                     el(".button-container",
                         /*el("a", "모든 미수령 이자 받기", {
@@ -55,15 +55,31 @@ export default class Genesis implements View {
             this.nftList = el(".nft-container"),
         ));
 
-        this.loadNFTsDebouncer.run();
-        Wallet.on("connect", () => this.loadNFTsDebouncer.run());
+        this.loadKlaytnNFTsDebouncer.run();
+        KlaytnWallet.on("connect", () => this.loadKlaytnNFTsDebouncer.run());
+
+        this.loadEthNFTsDebouncer.run();
+        EthereumWallet.on("connect", () => this.loadEthNFTsDebouncer.run());
     }
 
-    private loadNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadNFTs());
+    private loadEthNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadEthNFTs());
+    private loadKlaytnNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadKlaytnNFTs());
 
-    private async loadNFTs() {
+    private async loadEthNFTs() {
+        const address = await EthereumWallet.loadAddress();
+        if (address !== undefined) {
+            const result = await fetch(`https://api.gaiaprotocol.com/gaia-protocol-pfp/ethereum/genesis/${address}`);
+            const data = await result.json();
+            for (const asset of data.assets) {
+                const item = new EthGenesisNftItem().appendTo(this.nftList);
+                item.init(asset.token_id, BigNumber.from(0), false, BigNumber.from(0), BigNumber.from(0));
+            }
+        }
+    }
 
-        const address = await Wallet.loadAddress();
+    private async loadKlaytnNFTs() {
+
+        const address = await KlaytnWallet.loadAddress();
         if (address !== undefined) {
             const reward = await NFTAirdropContract.airdropReward(0);
 
@@ -105,8 +121,8 @@ export default class Genesis implements View {
             for (const usdc of this.usdcs) {
                 totalUSDC = totalUSDC.add(usdc);
             }
-            this.totalKlayDisplay.empty().appendText(`${"총 미수령 이자 {amount} USDC".replace(/{amount}/, String(utils.formatUnits(totalUSDC, 6)))}`);
-            this.totalEmergencyDisplay.empty().appendText(`${msg("ALL_EMERGENCY_DESC")} ${String(utils.formatEther(totalEmergency))} KLAY`);
+            //this.totalKlayDisplay.empty().appendText(`${"총 미수령 이자 {amount} USDC".replace(/{amount}/, String(utils.formatUnits(totalUSDC, 6)))}`);
+            //this.totalEmergencyDisplay.empty().appendText(`${msg("ALL_EMERGENCY_DESC")} ${String(utils.formatEther(totalEmergency))} KLAY`);
         }
     }
 

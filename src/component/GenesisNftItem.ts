@@ -69,7 +69,7 @@ export default class GenesisNftItem extends DomNode {
     public init(id: number, usdc: BigNumber, usdcCollected: boolean, reward: BigNumber, collected: BigNumber) {
         this.id = id;
         this.imageDisplay.domElement.src = `https://storage.googleapis.com/gaia-protocol/kronos/${id}.png`;
-        this.nameDisplay.appendText(`#${this.id}`);
+        this.nameDisplay.appendText(`Klaytn #${this.id}`);
         if (usdcCollected === true) {
             //this.claimButton.delete();
         }

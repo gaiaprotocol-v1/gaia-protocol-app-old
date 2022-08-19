@@ -1,13 +1,12 @@
-import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, View, ViewParams } from "skydapp-common";
-import CommonUtil from "../../CommonUtil";
-import Alert from "../../component/shared/dialogue/Alert";
+import EthSupernovaNftItem from "../../component/EthSupernovaNftItem";
 import SupernovaNftItem from "../../component/SupernovaNftItem";
 import Config from "../../Config";
 import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
 import SupernovaRewardDistributor from "../../contracts/SupernovaRewardDistributor";
-import Wallet from "../../klaytn/Wallet";
+import EthereumWallet from "../../ethereum/EthereumWallet";
+import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import ViewUtil from "../ViewUtil";
 import Layout from "./../Layout";
 
@@ -19,12 +18,12 @@ export default class Supernova implements View {
     private tokenIds: number[] = [];
     private nftList: DomNode;
 
-    private allRoyaltyDisplay: DomNode;
+    /*private allRoyaltyDisplay: DomNode;
     private nftRoyaltyDisplay: DomNode;
     private allNftDisplay: DomNode;
     private blockDisplay: DomNode;
     private receivedDisplay: DomNode;
-    private totalInterestDisplay: DomNode;
+    private totalInterestDisplay: DomNode;*/
 
     constructor() {
         Layout.current.title = msg("GAIA_SUPERNOVA_TITLE");
@@ -34,7 +33,7 @@ export default class Supernova implements View {
                     el("h2", msg("GAIA_SUPERNOVA_TITLE")),
                     el("p", msg("GAIA_SUPERNOVA_DESC")),
                 ),
-                el(".dashboard-container",
+                /*el(".dashboard-container",
                     el(".content",
                         el("h3", msg("DASHBOARD_TITLE1")),
                         this.allRoyaltyDisplay = el("p", "... KLAY"),
@@ -65,12 +64,12 @@ export default class Supernova implements View {
                         el("img", { src: "/images/icn/error-red.svg", alt: "warning" }),
                         el("p", msg("WARNING_DESC")),
                     ),
-                ),
+                ),*/
                 el(".tool-container",
                     el(".title-container",
                         el("h3", "My NFT"),
                     ),
-                    el(".button-container",
+                    /*el(".button-container",
                         el("a", msg("REWARD_BUTTON"), {
                             click: async () => {
                                 const address = await Wallet.loadAddress();
@@ -84,7 +83,7 @@ export default class Supernova implements View {
                                 }
                             },
                         }),
-                    ),
+                    ),*/
                 ),
             ),
             el(".warning-container",
@@ -95,19 +94,23 @@ export default class Supernova implements View {
         ));
 
         this.interval = setInterval(() => this.load(), 1000);
-        this.resizeDebouncer.run();
-        Wallet.on("connect", () => this.resizeDebouncer.run());
+        this.loadKlaytnNFTsDebouncer.run();
+        KlaytnWallet.on("connect", () => this.loadKlaytnNFTsDebouncer.run());
+
+        this.loadEthNFTsDebouncer.run();
+        EthereumWallet.on("connect", () => this.loadEthNFTsDebouncer.run());
     }
 
-    private resizeDebouncer: Debouncer = new Debouncer(200, () => this.loadNFTs());
+    private loadEthNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadEthNFTs());
+    private loadKlaytnNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadKlaytnNFTs());
 
     private async load() {
 
         const totalDistribution = (await SupernovaRewardDistributor.totalDistribution()).add("14450505446857445842091");
-        this.allRoyaltyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(totalDistribution))} KLAY`);
-        this.nftRoyaltyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(totalDistribution.div(1000)))} KLAY`);
+        //this.allRoyaltyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(totalDistribution))} KLAY`);
+        //this.nftRoyaltyDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(totalDistribution.div(1000)))} KLAY`);
 
-        const address = await Wallet.loadAddress();
+        /*const address = await Wallet.loadAddress();
         if (address !== undefined) {
 
             const balance = await GaiaSupernovaContract.balanceOf(address);
@@ -121,11 +124,23 @@ export default class Supernova implements View {
 
             const claimableReward = await SupernovaRewardDistributor.claimableReward(address);
             this.totalInterestDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(claimableReward))} KLAY`);
+        }*/
+    }
+
+    private async loadEthNFTs() {
+        const address = await EthereumWallet.loadAddress();
+        if (address !== undefined) {
+            const result = await fetch(`https://api.gaiaprotocol.com/gaia-protocol-pfp/ethereum/supernova/${address}`);
+            const data = await result.json();
+            for (const asset of data.assets) {
+                const item = new EthSupernovaNftItem().appendTo(this.nftList);
+                item.init(asset.token_id);
+            }
         }
     }
 
-    private async loadNFTs() {
-        const address = await Wallet.loadAddress();
+    private async loadKlaytnNFTs() {
+        const address = await KlaytnWallet.loadAddress();
         if (address !== undefined) {
             const balance = (await GaiaSupernovaContract.balanceOf(address)).toNumber();
             const promises: Promise<void>[] = [];

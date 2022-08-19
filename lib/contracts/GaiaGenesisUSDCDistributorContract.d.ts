@@ -1,5 +1,5 @@
 import { BigNumber, BigNumberish } from "ethers";
-import Contract from "./Contract";
+import Contract from "./KlaytnContract";
 declare class GaiaGenesisUSDCDistributorContract extends Contract {
     constructor();
     rewardPerId(id: BigNumberish): Promise<BigNumber>;

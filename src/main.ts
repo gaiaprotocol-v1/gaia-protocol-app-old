@@ -1,7 +1,7 @@
 import { BrowserInfo, msg } from "skydapp-browser";
 import { SkyRouter } from "skydapp-common";
 import superagent from "superagent";
-import Wallet from "./klaytn/Wallet";
+import KlaytnWallet from "./klaytn/KlaytnWallet";
 import Home from "./view/Home";
 import Genesis from "./view/app/Genesis";
 import Layout from "./view/Layout";
@@ -57,7 +57,7 @@ import GaiaDividend from "./view/app/GaiaDividend";
         sessionStorage.removeItem("__spa_path");
     }
 
-    if (await Wallet.connected() !== true) {
-        await Wallet.connect();
+    if (await KlaytnWallet.connected() !== true) {
+        await KlaytnWallet.connect();
     }
 })();

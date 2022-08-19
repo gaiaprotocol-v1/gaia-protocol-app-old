@@ -4,16 +4,12 @@ export default class Supernova implements View {
     private interval;
     private tokenIds;
     private nftList;
-    private allRoyaltyDisplay;
-    private nftRoyaltyDisplay;
-    private allNftDisplay;
-    private blockDisplay;
-    private receivedDisplay;
-    private totalInterestDisplay;
     constructor();
-    private resizeDebouncer;
+    private loadEthNFTsDebouncer;
+    private loadKlaytnNFTsDebouncer;
     private load;
-    private loadNFTs;
+    private loadEthNFTs;
+    private loadKlaytnNFTs;
     changeParams(params: ViewParams, uri: string): void;
     close(): void;
 }

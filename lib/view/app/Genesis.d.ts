@@ -1,16 +1,16 @@
 import { View, ViewParams } from "skydapp-common";
 export default class Genesis implements View {
     private container;
-    private totalKlayDisplay;
-    private totalEmergencyDisplay;
     private nftList;
     private interval;
     private tokenIds;
     private usdcs;
     private usdcTokenIds;
     constructor();
-    private loadNFTsDebouncer;
-    private loadNFTs;
+    private loadEthNFTsDebouncer;
+    private loadKlaytnNFTsDebouncer;
+    private loadEthNFTs;
+    private loadKlaytnNFTs;
     changeParams(params: ViewParams, uri: string): void;
     close(): void;
 }

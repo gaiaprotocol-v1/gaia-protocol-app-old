@@ -1,1 +1,1 @@
-{"version":3,"file":"KlayGenesis.d.ts","sourceRoot":"","sources":["../../../src/contracts/pfp/KlayGenesis.ts"],"names":[],"mappings":""}
+{"version":3,"file":"KlayGenesis.d.ts","sourceRoot":"","sources":["../../../src/contracts/pfp/KlayGenesis.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,YAAY,EAAE,MAAM,QAAQ,CAAC;AAEjD,OAAO,aAAa,MAAM,kCAAkC,CAAC;AAE7D,cAAM,WAAY,SAAQ,aAAa;;IAMtB,WAAW,IAAI,OAAO,CAAC,SAAS,CAAC;IAIjC,MAAM,CAAC,EAAE,EAAE,YAAY,GAAG,OAAO,CAAC,OAAO,CAAC;CAG1D;;AAED,wBAAiC"}

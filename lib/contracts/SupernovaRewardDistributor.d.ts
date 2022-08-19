@@ -1,5 +1,5 @@
 import { BigNumber } from "ethers";
-import Contract from "./Contract";
+import Contract from "./KlaytnContract";
 declare class SupernovaRewardDistributor extends Contract {
     constructor();
     totalDistribution(): Promise<BigNumber>;

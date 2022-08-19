@@ -1,7 +1,7 @@
 import { BigNumber } from "ethers";
 import Config from "../Config";
 import SupernovaRewardDistributorArtifact from "./abi/gaia-supernova/artifacts/contracts/SupernovaRewardDistributor.sol/SupernovaRewardDistributor.json";
-import Contract from "./Contract";
+import Contract from "./KlaytnContract";
 
 class SupernovaRewardDistributor extends Contract {
 

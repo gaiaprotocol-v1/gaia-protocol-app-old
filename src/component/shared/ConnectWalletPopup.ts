@@ -1,4 +1,5 @@
 import { DomNode, el, msg, Popup } from "skydapp-browser";
+import EthereumWallet from "../../ethereum/EthereumWallet";
 import Klip from "../../klaytn/Klip";
 
 export default class ConnectWalletPopup extends Popup {
@@ -15,6 +16,13 @@ export default class ConnectWalletPopup extends Popup {
                     el("a.connect-metamask-button",
                         el("img", { src: "/images/icn/metamask.svg" }),
                         "메타마스크 연결",
+                        {
+                            click: async () => {
+                                await EthereumWallet.connect();
+                                callback();
+                                this.delete();
+                            },
+                        },
                     ),
                     el("a.connect-kaikas-button",
                         el("img", { src: "/images/icn/kaikas.svg" }),

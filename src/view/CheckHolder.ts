@@ -1,7 +1,7 @@
 import { BodyNode, DomNode, el, msg } from "skydapp-browser";
 import superagent from "superagent";
 import DiscordUserInfo from "../type/DiscordUserInfo";
-import Wallet from "../klaytn/Wallet";
+import KlaytnWallet from "../klaytn/KlaytnWallet";
 import { View, ViewParams } from "skydapp-common";
 import Layout from "./Layout";
 
@@ -58,14 +58,14 @@ export default class CheckHolder implements View {
     }
 
     private async checkWalletConnected(code: string) {
-        if (await Wallet.connected() !== true) {
-            await Wallet.connect();
+        if (await KlaytnWallet.connected() !== true) {
+            await KlaytnWallet.connect();
         }
-        const address = await Wallet.loadAddress();
+        const address = await KlaytnWallet.loadAddress();
         if (address !== undefined) {
 
             const message = "Check Holder";
-            const signResult = await Wallet.signMessage(message);
+            const signResult = await KlaytnWallet.signMessage(message);
 
             try {
                 const result = await fetch("https://api.gaiaprotocol.com/checkholder", {
