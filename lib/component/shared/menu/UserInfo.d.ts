@@ -4,8 +4,10 @@ export default class UserInfo extends DomNode {
     private connectWalletButton;
     private addressDisplay;
     constructor(mobile?: boolean | undefined);
-    private connectHandler;
-    private loadAddress;
+    private connectKlaytnHandler;
+    private loadKlaytnAddress;
+    private connectEthereumHandler;
+    private loadEthereumAddress;
     delete(): void;
 }
 //# sourceMappingURL=UserInfo.d.ts.map

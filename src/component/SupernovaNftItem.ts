@@ -33,7 +33,7 @@ export default class SupernovaNftItem extends DomNode {
         this.id = id;
         this.imageDisplay.domElement.src = `https://storage.googleapis.com/gaia-protocol/supernova/png/${id}.png`;
         this.imageDisplay.domElement.alt = `supernova ${id}`;
-        this.nameDisplay.appendText(`#${this.id}`);
+        this.nameDisplay.appendText(`Klaytn #${this.id}`);
     }
 
     public delete() {

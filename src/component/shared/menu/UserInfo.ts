@@ -1,7 +1,8 @@
 import { DomNode, el, msg } from "skydapp-browser";
 import CommonUtil from "../../../CommonUtil";
+import EthereumWallet from "../../../ethereum/EthereumWallet";
+import KlaytnWallet from "../../../klaytn/KlaytnWallet";
 import Klip from "../../../klaytn/Klip";
-import Wallet from "../../../klaytn/Wallet";
 import ConnectWalletPopup from "../ConnectWalletPopup";
 
 export default class UserInfo extends DomNode {
@@ -24,16 +25,18 @@ export default class UserInfo extends DomNode {
             }),
         );
         this.addressDisplay.style({ display: "none" });
-        Wallet.on("connect", this.connectHandler);
-        this.loadAddress();
+        KlaytnWallet.on("connect", this.connectKlaytnHandler);
+        EthereumWallet.on("connect", this.connectEthereumHandler);
+        this.loadKlaytnAddress();
+        this.loadEthereumAddress();
     }
 
-    private connectHandler = () => {
-        this.loadAddress();
+    private connectKlaytnHandler = () => {
+        this.loadKlaytnAddress();
     };
 
-    private async loadAddress() {
-        const address = await Wallet.loadAddress();
+    private async loadKlaytnAddress() {
+        const address = await KlaytnWallet.loadAddress();
         if (address !== undefined) {
             if (this.connectWalletButton.deleted !== true) {
                 this.connectWalletButton.delete();
@@ -48,8 +51,24 @@ export default class UserInfo extends DomNode {
         }
     }
 
+    private connectEthereumHandler = () => {
+        this.loadEthereumAddress();
+    };
+
+    private async loadEthereumAddress() {
+        const address = await EthereumWallet.loadAddress();
+        if (address !== undefined) {
+            if (this.connectWalletButton.deleted !== true) {
+                this.connectWalletButton.delete();
+            }
+            this.addressDisplay.style({ display: "block" });
+            this.addressDisplay.empty().appendText(CommonUtil.shortenAddress(address));
+        }
+    }
+
     public delete() {
-        Wallet.off("connect", this.connectHandler);
+        KlaytnWallet.off("connect", this.connectKlaytnHandler);
+        EthereumWallet.off("connect", this.connectEthereumHandler);
         super.delete();
     }
 }

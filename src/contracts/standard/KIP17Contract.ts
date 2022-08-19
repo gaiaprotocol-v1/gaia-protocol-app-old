@@ -1,7 +1,7 @@
 import { BigNumber, BigNumberish, ContractInterface } from "ethers";
-import Wallet from "../../klaytn/Wallet";
+import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import KIP17Artifact from "../abi/gaia-genesis/artifacts/contracts/klaytn-contracts/token/KIP17/KIP17Full.sol/KIP17Full.json";
-import Contract from "../Contract";
+import Contract from "../KlaytnContract";
 
 export default class KIP17Contract extends Contract {
 
@@ -18,11 +18,11 @@ export default class KIP17Contract extends Contract {
     }
 
     public async transfer(to: string, id: BigNumberish) {
-        await this.runWalletMethod("transferFrom", await Wallet.loadAddress(), to, id);
+        await this.runWalletMethod("transferFrom", await KlaytnWallet.loadAddress(), to, id);
     }
 
     public async transferLegacy(to: string, id: BigNumberish) {
-        await this.runMethodNew("transferFrom", await Wallet.loadAddress(), to, id);
+        await this.runMethodNew("transferFrom", await KlaytnWallet.loadAddress(), to, id);
     }
 
     public async isApprovedForAll(owner: string, operator: string): Promise<boolean> {

@@ -1,5 +1,5 @@
 import { BigNumber, BigNumberish } from "ethers";
-import Contract from "./Contract";
+import Contract from "./KlaytnContract";
 declare class GaiaStableDAOOperatorV3Contract extends Contract {
     constructor();
     claimableInterest(): Promise<BigNumber>;

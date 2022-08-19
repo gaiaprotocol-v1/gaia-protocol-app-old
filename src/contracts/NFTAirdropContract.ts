@@ -1,6 +1,6 @@
 import { BigNumber, BigNumberish } from "ethers";
 import GaiaNFTAirdropArtifact from "./abi/airdrop/artifacts/contracts/GaiaNFTAirdrop.sol/GaiaNFTAirdrop.json";
-import Contract from "./Contract";
+import Contract from "./KlaytnContract";
 
 class NFTAirdropContract extends Contract {
 

@@ -1,5 +1,5 @@
 import { BigNumber, BigNumberish, ContractInterface } from "ethers";
-import Contract from "../Contract";
+import Contract from "../KlaytnContract";
 export default class KIP17Contract extends Contract {
     constructor(address: string, abi?: ContractInterface);
     ownerOf(mateId: BigNumberish): Promise<string>;

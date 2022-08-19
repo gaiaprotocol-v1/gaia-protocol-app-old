@@ -1,1 +1,1 @@
-{"version":3,"file":"KlayStableDAO.d.ts","sourceRoot":"","sources":["../../../src/contracts/pfp/KlayStableDAO.ts"],"names":[],"mappings":""}
+{"version":3,"file":"KlayStableDAO.d.ts","sourceRoot":"","sources":["../../../src/contracts/pfp/KlayStableDAO.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,YAAY,EAAE,MAAM,QAAQ,CAAC;AAEjD,OAAO,aAAa,MAAM,kCAAkC,CAAC;AAE7D,cAAM,aAAc,SAAQ,aAAa;;IAMxB,WAAW,IAAI,OAAO,CAAC,SAAS,CAAC;IAIjC,MAAM,CAAC,EAAE,EAAE,YAAY,GAAG,OAAO,CAAC,OAAO,CAAC;CAG1D;;AAED,wBAAmC"}

@@ -9,7 +9,7 @@ import GaiaStableDAOContract from "../../contracts/GaiaStableDAOContract";
 import GaiaStableDAOOperatorV3Contract from "../../contracts/GaiaStableDAOOperatorV3Contract";
 import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
 import oUSDCContract from "../../contracts/oUSDCContract";
-import Wallet from "../../klaytn/Wallet";
+import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import Layout from "../Layout";
 import ViewUtil from "../ViewUtil";
 import Confirm from "../../component/shared/dialogue/Confirm";
@@ -72,7 +72,7 @@ export default class BuyStableDAO implements View {
                 el(".button-container",
                     this.approveButton = el("a.disabled", msg("BUY_APPROVE_BUTTON"), {
                         click: async () => {
-                            const address = await Wallet.loadAddress();
+                            const address = await KlaytnWallet.loadAddress();
                             if (address !== undefined) {
                                 if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV3Contract.address)).eq(0)) {
                                     await oUSDCContract.approve(GaiaStableDAOOperatorV3Contract.address, constants.MaxUint256);
@@ -84,7 +84,7 @@ export default class BuyStableDAO implements View {
                     }),
                     this.buyButton = el("a.disabled", msg("BUY_NFT_BUTTON"), {
                         click: async () => {
-                            const address = await Wallet.loadAddress();
+                            const address = await KlaytnWallet.loadAddress();
                             if (address !== undefined) {
                                 if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV3Contract.address)).eq(0)) {
                                     new Alert("오류", "oUSDC 사용 승인이 필요합니다.");
@@ -134,7 +134,7 @@ export default class BuyStableDAO implements View {
         }
 
         this.loadNFTsDebouncer.run();
-        Wallet.on("connect", () => this.loadNFTsDebouncer.run());
+        KlaytnWallet.on("connect", () => this.loadNFTsDebouncer.run());
     }
 
     private loadNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadNFTs());
@@ -150,7 +150,7 @@ export default class BuyStableDAO implements View {
         const sales = await GaiaStableDAOContract.totalSupply();
         this.salesDisplay.empty().appendText(`SALES: ${sales} EA`);
 
-        const address = await Wallet.loadAddress();
+        const address = await KlaytnWallet.loadAddress();
         if (address !== undefined) {
             if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV3Contract.address)).eq(0)) {
                 this.approveButton.deleteClass("disabled");
@@ -192,7 +192,7 @@ export default class BuyStableDAO implements View {
 
     private async loadNFTs() {
         this.nftList.empty();
-        const address = await Wallet.loadAddress();
+        const address = await KlaytnWallet.loadAddress();
         if (address !== undefined) {
             const balance = (await GaiaStableDAOContract.balanceOf(address)).toNumber();
             if (balance === 0) {

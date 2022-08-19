@@ -7,8 +7,10 @@ export default class Genesis implements View {
     private usdcs;
     private usdcTokenIds;
     constructor();
-    private loadNFTsDebouncer;
-    private loadNFTs;
+    private loadEthNFTsDebouncer;
+    private loadKlaytnNFTsDebouncer;
+    private loadEthNFTs;
+    private loadKlaytnNFTs;
     changeParams(params: ViewParams, uri: string): void;
     close(): void;
 }

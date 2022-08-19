@@ -3,7 +3,7 @@ import ConnectWalletPopup from "../component/shared/ConnectWalletPopup";
 import ExtWallet from "./ExtWallet";
 import Klip from "./Klip";
 
-class Wallet extends EventContainer {
+class KlaytnWallet extends EventContainer {
 
     constructor() {
         super();
@@ -55,4 +55,4 @@ class Wallet extends EventContainer {
     }
 }
 
-export default new Wallet();
+export default new KlaytnWallet();

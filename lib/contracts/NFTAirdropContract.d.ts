@@ -1,5 +1,5 @@
 import { BigNumber, BigNumberish } from "ethers";
-import Contract from "./Contract";
+import Contract from "./KlaytnContract";
 declare class NFTAirdropContract extends Contract {
     constructor();
     airdropReward(airdropId: BigNumberish): Promise<BigNumber>;

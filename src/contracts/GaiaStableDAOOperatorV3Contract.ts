@@ -1,8 +1,8 @@
 import { BigNumber, BigNumberish } from "ethers";
 import Config from "../Config";
-import Wallet from "../klaytn/Wallet";
+import KlaytnWallet from "../klaytn/KlaytnWallet";
 import GaiaStableDAOOperatorV3Artifact from "./abi/gaia-stable-dao/artifacts/contracts/GaiaStableDAOOperatorV3.sol/GaiaStableDAOOperatorV3.json";
-import Contract from "./Contract";
+import Contract from "./KlaytnContract";
 import GaiaStableDAOContract from "./GaiaStableDAOContract";
 
 class GaiaStableDAOOperatorV3Contract extends Contract {
@@ -28,7 +28,7 @@ class GaiaStableDAOOperatorV3Contract extends Contract {
     }
 
     public async buyBack(ids: BigNumberish[]): Promise<void> {
-        const owner = await Wallet.loadAddress();
+        const owner = await KlaytnWallet.loadAddress();
         if (owner !== undefined) {
             if (await GaiaStableDAOContract.isApprovedForAll(owner, this.address) !== true) {
                 await GaiaStableDAOContract.setApprovalForAll(this.address, true);

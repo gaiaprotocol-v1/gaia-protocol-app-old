@@ -1,7 +1,7 @@
 import { BigNumber, BigNumberish } from "ethers";
 import Config from "../Config";
 import GaiaGenesisUSDCDistributorArtifact from "./abi/usdc-distributor/artifacts/contracts/gaiaGenesisUSDCDistributor.sol/GaiaUSDCDistributor.json";
-import Contract from "./Contract";
+import Contract from "./KlaytnContract";
 
 class GaiaGenesisUSDCDistributorContract extends Contract {
 

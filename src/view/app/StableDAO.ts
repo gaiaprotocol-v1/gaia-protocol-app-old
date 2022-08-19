@@ -1,7 +1,7 @@
 import { BigNumber, utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
-import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
-import CommonUtil from "../../CommonUtil";
+import { Debouncer, View, ViewParams } from "skydapp-common";
+import EthStableNftItem from "../../component/EthStableNftItem";
 import PortfolioItem from "../../component/PortfolioItem";
 import StableNftItem from "../../component/StableNftItem";
 import Config from "../../Config";
@@ -9,9 +9,9 @@ import GaiaStableDAOContract from "../../contracts/GaiaStableDAOContract";
 import MaticContract from "../../contracts/MaticContract";
 import MeshContract from "../../contracts/MeshContract";
 import MeshswapUSDCPairLPContract from "../../contracts/MeshswapUSDCPairLPContract";
-import Wallet from "../../klaytn/Wallet";
+import EthereumWallet from "../../ethereum/EthereumWallet";
+import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import Layout from "../Layout";
-import ViewUtil from "../ViewUtil";
 
 export default class StableDAO implements View {
 
@@ -61,15 +61,31 @@ export default class StableDAO implements View {
         ));
 
         this.loadInterest();
-        this.loadNFTsDebouncer.run();
-        Wallet.on("connect", () => this.loadNFTsDebouncer.run());
+        this.loadKlaytnNFTsDebouncer.run();
+        KlaytnWallet.on("connect", () => this.loadKlaytnNFTsDebouncer.run());
+
+        this.loadEthNFTsDebouncer.run();
+        EthereumWallet.on("connect", () => this.loadEthNFTsDebouncer.run());
     }
 
-    private loadNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadNFTs());
+    private loadEthNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadEthNFTs());
+    private loadKlaytnNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadKlaytnNFTs());
 
-    private async loadNFTs() {
+    private async loadEthNFTs() {
+        const address = await EthereumWallet.loadAddress();
+        if (address !== undefined) {
+            const result = await fetch(`https://api.gaiaprotocol.com/gaia-protocol-pfp/ethereum/stable-dao/${address}`);
+            const data = await result.json();
+            for (const asset of data.assets) {
+                const item = new EthStableNftItem().appendTo(this.nftList);
+                item.init(asset.token_id);
+            }
+        }
+    }
+
+    private async loadKlaytnNFTs() {
         this.nftList.empty();
-        const address = await Wallet.loadAddress();
+        const address = await KlaytnWallet.loadAddress();
         if (address !== undefined) {
             const balance = (await GaiaStableDAOContract.balanceOf(address)).toNumber();
             if (balance === 0) {
