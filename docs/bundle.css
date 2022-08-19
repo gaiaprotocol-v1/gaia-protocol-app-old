@@ -2984,25 +2984,25 @@ body {
 .gaia-dividend-view > .revenue-container > table > tbody > tr {
   border-bottom: 1px #aaa solid;
 }
-.gaia-dividend-view > .revenue-container > table > tbody > tr > th {
+.gaia-dividend-view > .revenue-container > table > tbody > tr > td {
   padding: 16px 0px;
 }
-.gaia-dividend-view > .revenue-container > table > tbody > tr > th > a {
+.gaia-dividend-view > .revenue-container > table > tbody > tr > td > a {
   border: 1px solid #b19c76;
   border-radius: 4px;
   padding: 8px;
   font-size: 14px;
 }
-.gaia-dividend-view > .revenue-container > table > tbody > tr > th > a:hover {
+.gaia-dividend-view > .revenue-container > table > tbody > tr > td > a:hover {
   background-color: #b19c76;
   color: #fff;
 }
-.gaia-dividend-view > .revenue-container > table > tbody > tr > th > .done {
+.gaia-dividend-view > .revenue-container > table > tbody > tr > td > .done {
   border-color: #666;
   background-color: #666;
   color: #CCC;
 }
-.gaia-dividend-view > .revenue-container > table > tbody > tr > th > .done:hover {
+.gaia-dividend-view > .revenue-container > table > tbody > tr > td > .done:hover {
   border-color: #666;
   background-color: #666;
   color: #CCC;
@@ -3021,5 +3021,8 @@ body {
   .gaia-dividend-view > .revenue-container > table > tbody {
     font-size: 14px;
   }
+}
+.gaia-dividend-view > footer {
+  margin-top: 50px;
 }
 
