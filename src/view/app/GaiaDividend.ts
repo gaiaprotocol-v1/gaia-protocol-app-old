@@ -1,12 +1,15 @@
+import { utils } from "ethers";
 import { DomNode, el } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
 import CommonUtil from "../../CommonUtil";
-import Alert from "../../component/shared/dialogue/Alert";
 import EthereumWallet from "../../ethereum/EthereumWallet";
 import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import Layout from "../Layout";
 import rewardsKlaytn from "./rewards-klaytn.json";
 import rewardsPolygon from "./rewards-polygon.json";
+import { getMerkleProof, getMerkleRoot } from "./merkle-tree";
+import PolygonDividendDistributor from "../../contracts/PolygonDividendDistributor";
+import KlaytnDividendDistributor from "../../contracts/KlaytnDividendDistributor";
 
 export default class GaiaDividend implements View {
 
@@ -30,6 +33,7 @@ export default class GaiaDividend implements View {
                             el("th", "차수"),
                             el("th", "체인"),
                             el("th", "스냅샷 당시 NFT 개수"),
+                            el("th", "VVIP"),
                             el("th", "받을 액수"),
                             el("th", "받기"),
                         ),
@@ -59,10 +63,15 @@ export default class GaiaDividend implements View {
                 el("td", "1차"),
                 el("td", "클레이튼"),
                 el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
+                el("td", data.vvip === true ? "O" : "X"),
                 el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
                 el("td", el("a", "받기", {
-                    click: () => {
-                        new Alert("알림", "디비덴드 수령 기능을 작성중입니다.");
+                    click: async () => {
+                        const list: any = Object.entries(rewardsKlaytn).map(data => {
+                            return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
+                        });
+                        const proof = getMerkleProof(list, [klaytnAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
+                        await KlaytnDividendDistributor.claimRewards([0], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
                     },
                 })),
             ));
@@ -74,10 +83,15 @@ export default class GaiaDividend implements View {
                 el("td", "1차"),
                 el("td", "이더리움"),
                 el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
+                el("td", data.vvip === true ? "O" : "X"),
                 el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
                 el("td", el("a", "받기", {
-                    click: () => {
-                        new Alert("알림", "디비덴드 수령 기능을 작성중입니다.");
+                    click: async () => {
+                        const list: any = Object.entries(rewardsPolygon).map(data => {
+                            return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
+                        });
+                        const proof = getMerkleProof(list, [ethAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
+                        await PolygonDividendDistributor.claimRewards([0], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
                     },
                 })),
             ));
