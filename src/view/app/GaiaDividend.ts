@@ -50,6 +50,11 @@ export default class GaiaDividend implements View {
                 )
             ),
         ));
+        this.load();
+    }
+
+    private async load() {
+        
     }
 
     public changeParams(params: ViewParams, uri: string): void { }
