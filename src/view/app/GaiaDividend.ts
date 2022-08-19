@@ -65,7 +65,7 @@ export default class GaiaDividend implements View {
                 el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
                 el("td", data.vvip === true ? "O" : "X"),
                 el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
-                el("td", el("a", "받기", {
+                el("td", await KlaytnDividendDistributor.isRewardCollected(klaytnAddress, 0) === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
                         const list: any = Object.entries(rewardsKlaytn).map(data => {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
@@ -85,7 +85,7 @@ export default class GaiaDividend implements View {
                 el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
                 el("td", data.vvip === true ? "O" : "X"),
                 el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
-                el("td", el("a", "받기", {
+                el("td", await PolygonDividendDistributor.isRewardCollected(ethAddress, 0) === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
                         const list: any = Object.entries(rewardsPolygon).map(data => {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
