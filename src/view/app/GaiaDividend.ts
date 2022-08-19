@@ -42,11 +42,17 @@ export default class GaiaDividend implements View {
             ),
         ));
         this.load();
+        KlaytnWallet.on("connect", () => this.load());
+        EthereumWallet.on("connect", () => this.load());
     }
 
     private async load() {
 
         const klaytnAddress = await KlaytnWallet.loadAddress();
+        const ethAddress = await EthereumWallet.loadAddress();
+
+        this.list.empty();
+
         if (klaytnAddress !== undefined && (rewardsKlaytn as any)[klaytnAddress] !== undefined) {
             const data = (rewardsKlaytn as any)[klaytnAddress];
             this.list.append(el("tr",
@@ -62,7 +68,6 @@ export default class GaiaDividend implements View {
             ));
         }
 
-        const ethAddress = await EthereumWallet.loadAddress();
         if (ethAddress !== undefined && (rewardsPolygon as any)[ethAddress] !== undefined) {
             const data = (rewardsPolygon as any)[ethAddress];
             this.list.append(el("tr",
