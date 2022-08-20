@@ -1,5 +1,6 @@
 import { DomNode, el, msg, Popup } from "skydapp-browser";
 import EthereumWallet from "../../ethereum/EthereumWallet";
+import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import Klip from "../../klaytn/Klip";
 
 export default class ConnectWalletPopup extends Popup {
@@ -27,7 +28,13 @@ export default class ConnectWalletPopup extends Popup {
                     el("a.connect-kaikas-button",
                         el("img", { src: "/images/icn/kaikas.svg" }),
                         msg("CONNECT_WALLET_BUTTON1"),
-                        { href: "https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi" },
+                        {
+                            click: async () => {
+                                await KlaytnWallet.connect();
+                                callback();
+                                this.delete();
+                            },
+                        },
                     ),
                     el("a.connect-klip-button",
                         el("img", { src: "/images/icn/klip.svg" }),
