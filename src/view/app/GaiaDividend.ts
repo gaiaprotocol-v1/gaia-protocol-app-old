@@ -7,6 +7,7 @@ import PolygonDividendDistributor from "../../contracts/PolygonDividendDistribut
 import EthereumWallet from "../../ethereum/EthereumWallet";
 import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import Layout from "../Layout";
+import ViewUtil from "../ViewUtil";
 import { getMerkleProof } from "./merkle-tree";
 import rewardsKlaytn from "./rewards-klaytn.json";
 import rewardsPolygon from "./rewards-polygon.json";
@@ -75,6 +76,7 @@ export default class GaiaDividend implements View {
                         });
                         const proof = getMerkleProof(list, [klaytnAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
                         await KlaytnDividendDistributor.claimRewards([0], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
+                        ViewUtil.waitTransactionAndRefresh();
                     },
                 })),
             ));
@@ -95,6 +97,7 @@ export default class GaiaDividend implements View {
                         });
                         const proof = getMerkleProof(list, [ethAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
                         await PolygonDividendDistributor.claimRewards([0], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
+                        ViewUtil.waitTransactionAndRefresh(15000);
                     },
                 })),
             ));

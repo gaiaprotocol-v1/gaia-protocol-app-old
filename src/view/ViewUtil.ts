@@ -7,8 +7,8 @@ class ViewUtil {
         window.scrollTo(0, 0);
     }
 
-    public waitTransactionAndRefresh() {
-        setTimeout(() => SkyRouter.refresh(), 2000);
+    public waitTransactionAndRefresh(time = 2000) {
+        setTimeout(() => SkyRouter.refresh(), time);
     }
 }
 
