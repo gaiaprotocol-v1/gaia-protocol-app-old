@@ -67,7 +67,7 @@ export default class GaiaDividend implements View {
                 el("td", "1차"),
                 el("td", "클레이튼"),
                 el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
-                el("td", data.vvip === true ? "O" : "X"),
+                el("td", data.vvip === true ? "해당" : "해당없음"),
                 el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
                 el("td", klaytnCollected === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
@@ -88,7 +88,7 @@ export default class GaiaDividend implements View {
                 el("td", "1차"),
                 el("td", "이더리움"),
                 el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
-                el("td", data.vvip === true ? "O" : "X"),
+                el("td", data.vvip === true ? "해당" : "해당없음"),
                 el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
                 el("td", ethCollected === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
