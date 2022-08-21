@@ -2,14 +2,14 @@ import { utils } from "ethers";
 import { DomNode, el } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
 import CommonUtil from "../../CommonUtil";
+import KlaytnDividendDistributor from "../../contracts/KlaytnDividendDistributor";
+import PolygonDividendDistributor from "../../contracts/PolygonDividendDistributor";
 import EthereumWallet from "../../ethereum/EthereumWallet";
 import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import Layout from "../Layout";
+import { getMerkleProof } from "./merkle-tree";
 import rewardsKlaytn from "./rewards-klaytn.json";
 import rewardsPolygon from "./rewards-polygon.json";
-import { getMerkleProof, getMerkleRoot } from "./merkle-tree";
-import PolygonDividendDistributor from "../../contracts/PolygonDividendDistributor";
-import KlaytnDividendDistributor from "../../contracts/KlaytnDividendDistributor";
 
 export default class GaiaDividend implements View {
 
@@ -55,6 +55,9 @@ export default class GaiaDividend implements View {
         const klaytnAddress = await KlaytnWallet.loadAddress();
         const ethAddress = await EthereumWallet.loadAddress();
 
+        const klaytnCollected = klaytnAddress === undefined ? false : await KlaytnDividendDistributor.isRewardCollected(klaytnAddress, 0);
+        const ethCollected = ethAddress === undefined ? false : await PolygonDividendDistributor.isRewardCollected(ethAddress, 0);
+
         this.list.empty();
 
         if (klaytnAddress !== undefined && (rewardsKlaytn as any)[klaytnAddress] !== undefined) {
@@ -65,7 +68,7 @@ export default class GaiaDividend implements View {
                 el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
                 el("td", data.vvip === true ? "O" : "X"),
                 el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
-                el("td", await KlaytnDividendDistributor.isRewardCollected(klaytnAddress, 0) === true ? el("a.done", "완료") : el("a", "받기", {
+                el("td", klaytnCollected === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
                         const list: any = Object.entries(rewardsKlaytn).map(data => {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
@@ -85,7 +88,7 @@ export default class GaiaDividend implements View {
                 el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
                 el("td", data.vvip === true ? "O" : "X"),
                 el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
-                el("td", await PolygonDividendDistributor.isRewardCollected(ethAddress, 0) === true ? el("a.done", "완료") : el("a", "받기", {
+                el("td", ethCollected === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
                         const list: any = Object.entries(rewardsPolygon).map(data => {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
