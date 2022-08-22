@@ -2975,9 +2975,26 @@ body {
 }
 .gaia-dividend-view > .revenue-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 32px;
   overflow-x: auto;
+}
+.gaia-dividend-view > .revenue-container > .tool-box {
+  display: flex;
+  justify-content: flex-end;
+}
+.gaia-dividend-view > .revenue-container > .tool-box > .add-token-container {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+}
+.gaia-dividend-view > .revenue-container > .tool-box > .add-token-container > a {
+  padding: 8px;
+}
+.gaia-dividend-view > .revenue-container > .tool-box > .add-token-container > a:hover {
+  background-color: #e0d8c8;
+  color: #000;
 }
 .gaia-dividend-view > .revenue-container > table {
   overflow-x: auto;

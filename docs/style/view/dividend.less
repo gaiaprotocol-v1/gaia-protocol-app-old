@@ -38,9 +38,30 @@
 
     >.revenue-container {
         display        : flex;
+        flex-direction : column;
         justify-content: center;
         margin-top     : 32px;
         overflow-x     : auto;
+
+        >.tool-box {
+            display        : flex;
+            justify-content: flex-end;
+
+            >.add-token-container {
+                display        : flex;
+                justify-content: center;
+                font-size      : 12px;
+
+                >a {
+                    padding: 8px;
+
+                    &:hover {
+                        background-color: #e0d8c8;
+                        color           : #000;
+                    }
+                }
+            }
+        }
 
         >table {
             overflow-x     : auto;
