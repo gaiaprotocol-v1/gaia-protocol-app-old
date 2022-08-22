@@ -40,9 +40,10 @@
         display        : flex;
         justify-content: center;
         margin-top     : 32px;
+        overflow-x     : auto;
 
         >table {
-            width          : 100%;
+            overflow-x     : auto;
             border-collapse: collapse;
 
             >thead {
@@ -50,20 +51,24 @@
                     background-color: #e0d8c8;
                     color           : #000;
                     font-size       : 18px;
+                    text-align      : left;
 
                     >th {
-                        padding    : 16px 32px;
+                        padding    : 20px;
                         font-weight: 600;
+                        min-width  : 200px;
                     }
                 }
             }
 
             >tbody {
                 >tr {
+                    padding      : 8px;
                     border-bottom: 1px #aaa solid;
+                    text-align   : left;
 
                     >td {
-                        padding: 16px 0px;
+                        padding: 20px;
 
                         >a {
                             border       : 1px solid rgba(177, 156, 118, 1);
@@ -89,26 +94,51 @@
                             }
                         }
                     }
-
-                    >td {
-                        padding: 32px;
-                    }
                 }
             }
 
             @media @phone {
-                display : block;
-                overflow: scroll;
+                width    : 100%;
+                font-size: 14px;
 
-                >thead {
-
-                    >tr {
-                        font-size: 16px;
-                    }
+                table,
+                thead,
+                tbody,
+                th,
+                td,
+                tr {
+                    display: block;
                 }
 
-                >tbody {
-                    font-size: 14px;
+                thead tr {
+                    position: absolute;
+                    top     : -9999px;
+                    left    : -9999px;
+                }
+
+                tr {
+                    border: 1px solid #ccc;
+                    margin: 24px 0px;
+                }
+
+                td {
+                    border       : none;
+                    border-bottom: 1px solid #eee;
+                    position     : relative;
+                    padding-left : 50% !important;
+                }
+
+                td:before {
+                    position     : absolute;
+                    top          : 20px;
+                    left         : 6px;
+                    width        : 45%;
+                    padding-right: 10px;
+                    white-space  : nowrap;
+                    content      : attr(data-column);
+
+                    color      : #fff;
+                    font-weight: bold;
                 }
             }
         }

@@ -64,12 +64,12 @@ export default class GaiaDividend implements View {
         if (klaytnAddress !== undefined && (rewardsKlaytn as any)[klaytnAddress] !== undefined) {
             const data = (rewardsKlaytn as any)[klaytnAddress];
             this.list.append(el("tr",
-                el("td", "1차"),
-                el("td", "클레이튼"),
-                el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
-                el("td", data.vvip === true ? "해당" : "해당없음"),
-                el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
-                el("td", klaytnCollected === true ? el("a.done", "완료") : el("a", "받기", {
+                el("td", { "data-column": "차수" }, "1차"),
+                el("td", { "data-column": "체인" }, "클레이튼"),
+                el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
+                el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
+                el("td", { "data-column": "받을 액수" }, `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
+                el("td", { "data-column": "받기" }, klaytnCollected === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
                         const list: any = Object.entries(rewardsKlaytn).map(data => {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
@@ -85,12 +85,12 @@ export default class GaiaDividend implements View {
         if (ethAddress !== undefined && (rewardsPolygon as any)[ethAddress] !== undefined) {
             const data = (rewardsPolygon as any)[ethAddress];
             this.list.append(el("tr",
-                el("td", "1차"),
-                el("td", "이더리움"),
-                el("td", String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
-                el("td", data.vvip === true ? "해당" : "해당없음"),
-                el("td", `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
-                el("td", ethCollected === true ? el("a.done", "완료") : el("a", "받기", {
+                el("td", { "data-column": "차수" }, "1차"),
+                el("td", { "data-column": "체인" }, "이더리움"),
+                el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
+                el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
+                el("td", { "data-column": "받을 액수" }, `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
+                el("td", { "data-column": "받기" }, ethCollected === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
                         const list: any = Object.entries(rewardsPolygon).map(data => {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];

@@ -2977,25 +2977,30 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 32px;
+  overflow-x: auto;
 }
 .gaia-dividend-view > .revenue-container > table {
-  width: 100%;
+  overflow-x: auto;
   border-collapse: collapse;
 }
 .gaia-dividend-view > .revenue-container > table > thead > tr {
   background-color: #e0d8c8;
   color: #000;
   font-size: 18px;
+  text-align: left;
 }
 .gaia-dividend-view > .revenue-container > table > thead > tr > th {
-  padding: 16px 32px;
+  padding: 20px;
   font-weight: 600;
+  min-width: 200px;
 }
 .gaia-dividend-view > .revenue-container > table > tbody > tr {
+  padding: 8px;
   border-bottom: 1px #aaa solid;
+  text-align: left;
 }
 .gaia-dividend-view > .revenue-container > table > tbody > tr > td {
-  padding: 16px 0px;
+  padding: 20px;
 }
 .gaia-dividend-view > .revenue-container > table > tbody > tr > td > a {
   border: 1px solid #b19c76;
@@ -3017,19 +3022,44 @@ body {
   background-color: #666;
   color: #CCC;
 }
-.gaia-dividend-view > .revenue-container > table > tbody > tr > td {
-  padding: 32px;
-}
 @media only screen and (max-width: 719px) {
   .gaia-dividend-view > .revenue-container > table {
-    display: block;
-    overflow: scroll;
-  }
-  .gaia-dividend-view > .revenue-container > table > thead > tr {
-    font-size: 16px;
-  }
-  .gaia-dividend-view > .revenue-container > table > tbody {
+    width: 100%;
     font-size: 14px;
+  }
+  .gaia-dividend-view > .revenue-container > table table,
+  .gaia-dividend-view > .revenue-container > table thead,
+  .gaia-dividend-view > .revenue-container > table tbody,
+  .gaia-dividend-view > .revenue-container > table th,
+  .gaia-dividend-view > .revenue-container > table td,
+  .gaia-dividend-view > .revenue-container > table tr {
+    display: block;
+  }
+  .gaia-dividend-view > .revenue-container > table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .gaia-dividend-view > .revenue-container > table tr {
+    border: 1px solid #ccc;
+    margin: 24px 0px;
+  }
+  .gaia-dividend-view > .revenue-container > table td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50% !important;
+  }
+  .gaia-dividend-view > .revenue-container > table td:before {
+    position: absolute;
+    top: 20px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-column);
+    color: #fff;
+    font-weight: bold;
   }
 }
 .gaia-dividend-view > footer {
