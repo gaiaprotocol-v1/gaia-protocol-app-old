@@ -5,7 +5,9 @@ import CommonUtil from "../../CommonUtil";
 import KlaytnDividendDistributor from "../../contracts/KlaytnDividendDistributor";
 import PolygonDividendDistributor from "../../contracts/PolygonDividendDistributor";
 import EthereumWallet from "../../ethereum/EthereumWallet";
+import ExtWallet from "../../klaytn/ExtWallet";
 import KlaytnWallet from "../../klaytn/KlaytnWallet";
+import PolygonWallet from "../../polygon/PolygonWallet";
 import Layout from "../Layout";
 import ViewUtil from "../ViewUtil";
 import { getMerkleProof } from "./merkle-tree";
@@ -25,6 +27,26 @@ export default class GaiaDividend implements View {
                     el("h2", "GAIA Dividend"),
                     el("p", "Total Distribution of revenue from Gaia Protocol"),
                     el("p.total", "21,273.343 USDC"),
+                ),
+                el(".buttons",
+                    el("a", "폴리곤 USDC 지갑에 추가", {
+                        click: () => {
+                            PolygonWallet.addToken(
+                                "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+                                "USDC",
+                                6,
+                            );
+                        },
+                    }),
+                    el("a", "클레이튼 oUSDC 지갑에 추가", {
+                        click: () => {
+                            ExtWallet.addToken(
+                                "0x754288077d0ff82af7a5317c7cb8c444d421d103",
+                                "oUSDC",
+                                6,
+                            );
+                        },
+                    }),
                 ),
             ),
             el(".revenue-container",

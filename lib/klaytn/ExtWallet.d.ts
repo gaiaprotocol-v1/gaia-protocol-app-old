@@ -10,7 +10,7 @@ declare class ExtWallet extends EventContainer {
     connected(): Promise<boolean>;
     connect(): Promise<void>;
     createContract(address: string, abi: any): any;
-    addToken(address: string, symbol: string, decimals: number, image: string): void;
+    addToken(address: string, symbol: string, decimals: number, image?: string): void;
     signMessage(message: string): Promise<any>;
 }
 declare const _default: ExtWallet;

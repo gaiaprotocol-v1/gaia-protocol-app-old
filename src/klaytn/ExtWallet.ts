@@ -46,7 +46,7 @@ class ExtWallet extends EventContainer {
         address: string,
         symbol: string,
         decimals: number,
-        image: string,
+        image?: string,
     ) {
         this.klaytn?.sendAsync({
             method: "wallet_watchAsset",
