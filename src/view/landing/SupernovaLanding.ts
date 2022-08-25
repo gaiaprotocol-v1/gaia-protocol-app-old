@@ -57,9 +57,10 @@ export default class SupernovaLanding implements View {
     }
 
     private setTag(): void {
-        const metaTag = document.createElement("meta");
-        metaTag.setAttribute("og:image", "https://gaiaprotocol.com/images/img/gaia-super-nova-og.png");
-        metaTag.setAttribute("twitter:image", "https://gaiaprotocol.com/images/img/gaia-super-nova-og.png");
+        document.querySelector('meta[property="og:title"]')?.setAttribute("content", "Gaia Supernova");
+        document.querySelector('meta[property="og:description"]')?.setAttribute("content", "A decentralized new explosive NFT");
+        document.querySelector('meta[property="og:image"]')?.setAttribute("content", "https://gaiaprotocol.com/images/img/gaia-super-nova-og.png");
+        document.querySelector('meta[name="twitter:image"]')?.setAttribute("content", "https://gaiaprotocol.com/images/img/gaia-super-nova-og.png");
     }
 
     public changeParams(params: ViewParams, uri: string): void { }

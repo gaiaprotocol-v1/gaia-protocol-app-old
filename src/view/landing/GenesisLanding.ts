@@ -48,13 +48,6 @@ export default class GenesisLanding implements View {
 
     private init(): void {
         AOS.init();
-        this.setTag();
-    }
-
-    private setTag(): void {
-        const metaTag = document.createElement("meta");
-        metaTag.setAttribute("og:image", "https://gaiaprotocol.com/images/img/gaia-genesis-og.png");
-        metaTag.setAttribute("twitter:image", "https://gaiaprotocol.com/images/img/gaia-genesis-og.png");
     }
 
 
