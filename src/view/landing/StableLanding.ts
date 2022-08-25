@@ -83,6 +83,13 @@ export default class StableDaoLanding implements View {
 
     private init(): void {
         AOS.init();
+        this.setTag();
+    }
+
+    private setTag(): void {
+        const metaTag = document.createElement("meta");
+        metaTag.setAttribute("og:image", "https://gaiaprotocol.com/images/img/gaia-stable-dao-og.png");
+        metaTag.setAttribute("twitter:image", "https://gaiaprotocol.com/images/img/gaia-stable-dao-og.png");
     }
 
     public changeParams(params: ViewParams, uri: string): void { }
