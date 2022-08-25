@@ -64,10 +64,18 @@ export default class Layout implements View {
             ),
         );
         select.domElement.value = BrowserInfo.language;
+        this.setTag();
     }
 
     public set title(title: string) {
         document.title = `${title} | Gaia Protocol`;
+    }
+
+    private setTag(): void {
+        document.querySelector('meta[property="og:title"]')?.setAttribute("content", "Gaia Supernova");
+        document.querySelector('meta[property="og:description"]')?.setAttribute("content", "A decentralized new explosive NFT");
+        document.querySelector('meta[property="og:image"]')?.setAttribute("content", "https://gaiaprotocol.com/images/img/gaia-super-nova-og.png");
+        document.querySelector('meta[name="twitter:image"]')?.setAttribute("content", "https://gaiaprotocol.com/images/img/gaia-super-nova-og.png");
     }
 
     public changeParams(params: ViewParams, uri: string): void { }
