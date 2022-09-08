@@ -1,4 +1,4 @@
-import { BigNumber, utils } from "ethers";
+import { utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, View, ViewParams } from "skydapp-common";
 import EthStableNftItem from "../../component/EthStableNftItem";
@@ -12,6 +12,7 @@ import MeshswapUSDCPairLPContract from "../../contracts/MeshswapUSDCPairLPContra
 import EthereumWallet from "../../ethereum/EthereumWallet";
 import KlaytnWallet from "../../klaytn/KlaytnWallet";
 import Layout from "../Layout";
+import ViewUtil from "../ViewUtil";
 
 export default class StableDAO implements View {
 
@@ -42,9 +43,9 @@ export default class StableDAO implements View {
                     new PortfolioItem(3, "ethereum", "eth", 1963000, 2.67, 1.558394, "₩3,058,943 (1.558394 ETH)", "2022.07.21 ~ 2022.10.21"),
                 ),
             ),
-            //el(".warning-container",
-            //    el("a", "구매하기 >", { click: () => { ViewUtil.go("/stabledao/buy") } }),
-            //),
+            el(".warning-container",
+                el("a", "구매하기 >", { click: () => { ViewUtil.go("/stabledao/buy") } }),
+            ),
             el("section",
                 el("header",
                     el(".tool-container",
