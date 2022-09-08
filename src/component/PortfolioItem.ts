@@ -45,15 +45,14 @@ export default class PortfolioItem extends DomNode {
                 ),
                 this.desc3Display = el("p", `${msg("PORTFOLIO_ITEM_DESC3")} ${desc3}`),
                 this.desc4Display = el("p.ended-price", `${msg("PORTFOLIO_END_DESC")} ${desc4}`),
-                // this.desc5Display = el("p", `${msg("PORTFOLIO_ITEM_DESC5")}: ${desc5}`),
             ),
             // this.claimButton = el("button", msg("PORTFOLIO_BUTTON")),
         );
 
-        this.getPrice(symbol, startPrice, startPriceUSD, amount, desc4!);
+        this.getPrice(symbol, startPrice, startPriceUSD, amount, desc4!, desc5!);
     }
 
-    async getPrice(symbol: string, price: number, priceUSD: number, amount: number, endedPrice: string) {
+    async getPrice(symbol: string, price: number, priceUSD: number, amount: number, endedPrice: string, endedRate?: string) {
         const krw = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=krw&ids=${symbol}`);
         const usd = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${symbol}`);
         const dataKRW = await krw.json();
@@ -62,9 +61,14 @@ export default class PortfolioItem extends DomNode {
         this.priceDisplay.empty();
         this.priceDisplay.appendText(`${msg("PRESENT_PRICE_TITLE")} ₩${CommonUtil.numberWithCommas(dataKRW[0].current_price)}`);
 
-        const rateKRW = (dataKRW[0].current_price - price) * amount;
-        const rateUSD = (dataUSD[0].current_price - priceUSD) * amount;
-        this.rateDisplay.appendText(`${rate.toFixed(2)}% (₩ ${CommonUtil.numberWithCommas(rateKRW.toFixed(2))} / $ ${CommonUtil.numberWithCommas(rateUSD.toFixed(2))})`);
+        console.log(endedRate);
+        if (endedRate === undefined) {
+            const rateKRW = (dataKRW[0].current_price - price) * amount;
+            const rateUSD = (dataUSD[0].current_price - priceUSD) * amount;
+            this.rateDisplay.appendText(`${rate.toFixed(2)}% (₩ ${CommonUtil.numberWithCommas(rateKRW.toFixed(2))} / $ ${CommonUtil.numberWithCommas(rateUSD.toFixed(2))})`);
+        } else {
+            this.rateDisplay.appendText(`${msg("PORTFOLIO_ITEM_DESC5")}: ${endedRate}`);
+        }
 
         if (rate > 0) {
             this.rateDisplay.style({
