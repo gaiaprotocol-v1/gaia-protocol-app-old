@@ -3,11 +3,13 @@ import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, View, ViewParams } from "skydapp-common";
 import EthGenesisNftItem from "../../component/EthGenesisNftItem";
 import GenesisNftItem from "../../component/GenesisNftItem";
+import PolygonGenesisNftItem from "../../component/PolygonGenesisNftItem";
 import Config from "../../Config";
 import GaiaNFTContract from "../../contracts/GaiaNFTContract";
 import NFTAirdropContract from "../../contracts/NFTAirdropContract";
 import EthereumWallet from "../../ethereum/EthereumWallet";
 import KlaytnWallet from "../../klaytn/KlaytnWallet";
+import PolygonWallet from "../../polygon/PolygonWallet";
 import Layout from "../Layout";
 
 export default class Genesis implements View {
@@ -58,11 +60,15 @@ export default class Genesis implements View {
         this.loadKlaytnNFTsDebouncer.run();
         KlaytnWallet.on("connect", () => this.loadKlaytnNFTsDebouncer.run());
 
+        this.loadPolygonNFTsDebouncer.run();
+        PolygonWallet.on("connect", () => this.loadPolygonNFTsDebouncer.run());
+
         this.loadEthNFTsDebouncer.run();
         EthereumWallet.on("connect", () => this.loadEthNFTsDebouncer.run());
     }
 
     private loadEthNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadEthNFTs());
+    private loadPolygonNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadPolygonNFTs());
     private loadKlaytnNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadKlaytnNFTs());
 
     private async loadEthNFTs() {
@@ -73,6 +79,18 @@ export default class Genesis implements View {
             for (const asset of data.assets) {
                 const item = new EthGenesisNftItem().appendTo(this.nftList);
                 item.init(asset.token_id, BigNumber.from(0), false, BigNumber.from(0), BigNumber.from(0));
+            }
+        }
+    }
+
+    private async loadPolygonNFTs() {
+        const address = await PolygonWallet.loadAddress();
+        if (address !== undefined) {
+            const result = await fetch(`https://api.gaiaprotocol.com/gaia-protocol-pfp/polygon/0x9f69C2a06c97fCAAc1E586b30Ea681c43975F052/${address}`);
+            const data = await result.json();
+            for (const nft of data.nfts) {
+                const item = new PolygonGenesisNftItem().appendTo(this.nftList);
+                item.init(nft.token_id, BigNumber.from(0), false, BigNumber.from(0), BigNumber.from(0));
             }
         }
     }

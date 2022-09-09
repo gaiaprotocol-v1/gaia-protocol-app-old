@@ -111,7 +111,7 @@ export default class BuyStableDAO implements View {
 
     private async loadSales() {
 
-        this.notice.empty().appendText("현재 판매중입니다. 바이백 가격은 1,200 USDC 입니다.");
+        this.notice.empty().appendText("현재 폴리곤 체인에서 판매중입니다.\n\n바이백 가격은 1,200 USDC 입니다.");
 
         const sales = await StableDAOMinterContract.totalSupply();
         this.salesDisplay.empty().appendText(`SALES: ${sales} EA`);

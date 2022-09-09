@@ -2,6 +2,7 @@ import { utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, View, ViewParams } from "skydapp-common";
 import EthStableNftItem from "../../component/EthStableNftItem";
+import PolygonStableNftItem from "../../component/PolygonStableNftItem";
 import PortfolioItem from "../../component/PortfolioItem";
 import StableNftItem from "../../component/StableNftItem";
 import Config from "../../Config";
@@ -11,6 +12,7 @@ import MeshContract from "../../contracts/MeshContract";
 import MeshswapUSDCPairLPContract from "../../contracts/MeshswapUSDCPairLPContract";
 import EthereumWallet from "../../ethereum/EthereumWallet";
 import KlaytnWallet from "../../klaytn/KlaytnWallet";
+import PolygonWallet from "../../polygon/PolygonWallet";
 import Layout from "../Layout";
 import ViewUtil from "../ViewUtil";
 
@@ -65,11 +67,15 @@ export default class StableDAO implements View {
         this.loadKlaytnNFTsDebouncer.run();
         KlaytnWallet.on("connect", () => this.loadKlaytnNFTsDebouncer.run());
 
+        this.loadPolygonNFTsDebouncer.run();
+        PolygonWallet.on("connect", () => this.loadPolygonNFTsDebouncer.run());
+
         this.loadEthNFTsDebouncer.run();
         EthereumWallet.on("connect", () => this.loadEthNFTsDebouncer.run());
     }
 
     private loadEthNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadEthNFTs());
+    private loadPolygonNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadPolygonNFTs());
     private loadKlaytnNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadKlaytnNFTs());
 
     private async loadEthNFTs() {
@@ -80,6 +86,18 @@ export default class StableDAO implements View {
             for (const asset of data.assets) {
                 const item = new EthStableNftItem().appendTo(this.nftList);
                 item.init(asset.token_id);
+            }
+        }
+    }
+
+    private async loadPolygonNFTs() {
+        const address = await PolygonWallet.loadAddress();
+        if (address !== undefined) {
+            const result = await fetch(`https://api.gaiaprotocol.com/gaia-protocol-pfp/polygon/0xa5f5b6C05a6d48a56E95E4Ce15078008a18BC79B/${address}`);
+            const data = await result.json();
+            for (const nft of data.nfts) {
+                const item = new PolygonStableNftItem().appendTo(this.nftList);
+                item.init(nft.token_id);
             }
         }
     }

@@ -1,12 +1,14 @@
 import { DomNode, el, msg } from "skydapp-browser";
 import { Debouncer, View, ViewParams } from "skydapp-common";
 import EthSupernovaNftItem from "../../component/EthSupernovaNftItem";
+import PolygonSupernovaNftItem from "../../component/PolygonSupernovaNftItem";
 import SupernovaNftItem from "../../component/SupernovaNftItem";
 import Config from "../../Config";
 import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
 import SupernovaRewardDistributor from "../../contracts/SupernovaRewardDistributor";
 import EthereumWallet from "../../ethereum/EthereumWallet";
 import KlaytnWallet from "../../klaytn/KlaytnWallet";
+import PolygonWallet from "../../polygon/PolygonWallet";
 import ViewUtil from "../ViewUtil";
 import Layout from "./../Layout";
 
@@ -97,11 +99,15 @@ export default class Supernova implements View {
         this.loadKlaytnNFTsDebouncer.run();
         KlaytnWallet.on("connect", () => this.loadKlaytnNFTsDebouncer.run());
 
+        this.loadPolygonNFTsDebouncer.run();
+        PolygonWallet.on("connect", () => this.loadPolygonNFTsDebouncer.run());
+
         this.loadEthNFTsDebouncer.run();
         EthereumWallet.on("connect", () => this.loadEthNFTsDebouncer.run());
     }
 
     private loadEthNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadEthNFTs());
+    private loadPolygonNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadPolygonNFTs());
     private loadKlaytnNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadKlaytnNFTs());
 
     private async load() {
@@ -135,6 +141,18 @@ export default class Supernova implements View {
             for (const asset of data.assets) {
                 const item = new EthSupernovaNftItem().appendTo(this.nftList);
                 item.init(asset.token_id);
+            }
+        }
+    }
+
+    private async loadPolygonNFTs() {
+        const address = await PolygonWallet.loadAddress();
+        if (address !== undefined) {
+            const result = await fetch(`https://api.gaiaprotocol.com/gaia-protocol-pfp/polygon/0xECFFc91149b8B702dEa6905Ae304A9D36527060F/${address}`);
+            const data = await result.json();
+            for (const nft of data.nfts) {
+                const item = new PolygonSupernovaNftItem().appendTo(this.nftList);
+                item.init(nft.token_id);
             }
         }
     }
