@@ -1,32 +1,23 @@
 import { BigNumber, constants, utils } from "ethers";
-import { DomNode, el, msg, Store } from "skydapp-browser";
-import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
+import { DomNode, el, msg } from "skydapp-browser";
+import { Debouncer, View, ViewParams } from "skydapp-common";
 import CommonUtil from "../../CommonUtil";
-import NftItem from "../../component/StableNftItem";
+import PolygonStableNftItem from "../../component/PolygonStableNftItem";
 import Alert from "../../component/shared/dialogue/Alert";
-import GaiaGenesisContract from "../../contracts/GaiaGenesisContract";
-import GaiaStableDAOContract from "../../contracts/GaiaStableDAOContract";
-import GaiaStableDAOOperatorV3Contract from "../../contracts/GaiaStableDAOOperatorV3Contract";
-import GaiaSupernovaContract from "../../contracts/GaiaSupernovaContract";
-import oUSDCContract from "../../contracts/oUSDCContract";
-import KlaytnWallet from "../../klaytn/KlaytnWallet";
+import Confirm from "../../component/shared/dialogue/Confirm";
+import PolygonUSDCContract from "../../contracts/PolygonUSDCContract";
+import StableDAOMinterContract from "../../contracts/StableDAOMinterContract";
+import PolygonWallet from "../../polygon/PolygonWallet";
 import Layout from "../Layout";
 import ViewUtil from "../ViewUtil";
-import Confirm from "../../component/shared/dialogue/Confirm";
 
 export default class BuyStableDAO implements View {
 
     private container: DomNode;
     private notice: DomNode;
 
-    private tabType = "public";
-
-    private price = BigNumber.from(0);
-    private count = BigNumber.from(1);
-
-    private genesisTab: DomNode;
-    private supernovaTab: DomNode;
-    private publicTab: DomNode;
+    private price = utils.parseUnits("1300", 6);
+    private count = BigNumber.from(0);
 
     private totalDisplay: DomNode;
     private priceDisplay: DomNode;
@@ -39,8 +30,6 @@ export default class BuyStableDAO implements View {
 
     private tokenIds: number[] = [];
 
-    private tabStore: Store = new Store("tab-store");
-
     private interval: any;
 
     constructor() {
@@ -50,15 +39,8 @@ export default class BuyStableDAO implements View {
             el("img", { src: "/images/logo/gaia-stable-dao.png", alt: "logo" }),
             el(".selector-container",
                 this.salesDisplay = el("p", "SALES: ... EA"),
-                this.priceDisplay = el("p", "PRICE: ... oUSDC"),
-                this.totalDisplay = el("p", "TOTAL: ... oUSDC"),
-                el(".select",
-                    this.genesisTab = el("a.disable", "Genesis", { click: () => this.loadTab("genesis") }),
-                    el("hr"),
-                    this.supernovaTab = el("a.disable", "Supernova", { click: () => this.loadTab("supernova") }),
-                    el("hr"),
-                    this.publicTab = el("a.disabled", "Public", { click: () => this.loadTab("public") }),
-                ),
+                this.priceDisplay = el("p", "PRICE: ... USDC"),
+                this.totalDisplay = el("p", "TOTAL: ... USDC"),
             ),
             el(".input-container",
                 this.notice = el("p"),
@@ -72,10 +54,10 @@ export default class BuyStableDAO implements View {
                 el(".button-container",
                     this.approveButton = el("a.disabled", msg("BUY_APPROVE_BUTTON"), {
                         click: async () => {
-                            const address = await KlaytnWallet.loadAddress();
+                            const address = await PolygonWallet.loadAddress();
                             if (address !== undefined) {
-                                if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV3Contract.address)).eq(0)) {
-                                    await oUSDCContract.approve(GaiaStableDAOOperatorV3Contract.address, constants.MaxUint256);
+                                if ((await PolygonUSDCContract.allowance(address, StableDAOMinterContract.address)).eq(0)) {
+                                    await PolygonUSDCContract.approve(StableDAOMinterContract.address, constants.MaxUint256);
                                 } else {
                                     new Alert("오류", "이미 사용 승인 하셨습니다.");
                                 }
@@ -84,28 +66,19 @@ export default class BuyStableDAO implements View {
                     }),
                     this.buyButton = el("a.disabled", msg("BUY_NFT_BUTTON"), {
                         click: async () => {
-                            const address = await KlaytnWallet.loadAddress();
+                            const address = await PolygonWallet.loadAddress();
                             if (address !== undefined) {
-                                if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV3Contract.address)).eq(0)) {
-                                    new Alert("오류", "oUSDC 사용 승인이 필요합니다.");
-                                } else if ((await oUSDCContract.balanceOf(address)).lt(this.price.mul(this.count))) {
-                                    new Confirm("오류", "oUSDC 개수가 부족합니다. 구매하시겠습니까?", "oUSDC 구매하기", () => {
-                                        open("https://swapscanner.io/ko/swap?from=0x0000000000000000000000000000000000000000&to=0x754288077d0ff82af7a5317c7cb8c444d421d103");
+                                if ((await PolygonUSDCContract.allowance(address, StableDAOMinterContract.address)).eq(0)) {
+                                    new Alert("오류", "USDC 사용 승인이 필요합니다.");
+                                } else if ((await PolygonUSDCContract.balanceOf(address)).lt(this.price.mul(this.count))) {
+                                    new Confirm("오류", "USDC 개수가 부족합니다. 구매하시겠습니까?", "USDC 구매하기", () => {
+                                        open("https://meshswap.fi/exchange/swap?output=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174");
                                     });
-                                } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorV3Contract.address) !== true) {
-                                    new Alert("오류", "아직 판매중이 아닙니다.");
                                 } else {
-                                    let nft = constants.AddressZero;
-                                    if (this.tabType === "genesis") {
-                                        nft = GaiaGenesisContract.address;
-                                    }
-                                    if (this.tabType === "supernova") {
-                                        nft = GaiaSupernovaContract.address;
-                                    }
                                     if (this.count.toNumber() > 10) {
                                         new Alert("오류", "한 번에 최대 10개까지 구매가 가능합니다.");
                                     } else {
-                                        await GaiaStableDAOOperatorV3Contract.mintStableDAO(this.count, nft);
+                                        await StableDAOMinterContract.mintStableDAO(this.count);
                                         new Alert("구매 성공!", "Gaia Stable DAO 구매에 성공했습니다. 환영합니다!");
                                         ViewUtil.waitTransactionAndRefresh();
                                     }
@@ -114,7 +87,7 @@ export default class BuyStableDAO implements View {
                         },
                     }),
                 ),
-                el("a.usdc", msg("BUY_USDC_BUTTON"), { href: "https://swapscanner.io/ko/swap?from=0x0000000000000000000000000000000000000000&to=0x754288077d0ff82af7a5317c7cb8c444d421d103", target: "_blank" }),
+                el("a.usdc", msg("BUY_USDC_BUTTON"), { href: "https://meshswap.fi/exchange/swap?output=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", target: "_blank" }),
             ),
             // el(".warning-container",
             //     el("p", "예치금을 Mesh Swap으로 이전하는 거버넌스가 통과됨에 따라서 바이백 시스템 가동이 불가능합니다."),
@@ -127,32 +100,25 @@ export default class BuyStableDAO implements View {
 
         this.interval = setInterval(() => this.loadSales(), 1000);
 
-        if (this.tabStore.get("type") === undefined) {
-            this.loadTab("public");
-        } else {
-            this.loadTab(this.tabStore.get("type") as any);
-        }
+        this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} USDC`);
+        this.loadTotal();
 
         this.loadNFTsDebouncer.run();
-        KlaytnWallet.on("connect", () => this.loadNFTsDebouncer.run());
+        PolygonWallet.on("connect", () => this.loadNFTsDebouncer.run());
     }
 
     private loadNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadNFTs());
 
     private async loadSales() {
 
-        if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorV3Contract.address) !== true) {
-            this.notice.empty().appendText("아직 판매중이 아닙니다.");
-        } else {
-            this.notice.empty().appendText("현재 판매중입니다.");
-        }
+        this.notice.empty().appendText("현재 폴리곤 체인에서 판매중입니다.\n\n바이백 가격은 1,200 USDC 입니다.");
 
-        const sales = await GaiaStableDAOContract.totalSupply();
+        const sales = await StableDAOMinterContract.totalSupply();
         this.salesDisplay.empty().appendText(`SALES: ${sales} EA`);
 
-        const address = await KlaytnWallet.loadAddress();
+        const address = await PolygonWallet.loadAddress();
         if (address !== undefined) {
-            if ((await oUSDCContract.allowance(address, GaiaStableDAOOperatorV3Contract.address)).eq(0)) {
+            if ((await PolygonUSDCContract.allowance(address, StableDAOMinterContract.address)).eq(0)) {
                 this.approveButton.deleteClass("disabled");
                 this.buyButton.addClass("disabled");
             } else {
@@ -162,63 +128,29 @@ export default class BuyStableDAO implements View {
         }
     }
 
-    private async loadTab(type: "genesis" | "supernova" | "public") {
-
-        this.tabStore.set("type", this.tabType = type);
-        this.genesisTab.addClass("disable");
-        this.supernovaTab.addClass("disable");
-        this.publicTab.addClass("disable");
-
-        if (type === "genesis") {
-            this.genesisTab.deleteClass("disable");
-            this.price = utils.parseUnits("1200", 6);
-        }
-        if (type === "supernova") {
-            this.supernovaTab.deleteClass("disable");
-            this.price = utils.parseUnits("1250", 6);
-        }
-        if (type === "public") {
-            this.publicTab.deleteClass("disable");
-            this.price = utils.parseUnits("1300", 6);
-        }
-
-        this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} oUSDC`);
-        this.loadTotal();
-    }
-
     private async loadTotal() {
-        this.totalDisplay.empty().appendText(`TOTAL: ${CommonUtil.numberWithCommas(utils.formatUnits(this.count.mul(this.price), 6))} oUSDC`);
+        this.totalDisplay.empty().appendText(`TOTAL: ${CommonUtil.numberWithCommas(utils.formatUnits(this.count.mul(this.price), 6))} USDC`);
     }
 
     private async loadNFTs() {
         this.nftList.empty();
-        const address = await KlaytnWallet.loadAddress();
+        const address = await PolygonWallet.loadAddress();
         if (address !== undefined) {
-            const balance = (await GaiaStableDAOContract.balanceOf(address)).toNumber();
-            if (balance === 0) {
-                this.nftList.append(el("p.empty", "아직 구매하신 Stable DAO가 없습니다."));
+
+            const result = await fetch(`https://api.gaiaprotocol.com/gaia-protocol-pfp/polygon/0xa5f5b6C05a6d48a56E95E4Ce15078008a18BC79B/${address}`);
+            const data = await result.json();
+
+            if (data.nfts.length === 0) {
+                this.nftList.append(el("p.empty", "폴리곤 체인에 Stable DAO가 없습니다."));
             }
 
-            const promises: Promise<void>[] = [];
-
-            this.tokenIds = [];
-            SkyUtil.repeat(balance, (i: number) => {
-                const promise = async (index: number) => {
-                    const item = new NftItem().appendTo(this.nftList);
-                    const tokenId = (await GaiaStableDAOContract.tokenOfOwnerByIndex(address, index)).toNumber();
-                    if (tokenId === 0) {
-                        item.delete();
-                    } else {
-                        item.init(tokenId);
-                        this.tokenIds.push(tokenId);
-                    }
-                };
-                promises.push(promise(i));
-            });
-            await Promise.all(promises);
+            for (const nft of data.nfts) {
+                const item = new PolygonStableNftItem().appendTo(this.nftList);
+                const tokenId = parseInt(nft.token_id, 10);
+                item.init(tokenId);
+                this.tokenIds.push(tokenId);
+            }
         }
-        const promises: Promise<void>[] = [];
-        await Promise.all(promises);
     }
 
     public changeParams(params: ViewParams, uri: string): void { }

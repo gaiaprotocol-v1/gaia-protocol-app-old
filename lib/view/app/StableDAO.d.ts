@@ -6,8 +6,10 @@ export default class StableDAO implements View {
     private nftList;
     constructor();
     private loadEthNFTsDebouncer;
+    private loadPolygonNFTsDebouncer;
     private loadKlaytnNFTsDebouncer;
     private loadEthNFTs;
+    private loadPolygonNFTs;
     private loadKlaytnNFTs;
     private loadInterest;
     changeParams(params: ViewParams, uri: string): void;

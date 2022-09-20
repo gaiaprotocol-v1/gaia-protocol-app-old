@@ -11,8 +11,10 @@ import PolygonWallet from "../../polygon/PolygonWallet";
 import Layout from "../Layout";
 import ViewUtil from "../ViewUtil";
 import { getMerkleProof } from "./merkle-tree";
-import rewardsKlaytn from "./rewards-klaytn.json";
-import rewardsPolygon from "./rewards-polygon.json";
+import rewardsKlaytn01 from "./rewards-klaytn-01.json";
+import rewardsPolygon01 from "./rewards-polygon-01.json";
+import rewardsKlaytn02 from "./rewards-klaytn-02.json";
+import rewardsPolygon02 from "./rewards-polygon-02.json";
 
 export default class GaiaDividend implements View {
 
@@ -80,22 +82,25 @@ export default class GaiaDividend implements View {
         const klaytnAddress = await KlaytnWallet.loadAddress();
         const ethAddress = await EthereumWallet.loadAddress();
 
-        const klaytnCollected = klaytnAddress === undefined ? false : await KlaytnDividendDistributor.isRewardCollected(klaytnAddress, 0);
-        const ethCollected = ethAddress === undefined ? false : await PolygonDividendDistributor.isRewardCollected(ethAddress, 0);
+        const klaytnCollected01 = klaytnAddress === undefined ? false : await KlaytnDividendDistributor.isRewardCollected(klaytnAddress, 0);
+        const ethCollected01 = ethAddress === undefined ? false : await PolygonDividendDistributor.isRewardCollected(ethAddress, 0);
+
+        const klaytnCollected02 = klaytnAddress === undefined ? false : await KlaytnDividendDistributor.isRewardCollected(klaytnAddress, 1);
+        const ethCollected02 = ethAddress === undefined ? false : await PolygonDividendDistributor.isRewardCollected(ethAddress, 1);
 
         this.list.empty();
 
-        if (klaytnAddress !== undefined && (rewardsKlaytn as any)[klaytnAddress] !== undefined) {
-            const data = (rewardsKlaytn as any)[klaytnAddress];
+        if (klaytnAddress !== undefined && (rewardsKlaytn01 as any)[klaytnAddress] !== undefined) {
+            const data = (rewardsKlaytn01 as any)[klaytnAddress];
             this.list.append(el("tr",
                 el("td", { "data-column": "차수" }, "1차"),
                 el("td", { "data-column": "체인" }, "클레이튼"),
                 el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
                 el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
                 el("td", { "data-column": "받을 액수" }, `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
-                el("td", { "data-column": "받기" }, klaytnCollected === true ? el("a.done", "완료") : el("a", "받기", {
+                el("td", { "data-column": "받기" }, klaytnCollected01 === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
-                        const list: any = Object.entries(rewardsKlaytn).map(data => {
+                        const list: any = Object.entries(rewardsKlaytn01).map(data => {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
                         });
                         const proof = getMerkleProof(list, [klaytnAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
@@ -106,21 +111,63 @@ export default class GaiaDividend implements View {
             ));
         }
 
-        if (ethAddress !== undefined && (rewardsPolygon as any)[ethAddress] !== undefined) {
-            const data = (rewardsPolygon as any)[ethAddress];
+        if (ethAddress !== undefined && (rewardsPolygon01 as any)[ethAddress] !== undefined) {
+            const data = (rewardsPolygon01 as any)[ethAddress];
             this.list.append(el("tr",
                 el("td", { "data-column": "차수" }, "1차"),
-                el("td", { "data-column": "체인" }, "이더리움"),
+                el("td", { "data-column": "체인" }, "이더리움 & 폴리곤"),
                 el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
                 el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
                 el("td", { "data-column": "받을 액수" }, `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
-                el("td", { "data-column": "받기" }, ethCollected === true ? el("a.done", "완료") : el("a", "받기", {
+                el("td", { "data-column": "받기" }, ethCollected01 === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
-                        const list: any = Object.entries(rewardsPolygon).map(data => {
+                        const list: any = Object.entries(rewardsPolygon01).map(data => {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
                         });
                         const proof = getMerkleProof(list, [ethAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
                         await PolygonDividendDistributor.claimRewards([0], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
+                        ViewUtil.waitTransactionAndRefresh(15000);
+                    },
+                })),
+            ));
+        }
+
+        if (klaytnAddress !== undefined && (rewardsKlaytn02 as any)[klaytnAddress] !== undefined) {
+            const data = (rewardsKlaytn02 as any)[klaytnAddress];
+            this.list.append(el("tr",
+                el("td", { "data-column": "차수" }, "2차"),
+                el("td", { "data-column": "체인" }, "클레이튼"),
+                el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
+                el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
+                el("td", { "data-column": "받을 액수" }, `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
+                el("td", { "data-column": "받기" }, klaytnCollected02 === true ? el("a.done", "완료") : el("a", "받기", {
+                    click: async () => {
+                        const list: any = Object.entries(rewardsKlaytn02).map(data => {
+                            return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
+                        });
+                        const proof = getMerkleProof(list, [klaytnAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
+                        await KlaytnDividendDistributor.claimRewards([1], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
+                        ViewUtil.waitTransactionAndRefresh();
+                    },
+                })),
+            ));
+        }
+
+        if (ethAddress !== undefined && (rewardsPolygon02 as any)[ethAddress] !== undefined) {
+            const data = (rewardsPolygon02 as any)[ethAddress];
+            this.list.append(el("tr",
+                el("td", { "data-column": "차수" }, "2차"),
+                el("td", { "data-column": "체인" }, "이더리움 & 폴리곤"),
+                el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
+                el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
+                el("td", { "data-column": "받을 액수" }, `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
+                el("td", { "data-column": "받기" }, ethCollected02 === true ? el("a.done", "완료") : el("a", "받기", {
+                    click: async () => {
+                        const list: any = Object.entries(rewardsPolygon02).map(data => {
+                            return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
+                        });
+                        const proof = getMerkleProof(list, [ethAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
+                        await PolygonDividendDistributor.claimRewards([1], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
                         ViewUtil.waitTransactionAndRefresh(15000);
                     },
                 })),

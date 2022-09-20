@@ -1,0 +1,1 @@
+{"version":3,"file":"PolygonSupernovaNftItem.d.ts","sourceRoot":"","sources":["../../src/component/PolygonSupernovaNftItem.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,OAAO,EAAM,MAAM,iBAAiB,CAAC;AAM9C,MAAM,CAAC,OAAO,OAAO,uBAAwB,SAAQ,OAAO;IAExD,OAAO,CAAC,YAAY,CAA4B;IAChD,OAAO,CAAC,WAAW,CAAU;IAE7B,OAAO,CAAC,EAAE,CAAK;;IAsBR,IAAI,CAAC,EAAE,EAAE,MAAM;IAOf,MAAM;CAGhB"}

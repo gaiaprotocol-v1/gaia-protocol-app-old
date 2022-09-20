@@ -40,4 +40,14 @@ export default abstract class ERC721Contract<CT extends ethers.Contract> extends
         const contract = await this.connectAndGetWalletContract();
         await contract?.transferFrom(await PolygonWallet.loadAddress(), to, id);
     }
+
+    public async transferFrom(from: string, to: string, id: BigNumberish) {
+        const contract = await this.connectAndGetWalletContract();
+        await contract?.transferFrom(from, to, id);
+    }
+
+    public async setApprovalForAll(operator: string, approved: boolean) {
+        const contract = await this.connectAndGetWalletContract();
+        await contract?.setApprovalForAll(operator, approved);
+    }
 }
