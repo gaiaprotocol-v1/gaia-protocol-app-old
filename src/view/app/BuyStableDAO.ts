@@ -14,17 +14,17 @@ import ViewUtil from "../ViewUtil";
 export default class BuyStableDAO implements View {
 
     private container: DomNode;
-    private notice: DomNode;
+    //private notice: DomNode;
 
     private price = utils.parseUnits("1300", 6);
     private count = BigNumber.from(0);
 
-    private totalDisplay: DomNode;
-    private priceDisplay: DomNode;
-    private salesDisplay: DomNode;
+    //private totalDisplay: DomNode;
+    //private priceDisplay: DomNode;
+    //private salesDisplay: DomNode;
 
-    private approveButton: DomNode;
-    private buyButton: DomNode;
+    //private approveButton: DomNode;
+    //private buyButton: DomNode;
 
     private nftList: DomNode;
 
@@ -38,11 +38,13 @@ export default class BuyStableDAO implements View {
             el("h1", "BUY"),
             el("img", { src: "/images/logo/gaia-stable-dao.png", alt: "logo" }),
             el(".selector-container",
-                this.salesDisplay = el("p", "SALES: ... EA"),
-                this.priceDisplay = el("p", "PRICE: ... USDC"),
-                this.totalDisplay = el("p", "TOTAL: ... USDC"),
+                //this.salesDisplay = el("p", "SALES: ... EA"),
+                //this.priceDisplay = el("p", "PRICE: ... USDC"),
+                //this.totalDisplay = el("p", "TOTAL: ... USDC"),
             ),
-            el(".input-container",
+            el("p", "Gaia Protocol 2.0을 위해 바이백 정책이 변경중입니다."),
+            el("a", "Gaia Protocol 2.0 제안 보기", { href: "https://medium.com/gaiaprotocol/gaia-protocol-2-0-%EC%A0%9C%EC%95%88-98e40c0d7663", target: "_blank" }),
+            /*el(".input-container",
                 this.notice = el("p"),
                 el("input", {
                     placeholder: msg("BUY_INPUT"),
@@ -88,7 +90,7 @@ export default class BuyStableDAO implements View {
                     }),
                 ),
                 el("a.usdc", msg("BUY_USDC_BUTTON"), { href: "https://meshswap.fi/exchange/swap?output=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", target: "_blank" }),
-            ),
+            ),*/
             // el(".warning-container",
             //     el("p", "예치금을 Mesh Swap으로 이전하는 거버넌스가 통과됨에 따라서 바이백 시스템 가동이 불가능합니다."),
             // ),
@@ -100,7 +102,7 @@ export default class BuyStableDAO implements View {
 
         this.interval = setInterval(() => this.loadSales(), 1000);
 
-        this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} USDC`);
+        //this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} USDC`);
         this.loadTotal();
 
         this.loadNFTsDebouncer.run();
@@ -111,7 +113,7 @@ export default class BuyStableDAO implements View {
 
     private async loadSales() {
 
-        this.notice.empty().appendText("현재 폴리곤 체인에서 판매중입니다.\n\n바이백 가격은 1,200 USDC 입니다.");
+        /*this.notice.empty().appendText("Gaia Protocol 2.0을 위해 바이백 정책이 변경중입니다.");
 
         const sales = await StableDAOMinterContract.totalSupply();
         this.salesDisplay.empty().appendText(`SALES: ${sales} EA`);
@@ -125,11 +127,11 @@ export default class BuyStableDAO implements View {
                 this.approveButton.addClass("disabled");
                 this.buyButton.deleteClass("disabled");
             }
-        }
+        }*/
     }
 
     private async loadTotal() {
-        this.totalDisplay.empty().appendText(`TOTAL: ${CommonUtil.numberWithCommas(utils.formatUnits(this.count.mul(this.price), 6))} USDC`);
+        //this.totalDisplay.empty().appendText(`TOTAL: ${CommonUtil.numberWithCommas(utils.formatUnits(this.count.mul(this.price), 6))} USDC`);
     }
 
     private async loadNFTs() {

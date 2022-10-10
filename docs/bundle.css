@@ -2756,6 +2756,12 @@ body {
     margin: 0px;
   }
 }
+.buy-stable-dao-view > p {
+  margin-bottom: 20px;
+}
+.buy-stable-dao-view > a {
+  color: #00445a;
+}
 .buy-stable-dao-view > .input-container {
   display: flex;
   flex-direction: column;
