@@ -42,7 +42,7 @@ export default class BuyStableDAO implements View {
                 //this.priceDisplay = el("p", "PRICE: ... USDC"),
                 //this.totalDisplay = el("p", "TOTAL: ... USDC"),
             ),
-            el("p", "Gaia Protocol 2.0을 위해 바이백 정책이 변경중입니다."),
+            el("p", "Gaia Protocol 2.0을 위해 구매 & 바이백 정책이 변경중입니다."),
             el("a", "Gaia Protocol 2.0 제안 보기", { href: "https://medium.com/gaiaprotocol/gaia-protocol-2-0-%EC%A0%9C%EC%95%88-98e40c0d7663", target: "_blank" }),
             /*el(".input-container",
                 this.notice = el("p"),
