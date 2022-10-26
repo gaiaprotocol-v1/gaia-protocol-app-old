@@ -12,9 +12,11 @@ import Layout from "../Layout";
 import ViewUtil from "../ViewUtil";
 import { getMerkleProof } from "./merkle-tree";
 import rewardsKlaytn01 from "./rewards-klaytn-01.json";
-import rewardsPolygon01 from "./rewards-polygon-01.json";
 import rewardsKlaytn02 from "./rewards-klaytn-02.json";
+import rewardsKlaytn03 from "./rewards-klaytn-03.json";
+import rewardsPolygon01 from "./rewards-polygon-01.json";
 import rewardsPolygon02 from "./rewards-polygon-02.json";
+import rewardsPolygon03 from "./rewards-polygon-03.json";
 
 export default class GaiaDividend implements View {
 
@@ -28,7 +30,7 @@ export default class GaiaDividend implements View {
                 el(".title-container",
                     el("h2", "GAIA Dividend"),
                     el("p", "Total Distribution of revenue from Gaia Protocol"),
-                    el("p.total", "21,273.343 USDC"),
+                    el("p.total", "24,356.0581 USDC"),
                 ),
             ),
             el(".revenue-container",
@@ -87,6 +89,9 @@ export default class GaiaDividend implements View {
 
         const klaytnCollected02 = klaytnAddress === undefined ? false : await KlaytnDividendDistributor.isRewardCollected(klaytnAddress, 1);
         const ethCollected02 = ethAddress === undefined ? false : await PolygonDividendDistributor.isRewardCollected(ethAddress, 1);
+
+        const klaytnCollected03 = klaytnAddress === undefined ? false : await KlaytnDividendDistributor.isRewardCollected(klaytnAddress, 2);
+        const ethCollected03 = ethAddress === undefined ? false : await PolygonDividendDistributor.isRewardCollected(ethAddress, 2);
 
         this.list.empty();
 
@@ -164,6 +169,48 @@ export default class GaiaDividend implements View {
                 el("td", { "data-column": "받기" }, ethCollected02 === true ? el("a.done", "완료") : el("a", "받기", {
                     click: async () => {
                         const list: any = Object.entries(rewardsPolygon02).map(data => {
+                            return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
+                        });
+                        const proof = getMerkleProof(list, [ethAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
+                        await PolygonDividendDistributor.claimRewards([1], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
+                        ViewUtil.waitTransactionAndRefresh(15000);
+                    },
+                })),
+            ));
+        }
+
+        if (klaytnAddress !== undefined && (rewardsKlaytn03 as any)[klaytnAddress] !== undefined) {
+            const data = (rewardsKlaytn03 as any)[klaytnAddress];
+            this.list.append(el("tr",
+                el("td", { "data-column": "차수" }, "2차"),
+                el("td", { "data-column": "체인" }, "클레이튼"),
+                el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
+                el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
+                el("td", { "data-column": "받을 액수" }, `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
+                el("td", { "data-column": "받기" }, klaytnCollected03 === true ? el("a.done", "완료") : el("a", "받기", {
+                    click: async () => {
+                        const list: any = Object.entries(rewardsKlaytn03).map(data => {
+                            return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
+                        });
+                        const proof = getMerkleProof(list, [klaytnAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
+                        await KlaytnDividendDistributor.claimRewards([1], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
+                        ViewUtil.waitTransactionAndRefresh();
+                    },
+                })),
+            ));
+        }
+
+        if (ethAddress !== undefined && (rewardsPolygon03 as any)[ethAddress] !== undefined) {
+            const data = (rewardsPolygon03 as any)[ethAddress];
+            this.list.append(el("tr",
+                el("td", { "data-column": "차수" }, "2차"),
+                el("td", { "data-column": "체인" }, "이더리움 & 폴리곤"),
+                el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
+                el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
+                el("td", { "data-column": "받을 액수" }, `${CommonUtil.numberWithCommas(data.total, 3)} USDC`),
+                el("td", { "data-column": "받기" }, ethCollected03 === true ? el("a.done", "완료") : el("a", "받기", {
+                    click: async () => {
+                        const list: any = Object.entries(rewardsPolygon03).map(data => {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
                         });
                         const proof = getMerkleProof(list, [ethAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
