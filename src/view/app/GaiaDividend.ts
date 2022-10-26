@@ -182,7 +182,7 @@ export default class GaiaDividend implements View {
         if (klaytnAddress !== undefined && (rewardsKlaytn03 as any)[klaytnAddress] !== undefined) {
             const data = (rewardsKlaytn03 as any)[klaytnAddress];
             this.list.append(el("tr",
-                el("td", { "data-column": "차수" }, "2차"),
+                el("td", { "data-column": "차수" }, "3차"),
                 el("td", { "data-column": "체인" }, "클레이튼"),
                 el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
                 el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
@@ -203,7 +203,7 @@ export default class GaiaDividend implements View {
         if (ethAddress !== undefined && (rewardsPolygon03 as any)[ethAddress] !== undefined) {
             const data = (rewardsPolygon03 as any)[ethAddress];
             this.list.append(el("tr",
-                el("td", { "data-column": "차수" }, "2차"),
+                el("td", { "data-column": "차수" }, "3차"),
                 el("td", { "data-column": "체인" }, "이더리움 & 폴리곤"),
                 el("td", { "data-column": "스냅샷 당시 NFT 개수" }, String(data.genesisCount + data.supernovaCount + data.stableDAOCount)),
                 el("td", { "data-column": "VVIP" }, data.vvip === true ? "해당" : "해당없음"),
