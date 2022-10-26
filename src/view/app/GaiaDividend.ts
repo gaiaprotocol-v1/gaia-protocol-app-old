@@ -193,7 +193,7 @@ export default class GaiaDividend implements View {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
                         });
                         const proof = getMerkleProof(list, [klaytnAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
-                        await KlaytnDividendDistributor.claimRewards([1], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
+                        await KlaytnDividendDistributor.claimRewards([2], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
                         ViewUtil.waitTransactionAndRefresh();
                     },
                 })),
@@ -214,7 +214,7 @@ export default class GaiaDividend implements View {
                             return [data[0], utils.parseUnits(data[1].total.toFixed(6), 6).toString()];
                         });
                         const proof = getMerkleProof(list, [ethAddress, utils.parseUnits(data.total.toFixed(6), 6).toString()]);
-                        await PolygonDividendDistributor.claimRewards([1], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
+                        await PolygonDividendDistributor.claimRewards([2], [utils.parseUnits(data.total.toFixed(6), 6)], [proof]);
                         ViewUtil.waitTransactionAndRefresh(15000);
                     },
                 })),
